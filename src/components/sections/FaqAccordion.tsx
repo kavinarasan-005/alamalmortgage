@@ -1,13 +1,24 @@
+"use client";
+
+import { motion } from "framer-motion";
+
 import { faqs } from "@/data/site";
 import { Reveal } from "@/components/Reveal";
+import { cardHover, itemFadeUp, staggerContainer } from "@/lib/motion";
 
 export function FaqAccordion() {
   return (
     <section className="section bg-ink-900">
       <div className="mx-auto max-w-6xl container-pad">
         <Reveal>
-          <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
-            <div>
+          <motion.div
+            className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr]"
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.2 }}
+          >
+            <motion.div variants={itemFadeUp}>
               <p className="text-xs uppercase tracking-[0.3em] text-gold-400">
                 FAQs
               </p>
@@ -18,21 +29,27 @@ export function FaqAccordion() {
                 Clear, bank-aligned answers so you can move forward with
                 confidence.
               </p>
-            </div>
+            </motion.div>
             <div className="space-y-4">
               {faqs.map((faq) => (
-                <details
+                <motion.div
                   key={faq.question}
-                  className="rounded-2xl border border-white/10 bg-white/5 px-6 py-4"
+                  variants={itemFadeUp}
+                  whileHover={cardHover.hover}
+                  initial="rest"
+                  animate="rest"
+                  className="transition-shadow duration-200 hover:shadow-[0_20px_50px_rgba(7,17,32,0.35)]"
                 >
-                  <summary className="cursor-pointer text-sm font-semibold text-slate-50">
-                    {faq.question}
-                  </summary>
-                  <p className="mt-3 text-sm text-muted">{faq.answer}</p>
-                </details>
+                  <details className="rounded-2xl border border-white/10 bg-white/5 px-6 py-4">
+                    <summary className="cursor-pointer text-sm font-semibold text-slate-50">
+                      {faq.question}
+                    </summary>
+                    <p className="mt-3 text-sm text-muted">{faq.answer}</p>
+                  </details>
+                </motion.div>
               ))}
             </div>
-          </div>
+          </motion.div>
         </Reveal>
       </div>
     </section>

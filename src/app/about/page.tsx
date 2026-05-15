@@ -63,80 +63,86 @@ export default function AboutPage() {
 
       <section className="section bg-ink-850">
         <div className="mx-auto max-w-6xl container-pad">
-          <div className="grid gap-6 md:grid-cols-4">
-            {stats.map((stat) => (
-              <div
-                key={stat.label}
-                className="rounded-2xl border border-white/10 bg-white/5 p-6"
-              >
-                <div className="text-2xl font-semibold text-slate-50">
-                  {stat.value}
+          <Reveal>
+            <div className="grid gap-6 md:grid-cols-4">
+              {stats.map((stat) => (
+                <div
+                  key={stat.label}
+                  className="rounded-2xl border border-white/10 bg-white/5 p-6 transition-shadow duration-200 hover:shadow-[0_20px_50px_rgba(7,17,32,0.35)]"
+                >
+                  <div className="text-2xl font-semibold text-slate-50">
+                    {stat.value}
+                  </div>
+                  <div className="text-sm text-muted">{stat.label}</div>
                 </div>
-                <div className="text-sm text-muted">{stat.label}</div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          </Reveal>
         </div>
       </section>
 
       <section className="section bg-ink-900">
         <div className="mx-auto max-w-6xl container-pad">
-          <div className="flex items-end justify-between gap-6">
-            <div>
-              <p className="text-xs uppercase tracking-[0.3em] text-gold-400">
-                Leadership
-              </p>
-              <h2 className="mt-4 text-3xl font-semibold sm:text-4xl">
-                Your dedicated mortgage advisors
-              </h2>
-            </div>
-          </div>
-          <div className="mt-10 grid gap-6 md:grid-cols-3">
-            {team.map((member) => (
-              <div
-                key={member.name}
-                className="rounded-2xl border border-white/10 bg-white/5 p-6"
-              >
-                <h3 className="text-xl font-semibold text-slate-50">
-                  {member.name}
-                </h3>
-                <p className="text-sm text-gold-400">{member.role}</p>
-                <p className="mt-3 text-sm text-muted">{member.bio}</p>
+          <Reveal>
+            <div className="flex items-end justify-between gap-6">
+              <div>
+                <p className="text-xs uppercase tracking-[0.3em] text-gold-400">
+                  Leadership
+                </p>
+                <h2 className="mt-4 text-3xl font-semibold sm:text-4xl">
+                  Your dedicated mortgage advisors
+                </h2>
               </div>
-            ))}
-          </div>
+            </div>
+            <div className="mt-10 grid gap-6 md:grid-cols-3">
+              {team.map((member) => (
+                <div
+                  key={member.name}
+                  className="rounded-2xl border border-white/10 bg-white/5 p-6 transition-shadow duration-200 hover:shadow-[0_20px_50px_rgba(7,17,32,0.35)]"
+                >
+                  <h3 className="text-xl font-semibold text-slate-50">
+                    {member.name}
+                  </h3>
+                  <p className="text-sm text-gold-400">{member.role}</p>
+                  <p className="mt-3 text-sm text-muted">{member.bio}</p>
+                </div>
+              ))}
+            </div>
+          </Reveal>
         </div>
       </section>
 
       <section className="section bg-ink-850">
         <div className="mx-auto max-w-6xl container-pad">
-          <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr]">
-            <div>
-              <p className="text-xs uppercase tracking-[0.3em] text-gold-400">
-                Mission & values
-              </p>
-              <h2 className="mt-4 text-3xl font-semibold sm:text-4xl">
-                Premium experience, real outcomes
-              </h2>
-              <p className="mt-3 text-muted">
-                We aim to elevate mortgage advisory standards in the UAE through
-                strategy, transparency, and execution discipline.
-              </p>
+          <Reveal>
+            <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr]">
+              <div>
+                <p className="text-xs uppercase tracking-[0.3em] text-gold-400">
+                  Mission & values
+                </p>
+                <h2 className="mt-4 text-3xl font-semibold sm:text-4xl">
+                  Premium experience, real outcomes
+                </h2>
+                <p className="mt-3 text-muted">
+                  We aim to elevate mortgage advisory standards in the UAE through
+                  strategy, transparency, and execution discipline.
+                </p>
+              </div>
+              <div className="grid gap-4">
+                {values.map((value) => (
+                  <div
+                    key={value.title}
+                    className="rounded-2xl border border-white/10 bg-white/5 p-5 transition-shadow duration-200 hover:shadow-[0_20px_50px_rgba(7,17,32,0.35)]"
+                  >
+                    <h3 className="text-lg font-semibold text-slate-50">
+                      {value.title}
+                    </h3>
+                    <p className="text-sm text-muted">{value.description}</p>
+                  </div>
+                ))}
+              </div>
             </div>
-            <div className="grid gap-4">
-              {values.map((value) => (
-                <div
-                  key={value.title}
-                  className="rounded-2xl border border-white/10 bg-white/5 p-5"
-                >
-                  <h3 className="text-lg font-semibold text-slate-50">
-                    {value.title}
-                  </h3>
-                  <p className="text-sm text-muted">{value.description}</p>
-                </div>
-              ))}
-            </div>
-          </div>
+          </Reveal>
         </div>
       </section>
     </div>
