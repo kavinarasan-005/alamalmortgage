@@ -1,6 +1,7 @@
 "use client";
 
 import { FormEvent, useState } from "react";
+import { motion, useReducedMotion } from "framer-motion";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -8,6 +9,7 @@ import { Textarea } from "@/components/ui/textarea";
 
 export function ContactFormClient() {
   const [submitted, setSubmitted] = useState(false);
+  const shouldReduceMotion = useReducedMotion();
 
   const handleSubmit = (event: FormEvent) => {
     event.preventDefault();
@@ -53,7 +55,7 @@ export function ContactFormClient() {
           name="serviceNeeded"
           required
           defaultValue=""
-          className="h-11 w-full rounded-xl border border-white/10 bg-white/5 px-4 text-sm text-slate-100"
+          className="h-11 w-full rounded-xl border border-white/10 bg-white/5 px-4 text-sm text-slate-100 transition duration-200 focus-visible:border-gold-400/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-500/50"
         >
           <option value="" disabled>
             Service needed
@@ -70,9 +72,14 @@ export function ContactFormClient() {
           name="message"
           maxLength={500}
         />
-        <Button type="submit" className="w-full" disabled={submitted}>
-          {submitted ? "Request received" : "Send inquiry"}
-        </Button>
+        <motion.div
+          whileHover={shouldReduceMotion || submitted ? undefined : { scale: 1.01 }}
+          whileTap={shouldReduceMotion || submitted ? undefined : { scale: 0.98 }}
+        >
+          <Button type="submit" className="w-full" disabled={submitted}>
+            {submitted ? "Request received" : "Send inquiry"}
+          </Button>
+        </motion.div>
         <p className="text-xs text-muted">
           By submitting, you consent to receive communication about your
           mortgage inquiry.

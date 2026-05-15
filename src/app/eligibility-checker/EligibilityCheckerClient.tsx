@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 
 import { PageHeader } from "@/components/site/PageHeader";
 import { Button } from "@/components/ui/button";
@@ -18,6 +18,7 @@ const steps = [
 
 export function EligibilityCheckerClient() {
   const router = useRouter();
+  const shouldReduceMotion = useReducedMotion();
   const [step, setStep] = useState(0);
   const [form, setForm] = useState({
     nationality: "",
@@ -65,9 +66,15 @@ export function EligibilityCheckerClient() {
               <span>{progress}% complete</span>
             </div>
             <div className="mt-3 h-1 w-full rounded-full bg-white/10">
-              <div
+              <motion.div
                 className="h-1 rounded-full bg-gold-500"
-                style={{ width: `${progress}%` }}
+                initial={false}
+                animate={{ width: `${progress}%` }}
+                transition={
+                  shouldReduceMotion
+                    ? { duration: 0 }
+                    : { duration: 0.35, ease: [0.22, 1, 0.36, 1] }
+                }
               />
             </div>
 
@@ -91,7 +98,7 @@ export function EligibilityCheckerClient() {
                       onChange={(event) =>
                         update("nationality", event.target.value)
                       }
-                      className="h-11 w-full rounded-xl border border-white/10 bg-white/5 px-4 text-sm text-slate-100"
+                      className="h-11 w-full rounded-xl border border-white/10 bg-white/5 px-4 text-sm text-slate-100 transition duration-200 focus-visible:border-gold-400/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-500/50"
                     >
                       <option value="">Select nationality</option>
                       <option value="UAE">UAE</option>
@@ -110,7 +117,7 @@ export function EligibilityCheckerClient() {
                       aria-label="Residency"
                       value={form.residency}
                       onChange={(event) => update("residency", event.target.value)}
-                      className="h-11 w-full rounded-xl border border-white/10 bg-white/5 px-4 text-sm text-slate-100"
+                      className="h-11 w-full rounded-xl border border-white/10 bg-white/5 px-4 text-sm text-slate-100 transition duration-200 focus-visible:border-gold-400/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-500/50"
                     >
                       <option value="">Select status</option>
                       <option value="Resident">Resident</option>
@@ -145,7 +152,7 @@ export function EligibilityCheckerClient() {
                       onChange={(event) =>
                         update("employment", event.target.value)
                       }
-                      className="h-11 w-full rounded-xl border border-white/10 bg-white/5 px-4 text-sm text-slate-100"
+                      className="h-11 w-full rounded-xl border border-white/10 bg-white/5 px-4 text-sm text-slate-100 transition duration-200 focus-visible:border-gold-400/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-500/50"
                     >
                       <option value="">Select employment</option>
                       <option value="Salaried">Salaried</option>
@@ -185,25 +192,37 @@ export function EligibilityCheckerClient() {
             </AnimatePresence>
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-between">
-              <Button
-                variant="outline"
-                onClick={back}
-                disabled={step === 0}
+              <motion.div
+                whileHover={shouldReduceMotion || step === 0 ? undefined : { scale: 1.01 }}
+                whileTap={shouldReduceMotion || step === 0 ? undefined : { scale: 0.98 }}
               >
-                Back
-              </Button>
+                <Button variant="outline" onClick={back} disabled={step === 0}>
+                  Back
+                </Button>
+              </motion.div>
               {step < steps.length - 1 ? (
-                <Button onClick={next} disabled={!stepValid}>
-                  Next
-                </Button>
-              ) : (
-                <Button
-                  className="w-full sm:w-auto"
-                  onClick={() => router.push("/contact")}
-                  disabled={!stepValid}
+                <motion.div
+                  whileHover={shouldReduceMotion || !stepValid ? undefined : { scale: 1.01 }}
+                  whileTap={shouldReduceMotion || !stepValid ? undefined : { scale: 0.98 }}
                 >
-                  Get Expert Consultation
-                </Button>
+                  <Button onClick={next} disabled={!stepValid}>
+                    Next
+                  </Button>
+                </motion.div>
+              ) : (
+                <motion.div
+                  className="w-full sm:w-auto"
+                  whileHover={shouldReduceMotion || !stepValid ? undefined : { scale: 1.01 }}
+                  whileTap={shouldReduceMotion || !stepValid ? undefined : { scale: 0.98 }}
+                >
+                  <Button
+                    className="w-full sm:w-auto"
+                    onClick={() => router.push("/contact")}
+                    disabled={!stepValid}
+                  >
+                    Get Expert Consultation
+                  </Button>
+                </motion.div>
               )}
             </div>
           </div>

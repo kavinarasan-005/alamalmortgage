@@ -76,7 +76,7 @@ export function LeadForm() {
                 aria-label="Mortgage type"
                 name="mortgageType"
                 required
-                className="h-11 w-full rounded-xl border border-white/10 bg-white/5 px-4 text-sm text-slate-100"
+                className="h-11 w-full rounded-xl border border-white/10 bg-white/5 px-4 text-sm text-slate-100 transition duration-200 focus-visible:border-gold-400/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-500/50"
                 defaultValue=""
               >
                 <option value="" disabled>
