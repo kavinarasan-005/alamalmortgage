@@ -2,12 +2,14 @@
 
 import { useMemo, useState } from "react";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 import { buttonVariants } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { calculateMonthlyPayment, formatAED } from "@/lib/mortgage";
 import { Reveal } from "@/components/Reveal";
 import { cn } from "@/lib/utils";
+import { cardHover, ctaPulse } from "@/lib/motion";
 
 export function CalculatorPreview() {
   const [price, setPrice] = useState(2200000);
@@ -36,17 +38,19 @@ export function CalculatorPreview() {
               advisor. Full calculator includes adjustable tenure and
               eligibility guidance.
             </p>
-            <Link
-              href="/mortgage-calculator"
-              className={cn(buttonVariants({ variant: "secondary" }))}
-            >
-              Open full calculator
-            </Link>
+            <motion.div whileHover={ctaPulse.hover} whileTap={{ scale: 0.98 }}>
+              <Link
+                href="/mortgage-calculator"
+                className={cn(buttonVariants({ variant: "secondary" }))}
+              >
+                Open full calculator
+              </Link>
+            </motion.div>
           </div>
         </Reveal>
 
         <Reveal>
-          <div className="glass-card rounded-3xl p-8">
+          <motion.div className="glass-card rounded-3xl p-8" whileHover={cardHover.hover} initial="rest" animate="rest">
             <div className="grid gap-4 sm:grid-cols-2">
               <label className="text-sm text-muted">
                 Property value (AED)
@@ -96,7 +100,7 @@ export function CalculatorPreview() {
             <div className="mt-6 text-xs text-muted">
               Estimates only. Final terms depend on bank approval.
             </div>
-          </div>
+          </motion.div>
         </Reveal>
       </div>
     </section>

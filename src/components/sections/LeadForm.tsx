@@ -1,12 +1,14 @@
 "use client";
 
 import { FormEvent, useState } from "react";
+import { motion } from "framer-motion";
 import { PhoneCall } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Reveal } from "@/components/Reveal";
+import { cardHover, ctaPulse, itemFadeUp, staggerContainer } from "@/lib/motion";
 
 export function LeadForm() {
   const [submitted, setSubmitted] = useState(false);
@@ -20,27 +22,27 @@ export function LeadForm() {
     <section className="section bg-ink-850">
       <div className="mx-auto max-w-6xl container-pad">
         <Reveal>
-          <div className="grid gap-10 rounded-3xl border border-white/10 bg-white/5 p-8 lg:grid-cols-[1.1fr_0.9fr]">
-            <div className="space-y-4">
+          <motion.div className="grid gap-10 rounded-3xl border border-white/10 bg-white/5 p-8 lg:grid-cols-[1.1fr_0.9fr]" whileHover={cardHover.hover} initial="rest" animate="rest">
+            <motion.div className="space-y-4" variants={staggerContainer} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }}>
               <p className="text-xs uppercase tracking-[0.3em] text-gold-400">
                 Book your consultation
               </p>
-              <h2 className="text-3xl font-semibold sm:text-4xl">
+              <motion.h2 variants={itemFadeUp} className="text-3xl font-semibold sm:text-4xl">
                 Speak with a senior mortgage advisor today
-              </h2>
-              <p className="text-muted">
+              </motion.h2>
+              <motion.p variants={itemFadeUp} className="text-muted">
                 We respond within 30 minutes during working hours with a clear
                 eligibility review and bank shortlist.
-              </p>
-              <div className="rounded-2xl border border-white/10 bg-ink-800 px-6 py-5 text-sm text-slate-100">
+              </motion.p>
+              <motion.div variants={itemFadeUp} className="rounded-2xl border border-white/10 bg-ink-800 px-6 py-5 text-sm text-slate-100">
                 <div className="flex items-center gap-3">
                   <PhoneCall className="h-4 w-4 text-gold-400" />
                   Instant callback available for urgent cases.
                 </div>
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
 
-            <form onSubmit={handleSubmit} className="space-y-4">
+            <motion.form onSubmit={handleSubmit} className="space-y-4" variants={staggerContainer} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }}>
               <input
                 type="text"
                 name="website"
@@ -92,9 +94,11 @@ export function LeadForm() {
                 name="message"
                 maxLength={500}
               />
-              <Button type="submit" className="w-full" disabled={submitted}>
+              <motion.div whileHover={ctaPulse.hover} whileTap={{ scale: 0.98 }}>
+                <Button type="submit" className="w-full" disabled={submitted}>
                 {submitted ? "Request received" : "Request consultation"}
               </Button>
+              </motion.div>
               <p className="text-xs text-muted">
                 By submitting, you agree to receive communication from Al Amal
                 Mortgage. We will never share your details.
@@ -104,8 +108,8 @@ export function LeadForm() {
                   Thanks! Our team will be in touch shortly.
                 </p>
               ) : null}
-            </form>
-          </div>
+            </motion.form>
+          </motion.div>
         </Reveal>
       </div>
     </section>

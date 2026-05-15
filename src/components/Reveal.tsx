@@ -1,5 +1,7 @@
 "use client";
 
+"use client";
+
 import { motion, useReducedMotion } from "framer-motion";
 import type { PropsWithChildren } from "react";
 

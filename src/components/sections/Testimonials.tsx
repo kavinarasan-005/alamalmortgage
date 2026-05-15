@@ -1,5 +1,9 @@
+"use client";
+
 import { testimonials } from "@/data/site";
 import { Reveal } from "@/components/Reveal";
+import { motion } from "framer-motion";
+import { cardHover, itemFadeUp, staggerContainer } from "@/lib/motion";
 
 export function Testimonials() {
   return (
@@ -19,11 +23,21 @@ export function Testimonials() {
         </Reveal>
 
         <Reveal>
-          <div className="mt-10 flex gap-6 overflow-x-auto pb-4">
+          <motion.div
+            className="mt-10 flex gap-6 overflow-x-auto pb-4"
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.15 }}
+          >
             {testimonials.map((testimonial) => (
-              <div
+              <motion.div
                 key={testimonial.name}
-                className="min-w-[280px] max-w-sm rounded-2xl border border-white/10 bg-white/5 p-6"
+                variants={itemFadeUp}
+                whileHover={cardHover.hover}
+                initial="rest"
+                animate="rest"
+                className="min-w-[280px] max-w-sm rounded-2xl border border-white/10 bg-white/5 p-6 transition-shadow duration-200 hover:shadow-[0_20px_50px_rgba(7,17,32,0.35)]"
               >
                 <p className="text-sm text-slate-100">
                   &ldquo;{testimonial.quote}&rdquo;
@@ -32,9 +46,9 @@ export function Testimonials() {
                   {testimonial.name}
                 </div>
                 <div className="text-xs text-muted">{testimonial.role}</div>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </Reveal>
       </div>
     </section>
