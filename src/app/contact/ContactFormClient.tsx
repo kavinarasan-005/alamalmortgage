@@ -17,11 +17,11 @@ export function ContactFormClient() {
   };
 
   return (
-    <div className="rounded-3xl border border-white/10 bg-white/5 p-8">
-      <h3 className="text-2xl font-semibold text-slate-50">
+    <div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-[0_18px_40px_rgba(15,23,42,0.08)]">
+      <h3 className="text-2xl font-semibold text-slate-900">
         Request a consultation
       </h3>
-      <p className="mt-3 text-sm text-muted">
+      <p className="mt-3 text-sm text-slate-600">
         Share your details and we will call you within 30 minutes during
         working hours.
       </p>
@@ -55,7 +55,7 @@ export function ContactFormClient() {
           name="serviceNeeded"
           required
           defaultValue=""
-          className="h-11 w-full rounded-xl border border-white/10 bg-white/5 px-4 text-sm text-slate-100 transition duration-200 focus-visible:border-gold-400/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-500/50"
+          className="h-11 w-full rounded-xl border border-slate-200 bg-white px-4 text-sm text-slate-700 transition duration-200 focus-visible:border-gold-400/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-500/30 focus-visible:shadow-[0_0_0_4px_rgba(184,137,62,0.12)]"
         >
           <option value="" disabled>
             Service needed
@@ -80,12 +80,12 @@ export function ContactFormClient() {
             {submitted ? "Request received" : "Send inquiry"}
           </Button>
         </motion.div>
-        <p className="text-xs text-muted">
+        <p className="text-xs text-slate-500">
           By submitting, you consent to receive communication about your
           mortgage inquiry.
         </p>
         {submitted ? (
-          <p className="text-xs text-gold-400" role="status">
+          <p className="text-xs text-gold-500" role="status">
             Thanks! We will reach out shortly to confirm your consultation.
           </p>
         ) : null}

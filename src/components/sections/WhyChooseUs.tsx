@@ -19,15 +19,15 @@ export function WhyChooseUs() {
             viewport={{ once: true, amount: 0.2 }}
           >
             <motion.div className="space-y-4" variants={itemFadeUp}>
-              <p className="text-xs uppercase tracking-[0.3em] text-gold-400">
+              <p className="text-xs uppercase tracking-[0.3em] text-slate-500">
                 Why choose Al Amal
               </p>
               <h2 className="text-3xl font-semibold sm:text-4xl">
-                Premium advisory, built for confident decisions
+                Advice that removes the guesswork
               </h2>
-              <p className="text-muted">
-                We combine expert advisory, real-time rate benchmarking, and a
-                white-glove experience to make mortgages feel effortless.
+              <p className="text-slate-600">
+                We compare real bank offers, explain the trade-offs, and keep
+                paperwork moving so you can close on time.
               </p>
             </motion.div>
             <div className="grid gap-4">
@@ -40,17 +40,17 @@ export function WhyChooseUs() {
                     whileHover={cardHover.hover}
                     initial="rest"
                     animate="rest"
-                    className="rounded-2xl border border-white/10 bg-white/5 p-5 transition-shadow duration-200 hover:shadow-[0_20px_50px_rgba(7,17,32,0.35)]"
+                    className="rounded-2xl border border-slate-200 bg-white p-5 transition-shadow duration-200 hover:shadow-[0_20px_50px_rgba(15,23,42,0.12)]"
                   >
                     <div className="flex items-start gap-4">
-                      <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gold-500/10 text-gold-400">
+                      <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gold-500/10 text-gold-500">
                         <Icon className="h-5 w-5" />
                       </div>
                       <div>
-                        <h3 className="text-lg font-semibold text-slate-50">
+                        <h3 className="text-lg font-semibold text-slate-900">
                           {signal.title}
                         </h3>
-                        <p className="text-sm text-muted">
+                        <p className="text-sm text-slate-600">
                           {signal.description}
                         </p>
                       </div>

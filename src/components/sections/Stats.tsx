@@ -11,7 +11,7 @@ export function Stats() {
       <div className="mx-auto max-w-6xl container-pad">
         <Reveal>
           <motion.div
-            className="grid gap-6 rounded-3xl border border-white/10 bg-white/5 p-8 sm:grid-cols-2 md:grid-cols-4"
+            className="grid gap-6 rounded-3xl border border-slate-200 bg-white p-8 sm:grid-cols-2 md:grid-cols-4"
             variants={staggerContainer}
             initial="hidden"
             whileInView="show"
@@ -26,8 +26,8 @@ export function Stats() {
                 animate="rest"
                 className="space-y-2 rounded-2xl p-2"
               >
-                <div className="text-3xl font-semibold text-slate-50">{stat.value}</div>
-                <div className="text-sm text-muted">{stat.label}</div>
+                <div className="text-3xl font-semibold text-slate-900">{stat.value}</div>
+                <div className="text-sm text-slate-600">{stat.label}</div>
               </motion.div>
             ))}
           </motion.div>

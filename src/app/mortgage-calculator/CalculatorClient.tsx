@@ -31,9 +31,9 @@ export function CalculatorClient() {
         description="Adjust property price, down payment, tenure, and interest rate for a real-time estimate."
       />
 
-      <section className="section bg-ink-900">
+      <section className="section bg-ink-850">
         <div className="mx-auto grid max-w-6xl gap-10 container-pad lg:grid-cols-[1.1fr_0.9fr]">
-          <div className="space-y-6 rounded-3xl border border-white/10 bg-white/5 p-8">
+          <div className="space-y-6 rounded-3xl border border-slate-200 bg-white p-8 shadow-[0_18px_40px_rgba(15,23,42,0.08)]">
             <label className="text-sm text-muted">
               Property value (AED)
               <Input
@@ -107,41 +107,43 @@ export function CalculatorClient() {
           </div>
 
           <div className="space-y-6">
-            <div className="rounded-3xl border border-white/10 bg-ink-800 p-8">
-              <p className="text-xs uppercase tracking-[0.3em] text-gold-400">
+            <div className="rounded-3xl border border-slate-200 bg-slate-50 p-8">
+              <p className="text-xs uppercase tracking-[0.3em] text-slate-500">
                 Your estimate
               </p>
-              <div className="mt-4 text-3xl font-semibold text-slate-50">
+              <div className="mt-4 text-3xl font-semibold text-slate-900">
                 {formatAED(monthlyPayment)}
               </div>
-              <p className="mt-2 text-sm text-muted">Estimated monthly payment</p>
-              <div className="mt-6 grid gap-4 text-sm text-muted">
+              <p className="mt-2 text-sm text-slate-600">
+                Estimated monthly payment
+              </p>
+              <div className="mt-6 grid gap-4 text-sm text-slate-600">
                 <div className="flex items-center justify-between">
                   <span>Loan amount</span>
-                  <span className="text-slate-100">
+                  <span className="text-slate-900">
                     {formatAED(loanAmount)}
                   </span>
                 </div>
                 <div className="flex items-center justify-between">
                   <span>Total interest</span>
-                  <span className="text-slate-100">
+                  <span className="text-slate-900">
                     {formatAED(totalInterest)}
                   </span>
                 </div>
                 <div className="flex items-center justify-between">
                   <span>Total payable</span>
-                  <span className="text-slate-100">
+                  <span className="text-slate-900">
                     {formatAED(totalPayable)}
                   </span>
                 </div>
               </div>
             </div>
 
-            <div className="rounded-3xl border border-white/10 bg-white/5 p-8">
-              <h3 className="text-xl font-semibold text-slate-50">
+            <div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-[0_18px_40px_rgba(15,23,42,0.08)]">
+              <h3 className="text-xl font-semibold text-slate-900">
                 Ready for a precise quote?
               </h3>
-              <p className="mt-3 text-sm text-muted">
+              <p className="mt-3 text-sm text-slate-600">
                 Provide your profile and we will match you to the strongest
                 banks for your situation.
               </p>

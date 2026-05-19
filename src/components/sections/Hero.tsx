@@ -1,7 +1,5 @@
 "use client";
 
-"use client";
-
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -29,12 +27,11 @@ export function Hero() {
             </Badge>
           </motion.div>
           <motion.h1 variants={itemFadeUp} className="text-4xl font-semibold tracking-tight sm:text-5xl">
-            Unlock Your Dream Property with UAE&apos;s Trusted Mortgage Experts
+            UAE mortgages made clear, fast, and bank-ready
           </motion.h1>
           <motion.p variants={itemFadeUp} className="text-lg text-muted">
-            Premium mortgage advisory for residents and global investors. We
-            compare leading UAE banks, structure your file, and secure approvals
-            with speed and transparency.
+            We compare 20+ UAE banks, package your file, and guide you from
+            pre-approval to offer letter with clear next steps.
           </motion.p>
           <motion.div variants={itemFadeUp} className="flex flex-col gap-3 sm:flex-row">
             <motion.div whileHover={ctaPulse.hover} whileTap={{ scale: 0.98 }}>
@@ -57,16 +54,16 @@ export function Hero() {
           </motion.div>
           <motion.div variants={itemFadeUp} className="grid gap-4 pt-4 sm:grid-cols-3">
             {[
-              "Fast approvals",
-              "Transparent process",
-              "Dedicated advisor",
+              "24-48h pre-approval",
+              "Clear rate comparisons",
+              "One dedicated advisor",
             ].map((item, index) => (
               <motion.div
                 key={item}
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.15 + index * 0.05, duration: 0.35 }}
-                className="rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-slate-100"
+                className="rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-600"
               >
                 {item}
               </motion.div>
@@ -92,14 +89,14 @@ export function Hero() {
               priority
             />
           </motion.div>
-          <div className="mt-6 rounded-2xl border border-white/10 bg-ink-800/90 px-6 py-4 shadow-lg lg:absolute lg:-bottom-6 lg:left-8 lg:right-8 lg:mt-0">
-            <div className="text-xs uppercase tracking-[0.2em] text-gold-400">
+          <div className="mt-6 rounded-2xl border border-slate-200 bg-white px-6 py-4 shadow-[0_18px_40px_rgba(15,23,42,0.08)] lg:absolute lg:-bottom-6 lg:left-8 lg:right-8 lg:mt-0">
+            <div className="text-xs uppercase tracking-[0.2em] text-slate-500">
               Average approval time
             </div>
-            <div className="mt-2 text-2xl font-semibold text-slate-50">
+            <div className="mt-2 text-2xl font-semibold text-slate-900">
               24-48 Hours
             </div>
-            <div className="text-sm text-muted">
+            <div className="text-sm text-slate-600">
               With complete documentation and bank-ready packaging.
             </div>
           </div>

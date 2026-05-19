@@ -8,7 +8,7 @@ import { cardHover, itemFadeUp, staggerContainer } from "@/lib/motion";
 
 export function ProcessSteps() {
   return (
-    <section className="section bg-ink-900">
+    <section className="section bg-ink-850">
       <div className="mx-auto max-w-6xl container-pad">
         <Reveal>
           <motion.div
@@ -19,11 +19,11 @@ export function ProcessSteps() {
             viewport={{ once: true, amount: 0.2 }}
           >
             <motion.div variants={itemFadeUp}>
-              <p className="text-xs uppercase tracking-[0.3em] text-gold-400">
+              <p className="text-xs uppercase tracking-[0.3em] text-slate-500">
                 Our process
               </p>
               <h2 className="mt-4 text-3xl font-semibold sm:text-4xl">
-                Structured, transparent, and fast
+                A simple 4-step process
               </h2>
             </motion.div>
             <div className="grid gap-4 md:grid-cols-2">
@@ -34,15 +34,15 @@ export function ProcessSteps() {
                   whileHover={cardHover.hover}
                   initial="rest"
                   animate="rest"
-                  className="rounded-2xl border border-white/10 bg-white/5 p-6 transition-shadow duration-200 hover:shadow-[0_20px_50px_rgba(7,17,32,0.35)]"
+                  className="rounded-2xl border border-slate-200 bg-white p-6 transition-shadow duration-200 hover:shadow-[0_20px_50px_rgba(15,23,42,0.12)]"
                 >
-                  <div className="text-xs uppercase tracking-[0.3em] text-gold-400">
+                  <div className="text-xs uppercase tracking-[0.3em] text-slate-500">
                     Step {index + 1}
                   </div>
-                  <h3 className="mt-3 text-xl font-semibold text-slate-50">
+                  <h3 className="mt-3 text-xl font-semibold text-slate-900">
                     {step.title}
                   </h3>
-                  <p className="mt-2 text-sm text-muted">{step.description}</p>
+                  <p className="mt-2 text-sm text-slate-600">{step.description}</p>
                 </motion.div>
               ))}
             </div>

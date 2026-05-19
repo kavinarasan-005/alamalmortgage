@@ -25,6 +25,7 @@ export default function Home() {
   return (
     <>
       <Hero />
+      <LeadForm />
       <Stats />
       <Partners />
       <ServicesGrid />
@@ -34,7 +35,6 @@ export default function Home() {
       <ProcessSteps />
       <Testimonials />
       <FaqAccordion />
-      <LeadForm />
     </>
   );
 }

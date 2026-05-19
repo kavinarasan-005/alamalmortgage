@@ -22,21 +22,21 @@ export function LeadForm() {
     <section className="section bg-ink-850">
       <div className="mx-auto max-w-6xl container-pad">
         <Reveal>
-          <motion.div className="grid gap-10 rounded-3xl border border-white/10 bg-white/5 p-8 lg:grid-cols-[1.1fr_0.9fr]" whileHover={cardHover.hover} initial="rest" animate="rest">
+          <motion.div className="grid gap-10 rounded-3xl border border-slate-200 bg-white p-8 shadow-[0_18px_40px_rgba(15,23,42,0.08)] lg:grid-cols-[1.1fr_0.9fr]" whileHover={cardHover.hover} initial="rest" animate="rest">
             <motion.div className="space-y-4" variants={staggerContainer} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }}>
-              <p className="text-xs uppercase tracking-[0.3em] text-gold-400">
-                Book your consultation
+              <p className="text-xs uppercase tracking-[0.3em] text-slate-500">
+                Free consultation
               </p>
               <motion.h2 variants={itemFadeUp} className="text-3xl font-semibold sm:text-4xl">
-                Speak with a senior mortgage advisor today
+                Talk to a mortgage advisor today
               </motion.h2>
-              <motion.p variants={itemFadeUp} className="text-muted">
-                We respond within 30 minutes during working hours with a clear
-                eligibility review and bank shortlist.
+              <motion.p variants={itemFadeUp} className="text-slate-600">
+                We respond within 30 minutes during working hours with your
+                eligibility review and the next steps.
               </motion.p>
-              <motion.div variants={itemFadeUp} className="rounded-2xl border border-white/10 bg-ink-800 px-6 py-5 text-sm text-slate-100">
+              <motion.div variants={itemFadeUp} className="rounded-2xl border border-slate-200 bg-slate-50 px-6 py-5 text-sm text-slate-700">
                 <div className="flex items-center gap-3">
-                  <PhoneCall className="h-4 w-4 text-gold-400" />
+                  <PhoneCall className="h-4 w-4 text-gold-500" />
                   Instant callback available for urgent cases.
                 </div>
               </motion.div>
@@ -76,7 +76,7 @@ export function LeadForm() {
                 aria-label="Mortgage type"
                 name="mortgageType"
                 required
-                className="h-11 w-full rounded-xl border border-white/10 bg-white/5 px-4 text-sm text-slate-100 transition duration-200 focus-visible:border-gold-400/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-500/50"
+                className="h-11 w-full rounded-xl border border-slate-200 bg-white px-4 text-sm text-slate-700 transition duration-200 focus-visible:border-gold-400/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-500/30 focus-visible:shadow-[0_0_0_4px_rgba(184,137,62,0.12)]"
                 defaultValue=""
               >
                 <option value="" disabled>
@@ -96,15 +96,15 @@ export function LeadForm() {
               />
               <motion.div whileHover={ctaPulse.hover} whileTap={{ scale: 0.98 }}>
                 <Button type="submit" className="w-full" disabled={submitted}>
-                {submitted ? "Request received" : "Request consultation"}
-              </Button>
+                  {submitted ? "Request received" : "Request consultation"}
+                </Button>
               </motion.div>
-              <p className="text-xs text-muted">
+              <p className="text-xs text-slate-500">
                 By submitting, you agree to receive communication from Al Amal
                 Mortgage. We will never share your details.
               </p>
               {submitted ? (
-                <p className="text-xs text-gold-400" role="status">
+                <p className="text-xs text-gold-500" role="status">
                   Thanks! Our team will be in touch shortly.
                 </p>
               ) : null}

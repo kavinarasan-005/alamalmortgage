@@ -56,16 +56,16 @@ export function EligibilityCheckerClient() {
         description="Answer five short questions and we will match you to the best UAE mortgage options."
       />
 
-      <section className="section bg-ink-900">
+      <section className="section bg-ink-850">
         <div className="mx-auto max-w-4xl container-pad">
-          <div className="rounded-3xl border border-white/10 bg-white/5 p-8">
-            <div className="flex items-center justify-between text-xs text-muted">
+          <div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-[0_18px_40px_rgba(15,23,42,0.08)]">
+            <div className="flex items-center justify-between text-xs text-slate-500">
               <span>
                 Step {step + 1} of {steps.length}
               </span>
               <span>{progress}% complete</span>
             </div>
-            <div className="mt-3 h-1 w-full rounded-full bg-white/10">
+            <div className="mt-3 h-1 w-full rounded-full bg-slate-200">
               <motion.div
                 className="h-1 rounded-full bg-gold-500"
                 initial={false}
@@ -89,7 +89,7 @@ export function EligibilityCheckerClient() {
               >
                 {step === 0 && (
                   <div className="space-y-3">
-                    <h3 className="text-xl font-semibold text-slate-50">
+                    <h3 className="text-xl font-semibold text-slate-900">
                       What is your nationality?
                     </h3>
                     <select
@@ -98,7 +98,7 @@ export function EligibilityCheckerClient() {
                       onChange={(event) =>
                         update("nationality", event.target.value)
                       }
-                      className="h-11 w-full rounded-xl border border-white/10 bg-white/5 px-4 text-sm text-slate-100 transition duration-200 focus-visible:border-gold-400/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-500/50"
+                      className="h-11 w-full rounded-xl border border-slate-200 bg-white px-4 text-sm text-slate-700 transition duration-200 focus-visible:border-gold-400/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-500/30 focus-visible:shadow-[0_0_0_4px_rgba(184,137,62,0.12)]"
                     >
                       <option value="">Select nationality</option>
                       <option value="UAE">UAE</option>
@@ -110,14 +110,14 @@ export function EligibilityCheckerClient() {
 
                 {step === 1 && (
                   <div className="space-y-3">
-                    <h3 className="text-xl font-semibold text-slate-50">
+                    <h3 className="text-xl font-semibold text-slate-900">
                       Are you a UAE resident?
                     </h3>
                     <select
                       aria-label="Residency"
                       value={form.residency}
                       onChange={(event) => update("residency", event.target.value)}
-                      className="h-11 w-full rounded-xl border border-white/10 bg-white/5 px-4 text-sm text-slate-100 transition duration-200 focus-visible:border-gold-400/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-500/50"
+                      className="h-11 w-full rounded-xl border border-slate-200 bg-white px-4 text-sm text-slate-700 transition duration-200 focus-visible:border-gold-400/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-500/30 focus-visible:shadow-[0_0_0_4px_rgba(184,137,62,0.12)]"
                     >
                       <option value="">Select status</option>
                       <option value="Resident">Resident</option>
@@ -128,7 +128,7 @@ export function EligibilityCheckerClient() {
 
                 {step === 2 && (
                   <div className="space-y-3">
-                    <h3 className="text-xl font-semibold text-slate-50">
+                    <h3 className="text-xl font-semibold text-slate-900">
                       What is your monthly salary (AED)?
                     </h3>
                     <Input
@@ -143,7 +143,7 @@ export function EligibilityCheckerClient() {
 
                 {step === 3 && (
                   <div className="space-y-3">
-                    <h3 className="text-xl font-semibold text-slate-50">
+                    <h3 className="text-xl font-semibold text-slate-900">
                       Employment type
                     </h3>
                     <select
@@ -152,7 +152,7 @@ export function EligibilityCheckerClient() {
                       onChange={(event) =>
                         update("employment", event.target.value)
                       }
-                      className="h-11 w-full rounded-xl border border-white/10 bg-white/5 px-4 text-sm text-slate-100 transition duration-200 focus-visible:border-gold-400/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-500/50"
+                      className="h-11 w-full rounded-xl border border-slate-200 bg-white px-4 text-sm text-slate-700 transition duration-200 focus-visible:border-gold-400/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-500/30 focus-visible:shadow-[0_0_0_4px_rgba(184,137,62,0.12)]"
                     >
                       <option value="">Select employment</option>
                       <option value="Salaried">Salaried</option>
@@ -164,7 +164,7 @@ export function EligibilityCheckerClient() {
 
                 {step === 4 && (
                   <div className="space-y-3">
-                    <h3 className="text-xl font-semibold text-slate-50">
+                    <h3 className="text-xl font-semibold text-slate-900">
                       Expected property value (AED)
                     </h3>
                     <Input
@@ -176,8 +176,8 @@ export function EligibilityCheckerClient() {
                       }
                       placeholder="e.g. 2200000"
                     />
-                    <div className="rounded-2xl border border-white/10 bg-ink-800 p-4 text-sm text-muted">
-                      <p className="text-slate-100">Summary</p>
+                    <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4 text-sm text-slate-600">
+                      <p className="text-slate-900">Summary</p>
                       <div className="mt-2 grid gap-1">
                         <span>Nationality: {form.nationality || "-"}</span>
                         <span>Residency: {form.residency || "-"}</span>

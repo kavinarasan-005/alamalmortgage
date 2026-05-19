@@ -8,7 +8,7 @@ import { cardHover, itemFadeUp, staggerContainer } from "@/lib/motion";
 
 export function FaqAccordion() {
   return (
-    <section className="section bg-ink-900">
+    <section className="section bg-ink-850">
       <div className="mx-auto max-w-6xl container-pad">
         <Reveal>
           <motion.div
@@ -19,13 +19,13 @@ export function FaqAccordion() {
             viewport={{ once: true, amount: 0.2 }}
           >
             <motion.div variants={itemFadeUp}>
-              <p className="text-xs uppercase tracking-[0.3em] text-gold-400">
+              <p className="text-xs uppercase tracking-[0.3em] text-slate-500">
                 FAQs
               </p>
               <h2 className="mt-4 text-3xl font-semibold sm:text-4xl">
                 Mortgage questions, simplified
               </h2>
-              <p className="mt-4 text-muted">
+              <p className="mt-4 text-slate-600">
                 Clear, bank-aligned answers so you can move forward with
                 confidence.
               </p>
@@ -38,13 +38,13 @@ export function FaqAccordion() {
                   whileHover={cardHover.hover}
                   initial="rest"
                   animate="rest"
-                  className="transition-shadow duration-200 hover:shadow-[0_20px_50px_rgba(7,17,32,0.35)]"
+                  className="transition-shadow duration-200 hover:shadow-[0_20px_50px_rgba(15,23,42,0.12)]"
                 >
-                  <details className="rounded-2xl border border-white/10 bg-white/5 px-6 py-4">
-                    <summary className="cursor-pointer text-sm font-semibold text-slate-50">
+                  <details className="rounded-2xl border border-slate-200 bg-white px-6 py-4">
+                    <summary className="cursor-pointer text-sm font-semibold text-slate-900">
                       {faq.question}
                     </summary>
-                    <p className="mt-3 text-sm text-muted">{faq.answer}</p>
+                    <p className="mt-3 text-sm text-slate-600">{faq.answer}</p>
                   </details>
                 </motion.div>
               ))}

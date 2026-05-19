@@ -19,78 +19,59 @@ export const navLinks = [
 ];
 
 export const stats = [
-  { value: "20+", label: "Banking Partners" },
-  { value: "500+", label: "Families Helped" },
-  { value: "AED 1.2B", label: "Financed Volume" },
-  { value: "4.9/5", label: "Client Rating" },
+  { value: "20+", label: "UAE bank partners" },
+  { value: "500+", label: "Clients helped" },
+  { value: "AED 1.2B", label: "Financing arranged" },
+  { value: "4.9/5", label: "Google rating" },
 ];
 
 export const trustSignals = [
   {
     title: "Fast approvals",
-    description: "Pre-qualification in 24-48 hours with clean documentation.",
+    description: "Most pre-approvals in 24-48 hours once docs are ready.",
     icon: Timer,
   },
   {
     title: "Transparent process",
-    description: "Clear fees, no surprises, and a dedicated consultant.",
+    description: "Clear fees, timeline, and one point of contact.",
     icon: ShieldCheck,
   },
   {
     title: "Bank-ready files",
-    description: "We package your application to reduce underwriting delays.",
+    description: "We package your file to reduce bank follow-ups.",
     icon: BadgeCheck,
   },
-];
-
-export const partners = [
-  "Emirates NBD",
-  "ADCB",
-  "FAB",
-  "Mashreq",
-  "HSBC",
-  "DIB",
-  "Standard Chartered",
-  "RAKBANK",
-  "CBD",
-  "Dubai Islamic",
 ];
 
 export const services = [
   {
     title: "Residential Mortgage",
-    description:
-      "Primary residence and investment approvals tailored to your profile.",
+    description: "Home purchase and investment mortgages matched to you.",
     icon: Home,
   },
   {
     title: "Commercial Mortgage",
-    description:
-      "Structured financing for offices, retail, and mixed-use assets.",
+    description: "Financing for offices, retail, and mixed-use assets.",
     icon: Building2,
   },
   {
     title: "Refinance / Buyout",
-    description:
-      "Reduce monthly payments or release equity at competitive rates.",
+    description: "Switch rates or unlock equity with a buyout.",
     icon: RefreshCcw,
   },
   {
     title: "Non-resident Mortgage",
-    description:
-      "International buyer financing with multi-currency support.",
+    description: "UAE mortgages for international buyers.",
     icon: Globe2,
   },
   {
     title: "Equity Release",
-    description:
-      "Unlock capital from owned properties for business or investment.",
+    description: "Release equity from owned property.",
     icon: Coins,
   },
   {
     title: "Off-plan Financing",
-    description:
-      "Developer-aligned payment plans with smart milestone funding.",
+    description: "Financing aligned with developer milestones.",
     icon: Construction,
   },
 ];
@@ -243,33 +224,6 @@ export const processSteps = [
   {
     title: "Final offer",
     description: "Sign your offer letter, and we handle the disbursement.",
-  },
-];
-
-export const testimonials = [
-  {
-    name: "Client, Dubai Marina",
-    role: "Residential buyer",
-    quote:
-      "Al Amal compared multiple banks and guided every document. The process felt premium and transparent.",
-  },
-  {
-    name: "Client, Abu Dhabi",
-    role: "SME owner",
-    quote:
-      "Their commercial team structured a facility aligned with our cash flow and timelines.",
-  },
-  {
-    name: "Client, London",
-    role: "International investor",
-    quote:
-      "As a non-resident, I needed clarity. They handled cross-border checks and delivered a smooth approval.",
-  },
-  {
-    name: "Client, Jumeirah",
-    role: "Refinance client",
-    quote:
-      "We reduced our monthly payment and simplified the paperwork. The process was efficient and clear.",
   },
 ];
 

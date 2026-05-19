@@ -79,10 +79,10 @@ export default function RootLayout({
       lang="en"
       className={`${sora.variable} ${playfair.variable} h-full antialiased`}
     >
-      <body className="min-h-full bg-ink-900 text-slate-100 flex flex-col">
+      <body className="min-h-full bg-white text-slate-900 flex flex-col">
         <a
           href="#main-content"
-          className="sr-only focus:not-sr-only focus:absolute focus:left-6 focus:top-6 focus:z-50 focus:rounded-full focus:bg-ink-800 focus:px-4 focus:py-2 focus:text-xs focus:text-slate-100"
+          className="sr-only focus:not-sr-only focus:absolute focus:left-6 focus:top-6 focus:z-50 focus:rounded-full focus:bg-slate-900 focus:px-4 focus:py-2 focus:text-xs focus:text-white"
         >
           Skip to content
         </a>

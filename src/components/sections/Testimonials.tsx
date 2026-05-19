@@ -1,54 +1,113 @@
 "use client";
 
-import { testimonials } from "@/data/site";
+import { useEffect, useRef } from "react";
 import { Reveal } from "@/components/Reveal";
 import { motion } from "framer-motion";
-import { cardHover, itemFadeUp, staggerContainer } from "@/lib/motion";
+import { itemFadeUp, staggerContainer } from "@/lib/motion";
+
+const JOTFORM_BASE_SRC =
+  "https://www.jotform.com/s/umd/8750d17d263/for-embedded-widget.js";
+const JOTFORM_WIDGET_SRC =
+  "https://www.jotform.com/website-widgets/embed/019cd74ef66b7bf7bc191340667dcb25485d";
+const JOTFORM_WIDGET_ID = "JFWebsiteWidget-019cd74ef66b7bf7bc191340667dcb25485d";
 
 export function Testimonials() {
+  const widgetRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    const container = widgetRef.current;
+    if (!container) {
+      return;
+    }
+
+    if (container.dataset.loaded === "true") {
+      return;
+    }
+
+    container.dataset.loaded = "true";
+
+    const loadScript = (src: string) =>
+      new Promise<void>((resolve) => {
+        const existing = document.querySelector(
+          `script[src=\"${src}\"]`
+        ) as HTMLScriptElement | null;
+
+        if (existing) {
+          const isLoaded =
+            existing.dataset.loaded === "true" ||
+            existing.getAttribute("data-loaded") === "true";
+
+          if (isLoaded) {
+            resolve();
+            return;
+          }
+
+          existing.addEventListener("load", () => resolve(), { once: true });
+
+          const fallback = window.setTimeout(() => resolve(), 1500);
+          existing.addEventListener(
+            "load",
+            () => window.clearTimeout(fallback),
+            { once: true }
+          );
+          return;
+        }
+
+        const script = document.createElement("script");
+        script.src = src;
+        script.async = true;
+        script.dataset.loaded = "false";
+        script.addEventListener(
+          "load",
+          () => {
+            script.dataset.loaded = "true";
+            resolve();
+          },
+          { once: true }
+        );
+        container.appendChild(script);
+      });
+
+    void loadScript(JOTFORM_BASE_SRC).then(() => loadScript(JOTFORM_WIDGET_SRC));
+  }, []);
+
   return (
     <section className="section bg-ink-850">
       <div className="mx-auto max-w-6xl container-pad">
         <Reveal>
-          <div className="flex items-end justify-between gap-4">
-            <div>
-              <p className="text-xs uppercase tracking-[0.3em] text-gold-400">
-                Client testimonials
-              </p>
-              <h2 className="mt-4 text-3xl font-semibold sm:text-4xl">
-                Trust built through real results
-              </h2>
-            </div>
-          </div>
-        </Reveal>
-
-        <Reveal>
           <motion.div
-            className="mt-10 flex gap-6 overflow-x-auto pb-4"
+            className="flex items-end justify-between gap-4"
             variants={staggerContainer}
             initial="hidden"
             whileInView="show"
-            viewport={{ once: true, amount: 0.15 }}
+            viewport={{ once: true, amount: 0.2 }}
           >
-            {testimonials.map((testimonial) => (
-              <motion.div
-                key={testimonial.name}
+            <div>
+              <motion.p
+                className="text-xs uppercase tracking-[0.3em] text-slate-500"
                 variants={itemFadeUp}
-                whileHover={cardHover.hover}
-                initial="rest"
-                animate="rest"
-                className="min-w-[280px] max-w-sm rounded-2xl border border-white/10 bg-white/5 p-6 transition-shadow duration-200 hover:shadow-[0_20px_50px_rgba(7,17,32,0.35)]"
               >
-                <p className="text-sm text-slate-100">
-                  &ldquo;{testimonial.quote}&rdquo;
-                </p>
-                <div className="mt-6 text-sm font-semibold text-slate-50">
-                  {testimonial.name}
-                </div>
-                <div className="text-xs text-muted">{testimonial.role}</div>
-              </motion.div>
-            ))}
+                Google reviews
+              </motion.p>
+              <motion.h2
+                className="mt-4 text-3xl font-semibold sm:text-4xl"
+                variants={itemFadeUp}
+              >
+                Real feedback from UAE homeowners
+              </motion.h2>
+            </div>
           </motion.div>
+        </Reveal>
+
+        <Reveal>
+          <div className="mt-10 rounded-3xl border border-slate-200 bg-white p-6 shadow-[0_18px_40px_rgba(15,23,42,0.08)]">
+            <div className="text-sm text-slate-600">
+              Powered by Google Reviews
+            </div>
+            <div className="mt-6 w-full min-h-[400px]" ref={widgetRef}>
+              <div id={JOTFORM_WIDGET_ID} />
+            </div>
+          </div>
         </Reveal>
       </div>
     </section>

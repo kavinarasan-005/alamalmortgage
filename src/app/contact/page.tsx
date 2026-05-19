@@ -23,29 +23,29 @@ export default function ContactPage() {
         description="Book a free consultation or WhatsApp us for a fast eligibility review."
       />
 
-      <section className="section bg-ink-900">
+      <section className="section bg-ink-850">
         <div className="mx-auto grid max-w-6xl gap-10 container-pad lg:grid-cols-[0.9fr_1.1fr]">
           <div className="space-y-6">
-            <div className="rounded-3xl border border-white/10 bg-white/5 p-6">
-              <h3 className="text-xl font-semibold text-slate-50">
+            <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-[0_18px_40px_rgba(15,23,42,0.08)]">
+              <h3 className="text-xl font-semibold text-slate-900">
                 Contact details
               </h3>
-              <div className="mt-4 space-y-3 text-sm text-muted">
+              <div className="mt-4 space-y-3 text-sm text-slate-600">
                 <div className="flex items-center gap-2">
-                  <Phone className="h-4 w-4 text-gold-400" /> +971 55 123 4567
+                  <Phone className="h-4 w-4 text-gold-500" /> +971 55 123 4567
                 </div>
                 <div className="flex items-center gap-2">
-                  <Mail className="h-4 w-4 text-gold-400" />
+                  <Mail className="h-4 w-4 text-gold-500" />
                   hello@alamalmortgage.ae
                 </div>
                 <div className="flex items-center gap-2">
-                  <MapPin className="h-4 w-4 text-gold-400" />
+                  <MapPin className="h-4 w-4 text-gold-500" />
                   Gate Avenue, DIFC, Dubai
                 </div>
               </div>
               <Link
                 href="https://wa.me/971551234567"
-                className="mt-6 inline-flex items-center gap-2 rounded-full border border-gold-500/40 px-4 py-2 text-sm font-semibold text-gold-400"
+                className="mt-6 inline-flex items-center gap-2 rounded-full border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-700 transition hover:border-slate-400 hover:text-slate-900"
                 target="_blank"
                 rel="noreferrer noopener"
               >
@@ -53,16 +53,16 @@ export default function ContactPage() {
               </Link>
             </div>
 
-            <div className="rounded-3xl border border-white/10 bg-white/5 p-6">
-              <h3 className="text-xl font-semibold text-slate-50">
+            <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-[0_18px_40px_rgba(15,23,42,0.08)]">
+              <h3 className="text-xl font-semibold text-slate-900">
                 Office hours
               </h3>
-              <p className="mt-3 text-sm text-muted">
+              <p className="mt-3 text-sm text-slate-600">
                 Sunday to Thursday, 9:00 AM to 7:00 PM (GST)
               </p>
             </div>
 
-            <div className="overflow-hidden rounded-3xl border border-white/10">
+            <div className="overflow-hidden rounded-3xl border border-slate-200">
               <iframe
                 title="Dubai office map"
                 src="https://maps.google.com/maps?q=DIFC%20Dubai&t=&z=13&ie=UTF8&iwloc=&output=embed"

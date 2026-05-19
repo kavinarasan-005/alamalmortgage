@@ -15,20 +15,20 @@ export function ServicesGrid() {
         <Reveal>
           <div className="flex items-end justify-between gap-6">
             <div>
-              <p className="text-xs uppercase tracking-[0.3em] text-gold-400">
+              <p className="text-xs uppercase tracking-[0.3em] text-slate-500">
                 Services
               </p>
               <h2 className="mt-4 text-3xl font-semibold sm:text-4xl">
-                Mortgage solutions built around your property goals
+                Mortgage options for every property type
               </h2>
-              <p className="mt-3 max-w-2xl text-muted">
-                Residential, commercial, and investment financing with clear
-                eligibility guidance and bank-aligned approvals.
+              <p className="mt-3 max-w-2xl text-slate-600">
+                Home, investment, and commercial financing with clear
+                eligibility guidance and straightforward bank comparisons.
               </p>
             </div>
             <Link
               href="/services"
-              className="hidden text-sm font-semibold text-gold-400 transition hover:text-gold-500 lg:inline-flex"
+              className="hidden text-sm font-semibold text-slate-600 transition hover:text-slate-900 lg:inline-flex"
             >
               View all services
             </Link>
@@ -46,19 +46,19 @@ export function ServicesGrid() {
             const Icon = service.icon;
             return (
               <motion.div key={service.title} variants={itemFadeUp} whileHover={cardHover.hover} initial="rest" animate="rest">
-                <Card className="h-full p-6 transition-shadow duration-200 hover:shadow-[0_24px_60px_rgba(7,17,32,0.5)]">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gold-500/10 text-gold-400">
+                <Card className="h-full border border-slate-200 bg-white p-6 transition-shadow duration-200 hover:shadow-[0_20px_50px_rgba(15,23,42,0.12)]">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gold-500/10 text-gold-500">
                     <Icon className="h-6 w-6" />
                   </div>
-                  <h3 className="mt-6 text-xl font-semibold text-slate-50">
+                  <h3 className="mt-6 text-xl font-semibold text-slate-900">
                     {service.title}
                   </h3>
-                  <p className="mt-3 text-sm text-muted">
+                  <p className="mt-3 text-sm text-slate-600">
                     {service.description}
                   </p>
                   <Link
                     href="/services"
-                    className="mt-6 inline-flex text-sm font-semibold text-gold-400 transition duration-200 hover:translate-x-1"
+                    className="mt-6 inline-flex text-sm font-semibold text-slate-700 transition duration-200 hover:translate-x-1"
                   >
                     Explore details
                   </Link>

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import {
@@ -44,62 +45,76 @@ export function Navbar() {
   return (
     <motion.header
       className={cn(
-        "sticky top-0 z-50 w-full border-b backdrop-blur",
-        scrolled
-          ? "border-white/12 bg-ink-900/92 shadow-[0_12px_40px_rgba(7,17,32,0.45)]"
-          : "border-white/10 bg-ink-900/80"
+        "sticky top-0 z-50 w-full border-b border-slate-200 bg-white/95 backdrop-blur",
+        scrolled && "shadow-[0_10px_30px_rgba(15,23,42,0.08)]"
       )}
       animate={{ y: 0 }}
       initial={false}
       transition={{ duration: 0.2 }}
     >
-      <div className="mx-auto flex h-20 max-w-6xl items-center justify-between container-pad">
-        <Link href="/" className="flex items-center gap-2 transition hover:opacity-90">
-          <span className="text-xl font-semibold text-slate-50">
-            Al Amal Mortgage
-          </span>
-          <span className="hidden rounded-full border border-gold-500/40 px-3 py-1 text-[10px] uppercase tracking-[0.2em] text-gold-400 sm:inline-flex">
-            UAE
-          </span>
+      <div className="mx-auto flex h-16 max-w-6xl items-center gap-6 container-pad">
+        <Link href="/" className="flex items-center gap-3 whitespace-nowrap transition hover:opacity-90">
+          <Image
+            src="/brand/al-amal-logo.png"
+            alt="Al Amal Mortgage"
+            width={44}
+            height={44}
+            className="h-10 w-10 rounded-full border border-slate-200 bg-white object-contain"
+          />
+          <div className="flex flex-col">
+            <span className="text-[17px] font-semibold leading-[1.1] text-slate-900">
+              Al Amal Mortgage
+            </span>
+            <span className="text-[11px] uppercase tracking-[0.2em] leading-[1.2] text-slate-500">
+              UAE Mortgage Advisory
+            </span>
+          </div>
         </Link>
 
-        <nav className="hidden items-center gap-8 lg:flex">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="text-sm text-slate-200 transition duration-200 hover:-translate-y-0.5 hover:text-gold-400"
+        <div className="hidden flex-1 items-center justify-end gap-6 lg:flex">
+          <nav className="flex items-center gap-6">
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="text-sm leading-none text-slate-600 transition duration-200 hover:text-slate-900 whitespace-nowrap"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </nav>
+          <div className="flex items-center gap-2 border-l border-slate-200 pl-4 whitespace-nowrap">
+            <motion.div
+              whileHover={shouldReduceMotion ? undefined : ctaPulse.hover}
+              initial="rest"
+              animate="rest"
             >
-              {link.label}
-            </Link>
-          ))}
-        </nav>
-
-        <div className="hidden items-center gap-3 lg:flex">
-          <motion.div
-            whileHover={shouldReduceMotion ? undefined : ctaPulse.hover}
-            initial="rest"
-            animate="rest"
-          >
-            <Link
-              href="/eligibility-checker"
-              className={cn(buttonVariants({ variant: "outline", size: "sm" }))}
+              <Link
+                href="/eligibility-checker"
+                className={cn(
+                  buttonVariants({ variant: "outline", size: "sm" }),
+                  "h-10 leading-none"
+                )}
+              >
+                Get Pre-Qualified
+              </Link>
+            </motion.div>
+            <motion.div
+              whileHover={shouldReduceMotion ? undefined : ctaPulse.hover}
+              initial="rest"
+              animate="rest"
             >
-              Get Pre-Qualified
-            </Link>
-          </motion.div>
-          <motion.div
-            whileHover={shouldReduceMotion ? undefined : ctaPulse.hover}
-            initial="rest"
-            animate="rest"
-          >
-            <Link
-              href="/contact"
-              className={cn(buttonVariants({ variant: "primary", size: "sm" }))}
-            >
-              Book Consultation
-            </Link>
-          </motion.div>
+              <Link
+                href="/contact"
+                className={cn(
+                  buttonVariants({ variant: "primary", size: "sm" }),
+                  "h-10 leading-none"
+                )}
+              >
+                Book Consultation
+              </Link>
+            </motion.div>
+          </div>
         </div>
 
         <motion.div whileTap={shouldReduceMotion ? undefined : { scale: 0.96 }}>
@@ -121,7 +136,7 @@ export function Navbar() {
         {open && (
           <motion.div
             id="mobile-nav"
-            className="border-t border-white/10 bg-ink-900/95 lg:hidden"
+            className="border-t border-slate-200 bg-white/95 lg:hidden"
             initial={{ height: 0, opacity: 0, y: -8 }}
             animate={{ height: "auto", opacity: 1, y: 0 }}
             exit={{ height: 0, opacity: 0, y: -8 }}
@@ -138,7 +153,7 @@ export function Navbar() {
                   <Link
                     href={link.href}
                     onClick={() => setOpen(false)}
-                    className="text-base text-slate-200 transition duration-200 hover:translate-x-1 hover:text-gold-400"
+                    className="text-base text-slate-700 transition duration-200 hover:translate-x-1 hover:text-slate-900"
                   >
                     {link.label}
                   </Link>

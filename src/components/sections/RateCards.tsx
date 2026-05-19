@@ -8,7 +8,7 @@ import { cardHover, itemFadeUp, staggerContainer } from "@/lib/motion";
 
 export function RateCards() {
   return (
-    <section className="section-tight bg-ink-900">
+    <section className="section-tight bg-ink-850">
       <div className="mx-auto max-w-6xl container-pad">
         <Reveal>
           <motion.div
@@ -20,14 +20,14 @@ export function RateCards() {
           >
             <motion.div className="flex items-end justify-between gap-4" variants={itemFadeUp}>
               <div>
-                <p className="text-xs uppercase tracking-[0.3em] text-gold-400">
+                <p className="text-xs uppercase tracking-[0.3em] text-slate-500">
                   Live mortgage rates
                 </p>
-                <h2 className="mt-4 text-2xl font-semibold text-slate-50">
+                <h2 className="mt-4 text-2xl font-semibold text-slate-900">
                   Today&apos;s indicative rates
                 </h2>
               </div>
-              <span className="text-xs text-muted">
+              <span className="text-xs text-slate-500">
                 Updated daily. Final rates depend on profile.
               </span>
             </motion.div>
@@ -39,13 +39,13 @@ export function RateCards() {
                   whileHover={cardHover.hover}
                   initial="rest"
                   animate="rest"
-                  className="rounded-2xl border border-white/10 bg-white/5 px-6 py-5 transition-shadow duration-200 hover:shadow-[0_20px_50px_rgba(7,17,32,0.35)]"
+                  className="rounded-2xl border border-slate-200 bg-white px-6 py-5 transition-shadow duration-200 hover:shadow-[0_20px_50px_rgba(15,23,42,0.12)]"
                 >
-                  <div className="text-sm text-muted">{rate.title}</div>
-                  <div className="mt-3 text-3xl font-semibold text-gold-400">
+                  <div className="text-sm text-slate-500">{rate.title}</div>
+                  <div className="mt-3 text-3xl font-semibold text-gold-500">
                     {rate.rate}
                   </div>
-                  <div className="mt-2 text-xs text-muted">{rate.detail}</div>
+                  <div className="mt-2 text-xs text-slate-500">{rate.detail}</div>
                 </motion.div>
               ))}
             </div>
