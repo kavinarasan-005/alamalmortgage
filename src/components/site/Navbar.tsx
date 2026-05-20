@@ -10,7 +10,7 @@ import {
   useScroll,
   useMotionValueEvent,
 } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { Mail, Menu, Phone, X } from "lucide-react";
 
 import { navLinks } from "@/data/site";
 import { Button, buttonVariants } from "@/components/ui/button";
@@ -52,27 +52,45 @@ export function Navbar() {
       initial={false}
       transition={{ duration: 0.2 }}
     >
-      <div className="mx-auto flex h-16 max-w-6xl items-center gap-6 container-pad">
-        <Link href="/" className="flex items-center gap-3 whitespace-nowrap transition hover:opacity-90">
-          <Image
-            src="/brand/al-amal-logo.png"
-            alt="Al Amal Mortgage"
-            width={44}
-            height={44}
-            className="h-10 w-10 rounded-full border border-slate-200 bg-white object-contain"
-          />
-          <div className="flex flex-col">
-            <span className="text-[17px] font-semibold leading-[1.1] text-slate-900">
-              Al Amal Mortgage
-            </span>
-            <span className="text-[11px] uppercase tracking-[0.2em] leading-[1.2] text-slate-500">
-              UAE Mortgage Advisory
-            </span>
-          </div>
-        </Link>
+      <div className="mx-auto max-w-6xl container-pad">
+        <div className="hidden items-center justify-end gap-4 py-2 text-xs text-slate-600 lg:flex">
+          <a
+            href="tel:+971551234567"
+            className="inline-flex items-center gap-2 transition hover:text-slate-900"
+          >
+            <Phone className="h-3.5 w-3.5 text-gold-500" />
+            +971 55 123 4567
+          </a>
+          <span className="h-4 w-px bg-slate-200" aria-hidden="true" />
+          <a
+            href="mailto:hello@alamalmortgage.ae"
+            className="inline-flex items-center gap-2 transition hover:text-slate-900"
+          >
+            <Mail className="h-3.5 w-3.5 text-gold-500" />
+            hello@alamalmortgage.ae
+          </a>
+        </div>
+        <div className="flex h-20 items-center gap-8">
+          <Link href="/" className="flex items-center gap-4 whitespace-nowrap transition hover:opacity-90">
+            <Image
+              src="/brand/al-amal-logo.png"
+              alt="Al Amal Mortgage"
+              width={52}
+              height={52}
+              className="h-12 w-12 rounded-full border border-slate-200 bg-white object-contain"
+            />
+            <div className="flex flex-col">
+              <span className="text-[19px] font-semibold leading-[1.1] text-slate-900">
+                Al Amal Mortgage
+              </span>
+              <span className="text-[12px] uppercase tracking-[0.22em] leading-[1.2] text-slate-500">
+                UAE Mortgage Advisory
+              </span>
+            </div>
+          </Link>
 
-        <div className="hidden flex-1 items-center justify-end gap-6 lg:flex">
-          <nav className="flex items-center gap-6">
+          <div className="hidden flex-1 items-center justify-end gap-6 lg:flex">
+            <nav className="flex items-center gap-6">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
@@ -82,54 +100,55 @@ export function Navbar() {
                 {link.label}
               </Link>
             ))}
-          </nav>
-          <div className="flex items-center gap-2 border-l border-slate-200 pl-4 whitespace-nowrap">
-            <motion.div
-              whileHover={shouldReduceMotion ? undefined : ctaPulse.hover}
-              initial="rest"
-              animate="rest"
-            >
-              <Link
-                href="/eligibility-checker"
-                className={cn(
-                  buttonVariants({ variant: "outline", size: "sm" }),
-                  "h-10 leading-none"
-                )}
+            </nav>
+            <div className="flex items-center gap-2 border-l border-slate-200 pl-4 whitespace-nowrap">
+              <motion.div
+                whileHover={shouldReduceMotion ? undefined : ctaPulse.hover}
+                initial="rest"
+                animate="rest"
               >
-                Get Pre-Qualified
-              </Link>
-            </motion.div>
-            <motion.div
-              whileHover={shouldReduceMotion ? undefined : ctaPulse.hover}
-              initial="rest"
-              animate="rest"
-            >
-              <Link
-                href="/contact"
-                className={cn(
-                  buttonVariants({ variant: "primary", size: "sm" }),
-                  "h-10 leading-none"
-                )}
+                <Link
+                  href="/eligibility-checker"
+                  className={cn(
+                    buttonVariants({ variant: "outline", size: "sm" }),
+                    "h-10 leading-none"
+                  )}
+                >
+                  Get Pre-Qualified
+                </Link>
+              </motion.div>
+              <motion.div
+                whileHover={shouldReduceMotion ? undefined : ctaPulse.hover}
+                initial="rest"
+                animate="rest"
               >
-                Book Consultation
-              </Link>
-            </motion.div>
+                <Link
+                  href="/contact"
+                  className={cn(
+                    buttonVariants({ variant: "primary", size: "sm" }),
+                    "h-10 leading-none"
+                  )}
+                >
+                  Book Consultation
+                </Link>
+              </motion.div>
+            </div>
           </div>
-        </div>
 
-        <motion.div whileTap={shouldReduceMotion ? undefined : { scale: 0.96 }}>
-          <Button
-            variant="ghost"
-            size="sm"
-            className="lg:hidden"
-            onClick={() => setOpen((prev) => !prev)}
-            aria-label="Toggle navigation"
-            aria-expanded={open}
-            aria-controls="mobile-nav"
-          >
-            {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-          </Button>
-        </motion.div>
+          <motion.div whileTap={shouldReduceMotion ? undefined : { scale: 0.96 }}>
+            <Button
+              variant="ghost"
+              size="sm"
+              className="lg:hidden"
+              onClick={() => setOpen((prev) => !prev)}
+              aria-label="Toggle navigation"
+              aria-expanded={open}
+              aria-controls="mobile-nav"
+            >
+              {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            </Button>
+          </motion.div>
+        </div>
       </div>
 
       <AnimatePresence>
@@ -148,6 +167,25 @@ export function Navbar() {
               initial="hidden"
               animate="show"
             >
+              <motion.div
+                variants={itemFadeUp}
+                className="flex flex-col gap-2 text-sm text-slate-600"
+              >
+                <a
+                  href="tel:+971551234567"
+                  className="inline-flex items-center gap-2 hover:text-slate-900"
+                >
+                  <Phone className="h-4 w-4 text-gold-500" />
+                  +971 55 123 4567
+                </a>
+                <a
+                  href="mailto:hello@alamalmortgage.ae"
+                  className="inline-flex items-center gap-2 hover:text-slate-900"
+                >
+                  <Mail className="h-4 w-4 text-gold-500" />
+                  hello@alamalmortgage.ae
+                </a>
+              </motion.div>
               {navLinks.map((link) => (
                 <motion.div key={link.href} variants={itemFadeUp}>
                   <Link

@@ -10,7 +10,6 @@ import { WhyChooseUs } from "@/components/sections/WhyChooseUs";
 import { ProcessSteps } from "@/components/sections/ProcessSteps";
 import { Testimonials } from "@/components/sections/Testimonials";
 import { FaqAccordion } from "@/components/sections/FaqAccordion";
-import { LeadForm } from "@/components/sections/LeadForm";
 
 export const metadata: Metadata = {
   title: "UAE Mortgage Consultancy",
@@ -25,7 +24,6 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <LeadForm />
       <Stats />
       <Partners />
       <ServicesGrid />

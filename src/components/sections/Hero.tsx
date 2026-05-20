@@ -7,13 +7,25 @@ import { ArrowRight, Sparkle } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button";
+import { LeadForm } from "@/components/sections/LeadForm";
 import { cn } from "@/lib/utils";
-import { ctaPulse, imageHover, itemFadeUp, staggerContainer } from "@/lib/motion";
+import { ctaPulse, itemFadeUp, staggerContainer } from "@/lib/motion";
 
 export function Hero() {
   return (
-    <section className="bg-hero">
-      <div className="mx-auto grid max-w-6xl items-center gap-12 py-20 container-pad lg:grid-cols-[1.1fr_0.9fr]">
+    <section className="bg-hero relative overflow-hidden">
+      <div className="absolute inset-0" aria-hidden="true">
+        <Image
+          src="https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=1800&q=80"
+          alt=""
+          fill
+          sizes="100vw"
+          className="object-cover opacity-25"
+          priority
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-white/80 via-white/70 to-white" />
+      </div>
+      <div className="relative z-10 mx-auto grid max-w-6xl items-center gap-12 py-20 container-pad lg:grid-cols-[1.05fr_0.95fr]">
         <motion.div
           variants={staggerContainer}
           initial="hidden"
@@ -72,24 +84,14 @@ export function Hero() {
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
+          initial={{ opacity: 0, scale: 0.98 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.7, delay: 0.1 }}
           className="relative"
         >
-          <div className="absolute -left-8 -top-8 h-24 w-24 rounded-full bg-gold-500/20 blur-2xl" />
-          <motion.div className="glass-card relative overflow-hidden rounded-3xl p-3" initial="rest" whileHover="hover" animate="rest" variants={imageHover}>
-            <Image
-              src="https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=1200&q=80"
-              alt="Dubai skyline"
-              width={720}
-              height={840}
-              sizes="(max-width: 1024px) 100vw, 40vw"
-              className="h-full w-full rounded-2xl object-cover"
-              priority
-            />
-          </motion.div>
-          <div className="mt-6 rounded-2xl border border-slate-200 bg-white px-6 py-4 shadow-[0_18px_40px_rgba(15,23,42,0.08)] lg:absolute lg:-bottom-6 lg:left-8 lg:right-8 lg:mt-0">
+          <div className="absolute -right-6 -top-6 h-24 w-24 rounded-full bg-gold-500/20 blur-2xl" />
+          <LeadForm variant="hero" />
+          <div className="mt-4 rounded-2xl border border-slate-200 bg-white/90 px-6 py-4 text-sm text-slate-600 shadow-[0_18px_40px_rgba(15,23,42,0.08)]">
             <div className="text-xs uppercase tracking-[0.2em] text-slate-500">
               Average approval time
             </div>
