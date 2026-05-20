@@ -55,19 +55,27 @@ export function Navbar() {
       <div className="mx-auto max-w-6xl container-pad">
         <div className="hidden items-center justify-end gap-4 py-2 text-xs text-slate-600 lg:flex">
           <a
-            href="tel:+971551234567"
+            href="tel:+97142545150"
             className="inline-flex items-center gap-2 transition hover:text-slate-900"
           >
             <Phone className="h-3.5 w-3.5 text-gold-500" />
-            +971 55 123 4567
+            Landline: +971 4 254 5150
           </a>
           <span className="h-4 w-px bg-slate-200" aria-hidden="true" />
           <a
-            href="mailto:hello@alamalmortgage.ae"
+            href="tel:+971554701475"
+            className="inline-flex items-center gap-2 transition hover:text-slate-900"
+          >
+            <Phone className="h-3.5 w-3.5 text-gold-500" />
+            Mobile: +971 55 470 1475
+          </a>
+          <span className="h-4 w-px bg-slate-200" aria-hidden="true" />
+          <a
+            href="mailto:info@alamalmortgage.com"
             className="inline-flex items-center gap-2 transition hover:text-slate-900"
           >
             <Mail className="h-3.5 w-3.5 text-gold-500" />
-            hello@alamalmortgage.ae
+            info@alamalmortgage.com
           </a>
         </div>
         <div className="flex h-20 items-center gap-8">
@@ -172,18 +180,25 @@ export function Navbar() {
                 className="flex flex-col gap-2 text-sm text-slate-600"
               >
                 <a
-                  href="tel:+971551234567"
+                  href="tel:+97142545150"
                   className="inline-flex items-center gap-2 hover:text-slate-900"
                 >
                   <Phone className="h-4 w-4 text-gold-500" />
-                  +971 55 123 4567
+                  Landline: +971 4 254 5150
                 </a>
                 <a
-                  href="mailto:hello@alamalmortgage.ae"
+                  href="tel:+971554701475"
+                  className="inline-flex items-center gap-2 hover:text-slate-900"
+                >
+                  <Phone className="h-4 w-4 text-gold-500" />
+                  Mobile: +971 55 470 1475
+                </a>
+                <a
+                  href="mailto:info@alamalmortgage.com"
                   className="inline-flex items-center gap-2 hover:text-slate-900"
                 >
                   <Mail className="h-4 w-4 text-gold-500" />
-                  hello@alamalmortgage.ae
+                  info@alamalmortgage.com
                 </a>
               </motion.div>
               {navLinks.map((link) => (
