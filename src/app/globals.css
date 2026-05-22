@@ -1,6 +1,15 @@
 @import "tailwindcss";
 
 :root {
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-24: 96px;
   --ink-900: #f8fafc;
   --ink-850: #f1f5f9;
   --ink-800: #e2e8f0;
@@ -14,6 +23,12 @@
   --surface: #ffffff;
   --surface-2: #f1f5f9;
   --border: rgba(15, 23, 42, 0.08);
+  --container-max: 72rem;
+  --container-narrow: 56rem;
+  --radius-card: 24px;
+  --radius-soft: 16px;
+  --shadow-card: 0 18px 40px rgba(15, 23, 42, 0.08);
+  --shadow-card-hover: 0 24px 60px rgba(15, 23, 42, 0.12);
   --shadow-soft: 0 24px 60px rgba(15, 23, 42, 0.08);
 }
 
@@ -45,6 +60,7 @@
     background: var(--background);
     color: var(--foreground);
     font-family: var(--font-body), "Sora", sans-serif;
+    line-height: 1.6;
     min-height: 100vh;
   }
 
@@ -54,6 +70,8 @@
   h4 {
     font-family: var(--font-heading), "Playfair Display", serif;
     color: var(--foreground);
+    line-height: 1.15;
+    letter-spacing: -0.01em;
   }
 
   p {
@@ -67,16 +85,168 @@
 }
 
 @layer utilities {
+  .container-base {
+    max-width: var(--container-max);
+    margin-inline: auto;
+    width: 100%;
+    padding-inline: var(--space-6);
+  }
+
+  .container-narrow {
+    max-width: var(--container-narrow);
+    margin-inline: auto;
+    width: 100%;
+    padding-inline: var(--space-6);
+  }
+
+  @media (min-width: 640px) {
+    .container-base,
+    .container-narrow {
+      padding-inline: var(--space-8);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container-base,
+    .container-narrow {
+      padding-inline: var(--space-12);
+    }
+  }
+
   .section {
-    @apply py-16 sm:py-20 lg:py-24;
+    padding-block: var(--space-12);
+  }
+
+  .section-hero {
+    padding-block: var(--space-12);
   }
 
   .section-tight {
-    @apply py-12 sm:py-16;
+    padding-block: var(--space-8);
+  }
+
+  @media (min-width: 768px) {
+    .section,
+    .section-hero {
+      padding-block: var(--space-16);
+    }
+
+    .section-tight {
+      padding-block: var(--space-12);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .section,
+    .section-hero {
+      padding-block: var(--space-24);
+    }
+
+    .section-tight {
+      padding-block: var(--space-16);
+    }
+  }
+
+  .eyebrow {
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    color: var(--muted);
+  }
+
+  .heading-1 {
+    font-size: clamp(2.25rem, 2vw + 1.5rem, 3.25rem);
+    line-height: 1.08;
+  }
+
+  .heading-2 {
+    font-size: clamp(1.75rem, 1.2vw + 1.2rem, 2.5rem);
+    line-height: 1.15;
+  }
+
+  .heading-3 {
+    font-size: clamp(1.25rem, 0.6vw + 1rem, 1.75rem);
+    line-height: 1.2;
+  }
+
+  .text-lead {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: var(--muted);
+  }
+
+  .text-body {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--muted);
+  }
+
+  .text-caption {
+    font-size: 0.75rem;
+    color: var(--muted);
+  }
+
+  .card {
+    border-radius: var(--radius-card);
+    border: 1px solid var(--border);
+    background: var(--surface);
+    box-shadow: var(--shadow-card);
+  }
+
+  .card-soft {
+    border-radius: var(--radius-card);
+    border: 1px solid var(--border);
+    background: var(--surface-2);
+  }
+
+  .card-pad {
+    padding: var(--space-8);
+  }
+
+  .card-pad-md {
+    padding: var(--space-6);
+  }
+
+  .card-pad-sm {
+    padding: var(--space-4);
+  }
+
+  .shadow-card-hover {
+    box-shadow: var(--shadow-card-hover);
+  }
+
+  .field-select {
+    height: 2.75rem;
+    width: 100%;
+    border-radius: var(--radius-soft);
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    background: var(--surface);
+    padding-inline: var(--space-4);
+    font-size: 0.875rem;
+    color: #334155;
+    transition: 0.2s ease;
+  }
+
+  .field-select:focus-visible {
+    border-color: rgba(205, 169, 106, 0.6);
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(184, 137, 62, 0.12);
   }
 
   .container-pad {
-    @apply px-6 sm:px-8 lg:px-10;
+    padding-inline: var(--space-6);
+  }
+
+  @media (min-width: 640px) {
+    .container-pad {
+      padding-inline: var(--space-8);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container-pad {
+      padding-inline: var(--space-12);
+    }
   }
 
   .glass-card {
@@ -84,11 +254,13 @@
     border: 1px solid rgba(15, 23, 42, 0.08);
     box-shadow: var(--shadow-soft);
     backdrop-filter: blur(12px);
+    border-radius: var(--radius-card);
   }
 
   .surface-card {
     background: var(--surface);
     border: 1px solid rgba(15, 23, 42, 0.08);
+    border-radius: var(--radius-card);
   }
 
   .gold-divider {
