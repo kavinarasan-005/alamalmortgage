@@ -90,7 +90,7 @@ export function LeadForm({ variant = "section" }: LeadFormProps) {
           {submitted ? "Request received" : "Request consultation"}
         </Button>
       </motion.div>
-      <p className="text-xs text-slate-500">
+      <p className="text-xs text-muted">
         By submitting, you agree to receive communication from Al Amal
         Mortgage. We will never share your details.
       </p>
@@ -114,7 +114,7 @@ export function LeadForm({ variant = "section" }: LeadFormProps) {
           <p className="eyebrow">
             Free consultation
           </p>
-          <h3 className="heading-3 font-semibold text-slate-900">
+          <h3 className="heading-3 font-semibold text-foreground">
             Talk to a mortgage advisor today
           </h3>
           <p className="text-body">
@@ -159,7 +159,7 @@ export function LeadForm({ variant = "section" }: LeadFormProps) {
               </motion.p>
               <motion.div
                 variants={itemFadeUp}
-                className="card-soft card-pad-sm text-sm text-slate-700"
+                className="card-soft card-pad-sm text-sm text-foreground"
               >
                 <div className="flex items-center gap-3">
                   <PhoneCall className="h-4 w-4 text-gold-500" />

@@ -59,13 +59,13 @@ export function EligibilityCheckerClient() {
       <section className="section bg-ink-850">
         <div className="container-narrow">
           <div className="card card-pad">
-            <div className="flex items-center justify-between text-xs text-slate-500">
+            <div className="flex items-center justify-between text-xs text-muted">
               <span>
                 Step {step + 1} of {steps.length}
               </span>
               <span>{progress}% complete</span>
             </div>
-            <div className="mt-3 h-1 w-full rounded-full bg-slate-200">
+            <div className="mt-3 h-1 w-full rounded-full bg-surface-2">
               <motion.div
                 className="h-1 rounded-full bg-gold-500"
                 initial={false}
@@ -89,7 +89,7 @@ export function EligibilityCheckerClient() {
               >
                 {step === 0 && (
                   <div className="space-y-3">
-                    <h3 className="heading-3 font-semibold text-slate-900">
+                    <h3 className="heading-3 font-semibold text-foreground">
                       What is your nationality?
                     </h3>
                     <select
@@ -110,7 +110,7 @@ export function EligibilityCheckerClient() {
 
                 {step === 1 && (
                   <div className="space-y-3">
-                    <h3 className="heading-3 font-semibold text-slate-900">
+                    <h3 className="heading-3 font-semibold text-foreground">
                       Are you a UAE resident?
                     </h3>
                     <select
@@ -128,7 +128,7 @@ export function EligibilityCheckerClient() {
 
                 {step === 2 && (
                   <div className="space-y-3">
-                    <h3 className="heading-3 font-semibold text-slate-900">
+                    <h3 className="heading-3 font-semibold text-foreground">
                       What is your monthly salary (AED)?
                     </h3>
                     <Input
@@ -143,7 +143,7 @@ export function EligibilityCheckerClient() {
 
                 {step === 3 && (
                   <div className="space-y-3">
-                    <h3 className="heading-3 font-semibold text-slate-900">
+                    <h3 className="heading-3 font-semibold text-foreground">
                       Employment type
                     </h3>
                     <select
@@ -164,7 +164,7 @@ export function EligibilityCheckerClient() {
 
                 {step === 4 && (
                   <div className="space-y-3">
-                    <h3 className="heading-3 font-semibold text-slate-900">
+                    <h3 className="heading-3 font-semibold text-foreground">
                       Expected property value (AED)
                     </h3>
                     <Input
@@ -176,8 +176,8 @@ export function EligibilityCheckerClient() {
                       }
                       placeholder="e.g. 2200000"
                     />
-                    <div className="card-soft card-pad-sm text-sm text-slate-600">
-                      <p className="text-slate-900">Summary</p>
+                    <div className="card-soft card-pad-sm text-sm text-muted">
+                      <p className="font-semibold text-foreground">Summary</p>
                       <div className="mt-2 grid gap-1">
                         <span>Nationality: {form.nationality || "-"}</span>
                         <span>Residency: {form.residency || "-"}</span>

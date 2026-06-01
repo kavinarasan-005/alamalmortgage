@@ -6,7 +6,7 @@ import { navLinks } from "@/data/site";
 
 export function Footer() {
   return (
-    <footer className="border-t border-slate-200 bg-white">
+    <footer className="border-t border-border bg-surface">
       <div className="container-base grid gap-10 py-14 md:grid-cols-[1.4fr_1fr_1fr]">
         <div className="space-y-4">
           <div className="flex items-center gap-3">
@@ -15,22 +15,22 @@ export function Footer() {
               alt="Al Amal Mortgage"
               width={44}
               height={44}
-              className="h-11 w-11 rounded-full border border-slate-200 bg-white object-contain"
+              className="h-11 w-11 rounded-full border border-border bg-white object-contain"
             />
             <div>
-              <h3 className="text-lg font-semibold text-slate-900">
+              <h3 className="text-lg font-semibold text-foreground">
                 Al Amal Mortgage
               </h3>
-              <p className="text-xs uppercase tracking-[0.25em] text-slate-500">
+              <p className="text-xs uppercase tracking-[0.25em] text-muted">
                 Mortgage Consultant LLC
               </p>
             </div>
           </div>
-          <p className="text-sm text-slate-600">
+          <p className="text-sm text-muted">
             Premium UAE mortgage consultancy helping residents and investors
             secure approvals with clarity, speed, and confidence.
           </p>
-          <div className="flex flex-col gap-2 text-sm text-slate-600">
+          <div className="flex flex-col gap-2 text-sm text-muted">
             <span className="flex items-center gap-2">
               <Phone className="h-4 w-4 text-gold-500" /> Landline: +971 4 254
               5150
@@ -52,10 +52,10 @@ export function Footer() {
         </div>
 
         <div className="space-y-3">
-          <h4 className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">
+          <h4 className="text-sm font-semibold uppercase tracking-[0.2em] text-muted">
             Explore
           </h4>
-          <nav className="flex flex-col gap-2 text-sm text-slate-600">
+          <nav className="flex flex-col gap-2 text-sm text-muted">
             {navLinks.map((link) => (
               <Link key={link.href} href={link.href}>
                 {link.label}
@@ -65,17 +65,17 @@ export function Footer() {
         </div>
 
         <div className="space-y-3">
-          <h4 className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">
+          <h4 className="text-sm font-semibold uppercase tracking-[0.2em] text-muted">
             Compliance
           </h4>
-          <p className="text-sm text-slate-600">
+          <p className="text-sm text-muted">
             Al Amal Mortgage is a licensed mortgage consultancy in the UAE.
             All mortgage approvals are subject to bank underwriting and
             regulatory compliance.
           </p>
         </div>
       </div>
-      <div className="border-t border-slate-200 py-6 text-center text-xs text-slate-500">
+      <div className="border-t border-border py-6 text-center text-xs text-muted">
         2026 Al Amal Mortgage. All rights reserved.
       </div>
     </footer>

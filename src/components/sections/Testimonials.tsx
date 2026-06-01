@@ -98,7 +98,7 @@ export function Testimonials() {
 
         <Reveal>
           <div className="mt-10 card card-pad-md">
-            <div className="text-sm text-slate-600">
+            <div className="text-sm text-muted">
               Powered by Google Reviews
             </div>
             <div className="mt-6 w-full min-h-[400px]" ref={widgetRef}>

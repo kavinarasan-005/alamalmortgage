@@ -34,7 +34,7 @@ export default function ServicesPage() {
               >
                 <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
                   <div className="space-y-4">
-                    <h2 className="heading-3 font-semibold text-slate-900">
+                    <h2 className="heading-3 font-semibold text-foreground">
                       {service.title}
                     </h2>
                     <p className="text-body">{service.summary}</p>
@@ -52,7 +52,7 @@ export default function ServicesPage() {
                     <p className="eyebrow">
                       Benefits
                     </p>
-                    <ul className="list-disc space-y-2 pl-4 text-sm text-slate-600">
+                    <ul className="list-disc space-y-2 pl-4 text-sm text-muted marker:text-gold-500">
                       {service.benefits.map((benefit) => (
                         <li key={benefit}>{benefit}</li>
                       ))}
@@ -62,7 +62,7 @@ export default function ServicesPage() {
                     <p className="eyebrow">
                       Eligibility
                     </p>
-                    <ul className="list-disc space-y-2 pl-4 text-sm text-slate-600">
+                    <ul className="list-disc space-y-2 pl-4 text-sm text-muted marker:text-gold-500">
                       {service.eligibility.map((item) => (
                         <li key={item}>{item}</li>
                       ))}
@@ -72,7 +72,7 @@ export default function ServicesPage() {
                     <p className="eyebrow">
                       Process
                     </p>
-                    <ul className="list-disc space-y-2 pl-4 text-sm text-slate-600">
+                    <ul className="list-disc space-y-2 pl-4 text-sm text-muted marker:text-gold-500">
                       {service.process.map((item) => (
                         <li key={item}>{item}</li>
                       ))}

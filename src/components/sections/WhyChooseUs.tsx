@@ -47,10 +47,10 @@ export function WhyChooseUs() {
                         <Icon className="h-5 w-5" />
                       </div>
                       <div>
-                        <h3 className="text-lg font-semibold text-slate-900">
+                        <h3 className="text-lg font-semibold text-foreground">
                           {signal.title}
                         </h3>
-                        <p className="text-sm text-slate-600">
+                        <p className="text-sm text-muted">
                           {signal.description}
                         </p>
                       </div>

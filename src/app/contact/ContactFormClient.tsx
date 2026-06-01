@@ -18,7 +18,7 @@ export function ContactFormClient() {
 
   return (
     <div className="card card-pad">
-      <h3 className="heading-3 font-semibold text-slate-900">
+      <h3 className="heading-3 font-semibold text-foreground">
         Request a consultation
       </h3>
       <p className="mt-3 text-body">
@@ -80,7 +80,7 @@ export function ContactFormClient() {
             {submitted ? "Request received" : "Send inquiry"}
           </Button>
         </motion.div>
-        <p className="text-xs text-slate-500">
+        <p className="text-xs text-muted">
           By submitting, you consent to receive communication about your
           mortgage inquiry.
         </p>

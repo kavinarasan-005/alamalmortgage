@@ -27,10 +27,10 @@ export default function ContactPage() {
         <div className="container-base grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
           <div className="space-y-6">
             <div className="card card-pad-md">
-              <h3 className="heading-3 font-semibold text-slate-900">
+              <h3 className="heading-3 font-semibold text-foreground">
                 Contact details
               </h3>
-              <div className="mt-4 space-y-3 text-sm text-slate-600">
+              <div className="mt-4 space-y-3 text-sm text-muted">
                 <div className="flex items-center gap-2">
                   <Phone className="h-4 w-4 text-gold-500" /> Landline: +971 4
                   254 5150
@@ -51,7 +51,7 @@ export default function ContactPage() {
               </div>
               <Link
                 href="https://wa.me/971554701475"
-                className="mt-6 inline-flex items-center gap-2 rounded-full border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-700 transition hover:border-slate-400 hover:text-slate-900"
+                className="mt-6 inline-flex items-center gap-2 rounded-full border border-border-strong px-4 py-2 text-sm font-semibold text-foreground transition hover:border-gold-500/50 hover:bg-gold-500/10"
                 target="_blank"
                 rel="noreferrer noopener"
               >
@@ -60,7 +60,7 @@ export default function ContactPage() {
             </div>
 
             <div className="card card-pad-md">
-              <h3 className="heading-3 font-semibold text-slate-900">
+              <h3 className="heading-3 font-semibold text-foreground">
                 Office hours
               </h3>
               <p className="mt-3 text-body">
@@ -68,7 +68,7 @@ export default function ContactPage() {
               </p>
             </div>
 
-            <div className="overflow-hidden rounded-3xl border border-slate-200">
+            <div className="overflow-hidden rounded-3xl border border-border">
               <iframe
                 title="Dubai office map"
                 src="https://maps.google.com/maps?q=Sultan%20Business%20Center%20Oud%20Metha%20Dubai&t=&z=13&ie=UTF8&iwloc=&output=embed"

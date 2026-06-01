@@ -21,7 +21,7 @@ export function Partners() {
               Trusted partner network
             </motion.p>
             <motion.p
-              className="heading-2 font-semibold text-slate-900"
+              className="heading-2 font-semibold text-foreground"
               variants={itemFadeUp}
             >
               Partner with over 20+ banks in the UAE

@@ -111,28 +111,28 @@ export function CalculatorClient() {
               <p className="eyebrow">
                 Your estimate
               </p>
-              <div className="mt-4 text-3xl font-semibold text-slate-900">
+              <div className="mt-4 text-3xl font-semibold text-foreground">
                 {formatAED(monthlyPayment)}
               </div>
               <p className="mt-2 text-body">
                 Estimated monthly payment
               </p>
-              <div className="mt-6 grid gap-4 text-sm text-slate-600">
+              <div className="mt-6 grid gap-4 text-sm text-muted">
                 <div className="flex items-center justify-between">
                   <span>Loan amount</span>
-                  <span className="text-slate-900">
+                  <span className="font-medium text-foreground">
                     {formatAED(loanAmount)}
                   </span>
                 </div>
                 <div className="flex items-center justify-between">
                   <span>Total interest</span>
-                  <span className="text-slate-900">
+                  <span className="font-medium text-foreground">
                     {formatAED(totalInterest)}
                   </span>
                 </div>
                 <div className="flex items-center justify-between">
                   <span>Total payable</span>
-                  <span className="text-slate-900">
+                  <span className="font-medium text-foreground">
                     {formatAED(totalPayable)}
                   </span>
                 </div>
@@ -140,7 +140,7 @@ export function CalculatorClient() {
             </div>
 
             <div className="card card-pad">
-              <h3 className="heading-3 font-semibold text-slate-900">
+              <h3 className="heading-3 font-semibold text-foreground">
                 Ready for a precise quote?
               </h3>
               <p className="mt-3 text-body">

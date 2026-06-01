@@ -39,10 +39,10 @@ export function ProcessSteps() {
                   <div className="eyebrow">
                     Step {index + 1}
                   </div>
-                  <h3 className="mt-3 heading-3 font-semibold text-slate-900">
+                  <h3 className="mt-3 heading-3 font-semibold text-foreground">
                     {step.title}
                   </h3>
-                  <p className="mt-2 text-sm text-slate-600">{step.description}</p>
+                  <p className="mt-2 text-sm text-muted">{step.description}</p>
                 </motion.div>
               ))}
             </div>

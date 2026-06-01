@@ -28,7 +28,7 @@ export function ServicesGrid() {
             </div>
             <Link
               href="/services"
-              className="hidden text-sm font-semibold text-slate-600 transition hover:text-slate-900 lg:inline-flex"
+              className="hidden text-sm font-semibold text-muted transition hover:text-foreground lg:inline-flex"
             >
               View all services
             </Link>
@@ -50,7 +50,7 @@ export function ServicesGrid() {
                   <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gold-500/10 text-gold-500">
                     <Icon className="h-6 w-6" />
                   </div>
-                  <h3 className="mt-6 heading-3 font-semibold text-slate-900">
+                  <h3 className="mt-6 heading-3 font-semibold text-foreground">
                     {service.title}
                   </h3>
                   <p className="mt-3 text-body">
@@ -58,7 +58,7 @@ export function ServicesGrid() {
                   </p>
                   <Link
                     href="/services"
-                    className="mt-6 inline-flex text-sm font-semibold text-slate-700 transition duration-200 hover:translate-x-1"
+                    className="mt-6 inline-flex text-sm font-semibold text-gold-500 transition duration-200 hover:translate-x-1"
                   >
                     Explore details
                   </Link>

@@ -10,16 +10,16 @@ export default function Error({
   unstable_retry: () => void;
 }) {
   return (
-    <div className="flex min-h-[60vh] items-center justify-center bg-white">
+    <div className="flex min-h-[60vh] items-center justify-center bg-background">
       <div className="card card-pad max-w-md space-y-4 text-center">
-        <h2 className="heading-3 font-semibold text-slate-900">
+        <h2 className="heading-3 font-semibold text-foreground">
           Something went wrong
         </h2>
         <p className="text-body">
           Please refresh or try again. If the issue persists, contact our team.
         </p>
         <Button onClick={() => unstable_retry()}>Try again</Button>
-        <p className="text-xs text-slate-500">
+        <p className="text-xs text-muted">
           Error reference: {error.digest ?? "N/A"}
         </p>
       </div>

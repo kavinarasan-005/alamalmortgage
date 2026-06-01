@@ -23,11 +23,11 @@ export function RateCards() {
                 <p className="eyebrow">
                   Live mortgage rates
                 </p>
-                <h2 className="mt-4 heading-2 font-semibold text-slate-900">
+                <h2 className="mt-4 heading-2 font-semibold text-foreground">
                   Today&apos;s indicative rates
                 </h2>
               </div>
-              <span className="text-xs text-slate-500">
+              <span className="text-xs text-muted">
                 Updated daily. Final rates depend on profile.
               </span>
             </motion.div>
@@ -41,11 +41,11 @@ export function RateCards() {
                   animate="rest"
                   className="card card-pad-md transition-shadow duration-200 hover:shadow-card-hover"
                 >
-                  <div className="text-sm text-slate-500">{rate.title}</div>
+                  <div className="text-sm text-muted">{rate.title}</div>
                   <div className="mt-3 text-3xl font-semibold text-gold-500">
                     {rate.rate}
                   </div>
-                  <div className="mt-2 text-xs text-slate-500">{rate.detail}</div>
+                  <div className="mt-2 text-xs text-muted">{rate.detail}</div>
                 </motion.div>
               ))}
             </div>

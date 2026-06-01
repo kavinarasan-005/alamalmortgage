@@ -20,10 +20,10 @@ export function Hero() {
           alt=""
           fill
           sizes="100vw"
-          className="object-cover opacity-25"
+          className="object-cover opacity-25 dark:opacity-15"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-white/80 via-white/70 to-white" />
+        <div className="hero-overlay absolute inset-0" />
       </div>
       <div className="relative z-10 container-base grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr]">
         <motion.div
@@ -75,7 +75,7 @@ export function Hero() {
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.15 + index * 0.05, duration: 0.35 }}
-                className="card-soft card-pad-sm text-sm text-slate-600"
+                className="card-soft card-pad-sm text-sm text-muted"
               >
                 {item}
               </motion.div>
@@ -91,14 +91,14 @@ export function Hero() {
         >
           <div className="absolute -right-6 -top-6 h-24 w-24 rounded-full bg-gold-500/20 blur-2xl" />
           <LeadForm variant="hero" />
-          <div className="mt-4 card card-pad-sm bg-white/90 text-sm text-slate-600">
-            <div className="text-xs uppercase tracking-[0.2em] text-slate-500">
+          <div className="mt-4 card card-pad-sm text-sm text-muted">
+            <div className="text-xs uppercase tracking-[0.2em] text-muted">
               Average approval time
             </div>
-            <div className="mt-2 text-2xl font-semibold text-slate-900">
+            <div className="mt-2 text-2xl font-semibold text-foreground">
               24-48 Hours
             </div>
-            <div className="text-sm text-slate-600">
+            <div className="text-sm text-muted">
               With complete documentation and bank-ready packaging.
             </div>
           </div>

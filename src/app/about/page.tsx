@@ -70,10 +70,10 @@ export default function AboutPage() {
                   key={stat.label}
                   className="card card-pad-md transition-shadow duration-200 hover:shadow-card-hover"
                 >
-                  <div className="text-2xl font-semibold text-slate-900">
+                  <div className="text-2xl font-semibold text-foreground">
                     {stat.value}
                   </div>
-                  <div className="text-sm text-slate-600">{stat.label}</div>
+                  <div className="text-sm text-muted">{stat.label}</div>
                 </div>
               ))}
             </div>
@@ -100,10 +100,10 @@ export default function AboutPage() {
                   key={member.name}
                   className="card card-pad-md transition-shadow duration-200 hover:shadow-card-hover"
                 >
-                  <h3 className="heading-3 font-semibold text-slate-900">
+                  <h3 className="heading-3 font-semibold text-foreground">
                     {member.name}
                   </h3>
-                  <p className="text-sm text-slate-500">{member.role}</p>
+                  <p className="text-sm text-gold-500">{member.role}</p>
                   <p className="mt-3 text-body">{member.bio}</p>
                 </div>
               ))}
@@ -134,7 +134,7 @@ export default function AboutPage() {
                     key={value.title}
                     className="card card-pad-md transition-shadow duration-200 hover:shadow-card-hover"
                   >
-                    <h3 className="heading-3 font-semibold text-slate-900">
+                    <h3 className="heading-3 font-semibold text-foreground">
                       {value.title}
                     </h3>
                     <p className="text-body">{value.description}</p>

@@ -88,16 +88,16 @@ export function CalculatorPreview() {
                 />
               </label>
               <div className="card-soft card-pad-sm">
-                <div className="text-xs uppercase tracking-[0.2em] text-slate-500">
+                <div className="text-xs uppercase tracking-[0.2em] text-muted">
                   Estimated monthly
                 </div>
-                <div className="mt-2 text-2xl font-semibold text-slate-900">
+                <div className="mt-2 text-2xl font-semibold text-foreground">
                   {formatAED(monthly)}
                 </div>
-                <div className="text-xs text-slate-500">25-year term</div>
+                <div className="text-xs text-muted">25-year term</div>
               </div>
             </div>
-            <div className="mt-6 text-xs text-slate-500">
+            <div className="mt-6 text-xs text-muted">
               Estimates only. Final terms depend on bank approval.
             </div>
           </motion.div>

@@ -41,10 +41,10 @@ export function FaqAccordion() {
                   className="transition-shadow duration-200 hover:shadow-card-hover"
                 >
                   <details className="card card-pad-md">
-                    <summary className="cursor-pointer text-sm font-semibold text-slate-900">
+                    <summary className="cursor-pointer text-sm font-semibold text-foreground">
                       {faq.question}
                     </summary>
-                    <p className="mt-3 text-sm text-slate-600">{faq.answer}</p>
+                    <p className="mt-3 text-sm text-muted">{faq.answer}</p>
                   </details>
                 </motion.div>
               ))}
