@@ -31,16 +31,10 @@ export function Navbar() {
   });
 
   useEffect(() => {
-    if (!open) {
-      return;
-    }
-
-    const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
-        setOpen(false);
-      }
+    if (!open) return;
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpen(false);
     };
-
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [open]);
@@ -52,67 +46,74 @@ export function Navbar() {
     <motion.header
       className={cn(
         "sticky top-0 z-50 w-full border-b border-border bg-[var(--header-bg)] backdrop-blur-md transition-shadow duration-300",
-        scrolled
-          ? "shadow-[0_10px_30px_rgba(15,23,42,0.10)]"
-          : "shadow-none"
+        scrolled ? "shadow-[0_8px_24px_rgba(15,23,42,0.10)]" : "shadow-none"
       )}
       initial={shouldReduceMotion ? false : { y: -24, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
     >
-      <div className="hidden border-b border-border/70 xl:block">
-        <div className="container-base flex items-center justify-end gap-5 py-2 text-xs text-muted">
+      {/* ── Top contact bar – visible from lg ── */}
+      <div className="hidden border-b border-border/60 lg:block">
+        <div className="container-base flex items-center justify-end gap-4 py-1.5">
           <a
             href="tel:+97142545150"
-            className="inline-flex items-center gap-2 transition-colors hover:text-foreground"
+            className="inline-flex items-center gap-1.5 text-[11px] text-muted transition-colors hover:text-foreground"
           >
-            <Phone className="h-3.5 w-3.5 text-gold-500" />
+            <Phone className="h-3 w-3 text-gold-500" />
+            {/* Number only at lg; label appears at xl */}
+            <span className="hidden xl:inline">Landline: </span>
             +971 4 254 5150
           </a>
-          <span className="h-4 w-px bg-border" aria-hidden />
+          <span className="h-3.5 w-px bg-border" aria-hidden />
           <a
             href="tel:+971554701475"
-            className="inline-flex items-center gap-2 transition-colors hover:text-foreground"
+            className="inline-flex items-center gap-1.5 text-[11px] text-muted transition-colors hover:text-foreground"
           >
-            <Phone className="h-3.5 w-3.5 text-gold-500" />
+            <Phone className="h-3 w-3 text-gold-500" />
+            <span className="hidden xl:inline">Mobile: </span>
             +971 55 470 1475
           </a>
-          <span className="h-4 w-px bg-border" aria-hidden />
+          <span className="h-3.5 w-px bg-border" aria-hidden />
           <a
             href="mailto:info@alamalmortgage.com"
-            className="inline-flex items-center gap-2 transition-colors hover:text-foreground"
+            className="inline-flex items-center gap-1.5 text-[11px] text-muted transition-colors hover:text-foreground"
           >
-            <Mail className="h-3.5 w-3.5 text-gold-500" />
-            info@alamalmortgage.com
+            <Mail className="h-3 w-3 text-gold-500" />
+            <span className="hidden xl:inline">info@alamalmortgage.com</span>
+            <span className="xl:hidden">Email us</span>
           </a>
         </div>
       </div>
 
+      {/* ── Main nav row ── */}
       <div className="container-base">
-        <div className="flex h-18 items-center justify-between gap-4 py-3 lg:h-20">
+        <div className="flex h-16 items-center justify-between gap-3 lg:h-[68px]">
+
+          {/* Logo */}
           <Link
             href="/"
-            className="flex shrink-0 items-center gap-3 whitespace-nowrap transition-opacity hover:opacity-90"
+            className="flex shrink-0 items-center gap-2.5 whitespace-nowrap transition-opacity hover:opacity-90"
           >
             <Image
               src="/brand/al-amal-logo.png"
               alt="Al Amal Mortgage"
-              width={48}
-              height={48}
+              width={44}
+              height={44}
               priority
-              className="h-11 w-11 rounded-full border border-border bg-white object-contain"
+              className="h-10 w-10 rounded-full border border-border bg-white object-contain"
             />
             <span className="flex flex-col">
-              <span className="text-[17px] font-semibold leading-[1.1] text-foreground">
+              <span className="text-[15px] font-semibold leading-[1.15] tracking-[-0.01em] text-foreground">
                 Al Amal Mortgage
               </span>
-              <span className="text-[10px] uppercase tracking-[0.24em] leading-[1.4] text-muted">
+              <span className="text-[9.5px] uppercase tracking-[0.22em] leading-[1.4] text-muted">
                 UAE Mortgage Advisory
               </span>
             </span>
           </Link>
 
-          <nav className="hidden items-center gap-1 xl:flex">
+          {/* Desktop nav links – visible from lg (1024 px) */}
+          <nav className="hidden min-w-0 flex-1 items-center justify-center gap-0.5 lg:flex">
             {navLinks.map((link) => {
               const active = isActive(link.href);
               return (
@@ -121,7 +122,7 @@ export function Navbar() {
                   href={link.href}
                   aria-current={active ? "page" : undefined}
                   className={cn(
-                    "relative rounded-full px-4 py-2 text-sm font-medium transition-colors duration-200 whitespace-nowrap",
+                    "relative rounded-full px-3 py-1.5 text-[13px] font-medium whitespace-nowrap transition-colors duration-200",
                     active
                       ? "text-foreground"
                       : "text-muted hover:text-foreground"
@@ -131,7 +132,7 @@ export function Navbar() {
                   {active && (
                     <motion.span
                       layoutId="nav-active"
-                      className="absolute inset-x-3 -bottom-0.5 h-0.5 rounded-full bg-gold-500"
+                      className="absolute inset-x-2 -bottom-0.5 h-0.5 rounded-full bg-gold-500"
                       transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
                     />
                   )}
@@ -140,29 +141,34 @@ export function Navbar() {
             })}
           </nav>
 
-          <div className="hidden shrink-0 items-center gap-3 xl:flex">
+          {/* Desktop CTAs – visible from lg */}
+          <div className="hidden shrink-0 items-center gap-2 lg:flex">
             <ThemeToggle />
+            <span className="h-6 w-px bg-border" aria-hidden />
             <Link
               href="/eligibility-checker"
               className={cn(
                 buttonVariants({ variant: "outline", size: "sm" }),
-                "h-10 leading-none transition-transform duration-200 hover:-translate-y-0.5 active:translate-y-0"
+                "h-9 px-3 text-[13px] leading-none transition-transform duration-200 hover:-translate-y-0.5 active:translate-y-0 xl:px-4"
               )}
             >
-              Get Pre-Qualified
+              <span className="hidden xl:inline">Get Pre-Qualified</span>
+              <span className="xl:hidden">Pre-Qualify</span>
             </Link>
             <Link
               href="/contact"
               className={cn(
                 buttonVariants({ variant: "primary", size: "sm" }),
-                "h-10 leading-none transition-transform duration-200 hover:-translate-y-0.5 active:translate-y-0"
+                "h-9 px-3 text-[13px] leading-none transition-transform duration-200 hover:-translate-y-0.5 active:translate-y-0 xl:px-4"
               )}
             >
-              Book Consultation
+              <span className="hidden xl:inline">Book Consultation</span>
+              <span className="xl:hidden">Book Now</span>
             </Link>
           </div>
 
-          <div className="flex shrink-0 items-center gap-2 xl:hidden">
+          {/* Mobile toggle – hidden from lg */}
+          <div className="flex shrink-0 items-center gap-1.5 lg:hidden">
             <ThemeToggle />
             <Button
               variant="ghost"
@@ -179,11 +185,12 @@ export function Navbar() {
         </div>
       </div>
 
+      {/* ── Mobile drawer – hidden from lg ── */}
       <AnimatePresence>
         {open && (
           <motion.div
             id="mobile-nav"
-            className="overflow-hidden border-t border-border bg-[var(--header-bg)] backdrop-blur-md xl:hidden"
+            className="overflow-hidden border-t border-border bg-[var(--header-bg)] backdrop-blur-md lg:hidden"
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
