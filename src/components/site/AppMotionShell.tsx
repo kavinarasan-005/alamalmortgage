@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect } from "react";
 import { MotionConfig, motion, useReducedMotion } from "framer-motion";
 import { usePathname } from "next/navigation";
 import type { PropsWithChildren } from "react";
@@ -25,6 +26,13 @@ export function MotionProvider({ children }: PropsWithChildren) {
 export function PageTransition({ children }: PropsWithChildren) {
   const pathname = usePathname();
   const shouldReduceMotion = useReducedMotion();
+
+  // Instantly reset scroll position to the very top whenever the route changes.
+  // `behavior: "instant"` avoids the half-way-up artifact caused by smooth
+  // scroll being applied before the new page has fully mounted.
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+  }, [pathname]);
 
   return (
     <motion.div
