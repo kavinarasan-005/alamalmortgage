@@ -20,7 +20,7 @@ export function Hero() {
           alt=""
           fill
           sizes="100vw"
-          className="object-cover opacity-25 dark:opacity-15"
+          className="object-cover opacity-35 dark:opacity-20"
           priority
         />
         <div className="hero-overlay absolute inset-0" />

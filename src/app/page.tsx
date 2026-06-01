@@ -4,6 +4,7 @@ import { Hero } from "@/components/sections/Hero";
 import { Stats } from "@/components/sections/Stats";
 import { Partners } from "@/components/sections/Partners";
 import { ServicesGrid } from "@/components/sections/ServicesGrid";
+import { DubaiBanner } from "@/components/sections/DubaiBanner";
 import { CalculatorPreview } from "@/components/sections/CalculatorPreview";
 import { RateCards } from "@/components/sections/RateCards";
 import { WhyChooseUs } from "@/components/sections/WhyChooseUs";
@@ -27,6 +28,7 @@ export default function Home() {
       <Stats />
       <Partners />
       <ServicesGrid />
+      <DubaiBanner />
       <CalculatorPreview />
       <RateCards />
       <WhyChooseUs />
