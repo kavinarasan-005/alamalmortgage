@@ -227,7 +227,43 @@
     transition: 0.2s ease;
   }
 
+  .field-input {
+    height: 2.75rem;
+    width: 100%;
+    border-radius: var(--radius-soft);
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    background: var(--surface);
+    padding-inline: var(--space-4);
+    font-size: 0.875rem;
+    color: #334155;
+    transition: 0.2s ease;
+  }
+
+  .field-textarea {
+    min-height: 120px;
+    width: 100%;
+    border-radius: var(--radius-soft);
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    background: var(--surface);
+    padding: var(--space-3) var(--space-4);
+    font-size: 0.875rem;
+    color: #334155;
+    transition: 0.2s ease;
+  }
+
   .field-select:focus-visible {
+    border-color: rgba(205, 169, 106, 0.6);
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(184, 137, 62, 0.12);
+  }
+
+  .field-input::placeholder,
+  .field-textarea::placeholder {
+    color: #94a3b8;
+  }
+
+  .field-input:focus-visible,
+  .field-textarea:focus-visible {
     border-color: rgba(205, 169, 106, 0.6);
     outline: none;
     box-shadow: 0 0 0 4px rgba(184, 137, 62, 0.12);

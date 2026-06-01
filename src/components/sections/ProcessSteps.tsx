@@ -9,7 +9,7 @@ import { cardHover, itemFadeUp, staggerContainer } from "@/lib/motion";
 export function ProcessSteps() {
   return (
     <section className="section bg-ink-850">
-      <div className="mx-auto max-w-6xl container-pad">
+      <div className="container-base">
         <Reveal>
           <motion.div
             className="flex flex-col gap-6"
@@ -19,10 +19,10 @@ export function ProcessSteps() {
             viewport={{ once: true, amount: 0.2 }}
           >
             <motion.div variants={itemFadeUp}>
-              <p className="text-xs uppercase tracking-[0.3em] text-slate-500">
+              <p className="eyebrow">
                 Our process
               </p>
-              <h2 className="mt-4 text-3xl font-semibold sm:text-4xl">
+              <h2 className="mt-4 heading-2 font-semibold">
                 A simple 4-step process
               </h2>
             </motion.div>
@@ -34,12 +34,12 @@ export function ProcessSteps() {
                   whileHover={cardHover.hover}
                   initial="rest"
                   animate="rest"
-                  className="rounded-2xl border border-slate-200 bg-white p-6 transition-shadow duration-200 hover:shadow-[0_20px_50px_rgba(15,23,42,0.12)]"
+                  className="card card-pad-md transition-shadow duration-200 hover:shadow-card-hover"
                 >
-                  <div className="text-xs uppercase tracking-[0.3em] text-slate-500">
+                  <div className="eyebrow">
                     Step {index + 1}
                   </div>
-                  <h3 className="mt-3 text-xl font-semibold text-slate-900">
+                  <h3 className="mt-3 heading-3 font-semibold text-slate-900">
                     {step.title}
                   </h3>
                   <p className="mt-2 text-sm text-slate-600">{step.description}</p>

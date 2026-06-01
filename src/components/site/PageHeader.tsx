@@ -8,14 +8,14 @@ interface PageHeaderProps {
 
 export function PageHeader({ eyebrow, title, description }: PageHeaderProps) {
   return (
-    <section className="bg-hero">
-      <div className="mx-auto max-w-6xl py-16 container-pad">
+    <section className="section-hero bg-hero">
+      <div className="container-base">
         {eyebrow ? <Badge variant="gold">{eyebrow}</Badge> : null}
         <div className="mt-6 max-w-3xl space-y-4">
-          <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl">
+          <h1 className="heading-1 font-semibold tracking-tight">
             {title}
           </h1>
-          <p className="text-lg text-muted">{description}</p>
+          <p className="text-lead">{description}</p>
         </div>
       </div>
     </section>

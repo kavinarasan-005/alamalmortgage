@@ -8,10 +8,10 @@ import { cardHover, itemFadeUp, staggerContainer } from "@/lib/motion";
 export function Stats() {
   return (
     <section className="section bg-ink-850">
-      <div className="mx-auto max-w-6xl container-pad">
+      <div className="container-base">
         <Reveal>
           <motion.div
-            className="grid gap-6 rounded-3xl border border-slate-200 bg-white p-8 sm:grid-cols-2 md:grid-cols-4"
+            className="card card-pad grid gap-6 sm:grid-cols-2 md:grid-cols-4"
             variants={staggerContainer}
             initial="hidden"
             whileInView="show"

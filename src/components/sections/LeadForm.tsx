@@ -67,7 +67,7 @@ export function LeadForm({ variant = "section" }: LeadFormProps) {
         aria-label="Mortgage type"
         name="mortgageType"
         required
-        className="h-11 w-full rounded-xl border border-slate-200 bg-white px-4 text-sm text-slate-700 transition duration-200 focus-visible:border-gold-400/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-500/30 focus-visible:shadow-[0_0_0_4px_rgba(184,137,62,0.12)]"
+        className="field-select"
         defaultValue=""
       >
         <option value="" disabled>
@@ -105,19 +105,19 @@ export function LeadForm({ variant = "section" }: LeadFormProps) {
   if (isHero) {
     return (
       <motion.div
-        className="rounded-3xl border border-slate-200 bg-white p-6 shadow-[0_18px_40px_rgba(15,23,42,0.08)]"
+        className="card card-pad-md"
         whileHover={cardHover.hover}
         initial="rest"
         animate="rest"
       >
         <div className="space-y-2 pb-4">
-          <p className="text-xs uppercase tracking-[0.3em] text-slate-500">
+          <p className="eyebrow">
             Free consultation
           </p>
-          <h3 className="text-2xl font-semibold text-slate-900">
+          <h3 className="heading-3 font-semibold text-slate-900">
             Talk to a mortgage advisor today
           </h3>
-          <p className="text-sm text-slate-600">
+          <p className="text-body">
             Share your details and we will respond within 30 minutes during
             working hours.
           </p>
@@ -129,10 +129,10 @@ export function LeadForm({ variant = "section" }: LeadFormProps) {
 
   return (
     <section className="section bg-ink-850">
-      <div className="mx-auto max-w-6xl container-pad">
+      <div className="container-base">
         <Reveal>
           <motion.div
-            className="grid gap-10 rounded-3xl border border-slate-200 bg-white p-8 shadow-[0_18px_40px_rgba(15,23,42,0.08)] lg:grid-cols-[1.1fr_0.9fr]"
+            className="card card-pad grid gap-10 lg:grid-cols-[1.1fr_0.9fr]"
             whileHover={cardHover.hover}
             initial="rest"
             animate="rest"
@@ -144,22 +144,22 @@ export function LeadForm({ variant = "section" }: LeadFormProps) {
               whileInView="show"
               viewport={{ once: true, amount: 0.2 }}
             >
-              <p className="text-xs uppercase tracking-[0.3em] text-slate-500">
+              <p className="eyebrow">
                 Free consultation
               </p>
               <motion.h2
                 variants={itemFadeUp}
-                className="text-3xl font-semibold sm:text-4xl"
+                className="heading-2 font-semibold"
               >
                 Talk to a mortgage advisor today
               </motion.h2>
-              <motion.p variants={itemFadeUp} className="text-slate-600">
+              <motion.p variants={itemFadeUp} className="text-body">
                 We respond within 30 minutes during working hours with your
                 eligibility review and the next steps.
               </motion.p>
               <motion.div
                 variants={itemFadeUp}
-                className="rounded-2xl border border-slate-200 bg-slate-50 px-6 py-5 text-sm text-slate-700"
+                className="card-soft card-pad-sm text-sm text-slate-700"
               >
                 <div className="flex items-center gap-3">
                   <PhoneCall className="h-4 w-4 text-gold-500" />

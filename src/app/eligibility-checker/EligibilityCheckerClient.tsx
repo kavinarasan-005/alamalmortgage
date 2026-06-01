@@ -57,8 +57,8 @@ export function EligibilityCheckerClient() {
       />
 
       <section className="section bg-ink-850">
-        <div className="mx-auto max-w-4xl container-pad">
-          <div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-[0_18px_40px_rgba(15,23,42,0.08)]">
+        <div className="container-narrow">
+          <div className="card card-pad">
             <div className="flex items-center justify-between text-xs text-slate-500">
               <span>
                 Step {step + 1} of {steps.length}
@@ -89,7 +89,7 @@ export function EligibilityCheckerClient() {
               >
                 {step === 0 && (
                   <div className="space-y-3">
-                    <h3 className="text-xl font-semibold text-slate-900">
+                    <h3 className="heading-3 font-semibold text-slate-900">
                       What is your nationality?
                     </h3>
                     <select
@@ -98,7 +98,7 @@ export function EligibilityCheckerClient() {
                       onChange={(event) =>
                         update("nationality", event.target.value)
                       }
-                      className="h-11 w-full rounded-xl border border-slate-200 bg-white px-4 text-sm text-slate-700 transition duration-200 focus-visible:border-gold-400/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-500/30 focus-visible:shadow-[0_0_0_4px_rgba(184,137,62,0.12)]"
+                      className="field-select"
                     >
                       <option value="">Select nationality</option>
                       <option value="UAE">UAE</option>
@@ -110,14 +110,14 @@ export function EligibilityCheckerClient() {
 
                 {step === 1 && (
                   <div className="space-y-3">
-                    <h3 className="text-xl font-semibold text-slate-900">
+                    <h3 className="heading-3 font-semibold text-slate-900">
                       Are you a UAE resident?
                     </h3>
                     <select
                       aria-label="Residency"
                       value={form.residency}
                       onChange={(event) => update("residency", event.target.value)}
-                      className="h-11 w-full rounded-xl border border-slate-200 bg-white px-4 text-sm text-slate-700 transition duration-200 focus-visible:border-gold-400/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-500/30 focus-visible:shadow-[0_0_0_4px_rgba(184,137,62,0.12)]"
+                      className="field-select"
                     >
                       <option value="">Select status</option>
                       <option value="Resident">Resident</option>
@@ -128,7 +128,7 @@ export function EligibilityCheckerClient() {
 
                 {step === 2 && (
                   <div className="space-y-3">
-                    <h3 className="text-xl font-semibold text-slate-900">
+                    <h3 className="heading-3 font-semibold text-slate-900">
                       What is your monthly salary (AED)?
                     </h3>
                     <Input
@@ -143,7 +143,7 @@ export function EligibilityCheckerClient() {
 
                 {step === 3 && (
                   <div className="space-y-3">
-                    <h3 className="text-xl font-semibold text-slate-900">
+                    <h3 className="heading-3 font-semibold text-slate-900">
                       Employment type
                     </h3>
                     <select
@@ -152,7 +152,7 @@ export function EligibilityCheckerClient() {
                       onChange={(event) =>
                         update("employment", event.target.value)
                       }
-                      className="h-11 w-full rounded-xl border border-slate-200 bg-white px-4 text-sm text-slate-700 transition duration-200 focus-visible:border-gold-400/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-500/30 focus-visible:shadow-[0_0_0_4px_rgba(184,137,62,0.12)]"
+                      className="field-select"
                     >
                       <option value="">Select employment</option>
                       <option value="Salaried">Salaried</option>
@@ -164,7 +164,7 @@ export function EligibilityCheckerClient() {
 
                 {step === 4 && (
                   <div className="space-y-3">
-                    <h3 className="text-xl font-semibold text-slate-900">
+                    <h3 className="heading-3 font-semibold text-slate-900">
                       Expected property value (AED)
                     </h3>
                     <Input
@@ -176,7 +176,7 @@ export function EligibilityCheckerClient() {
                       }
                       placeholder="e.g. 2200000"
                     />
-                    <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4 text-sm text-slate-600">
+                    <div className="card-soft card-pad-sm text-sm text-slate-600">
                       <p className="text-slate-900">Summary</p>
                       <div className="mt-2 grid gap-1">
                         <span>Nationality: {form.nationality || "-"}</span>

@@ -7,7 +7,7 @@ import { navLinks } from "@/data/site";
 export function Footer() {
   return (
     <footer className="border-t border-slate-200 bg-white">
-      <div className="mx-auto grid max-w-6xl gap-10 py-14 container-pad md:grid-cols-[1.4fr_1fr_1fr]">
+      <div className="container-base grid gap-10 py-14 md:grid-cols-[1.4fr_1fr_1fr]">
         <div className="space-y-4">
           <div className="flex items-center gap-3">
             <Image
@@ -32,15 +32,21 @@ export function Footer() {
           </p>
           <div className="flex flex-col gap-2 text-sm text-slate-600">
             <span className="flex items-center gap-2">
-              <Phone className="h-4 w-4 text-gold-500" /> +971 55 123 4567
+              <Phone className="h-4 w-4 text-gold-500" /> Landline: +971 4 254
+              5150
+            </span>
+            <span className="flex items-center gap-2">
+              <Phone className="h-4 w-4 text-gold-500" /> Mobile: +971 55 470
+              1475
             </span>
             <span className="flex items-center gap-2">
               <Mail className="h-4 w-4 text-gold-500" />
-              hello@alamalmortgage.ae
+              info@alamalmortgage.com
             </span>
             <span className="flex items-center gap-2">
               <MapPin className="h-4 w-4 text-gold-500" />
-              DIFC, Dubai, United Arab Emirates
+              Po Box 121520 Office 242, Sultan Business Center, Oud Metha,
+              Dubai UAE
             </span>
           </div>
         </div>

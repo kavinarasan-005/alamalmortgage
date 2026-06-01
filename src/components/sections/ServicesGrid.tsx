@@ -11,17 +11,17 @@ import { cardHover, itemFadeUp, staggerContainer } from "@/lib/motion";
 export function ServicesGrid() {
   return (
     <section className="section bg-ink-850">
-      <div className="mx-auto max-w-6xl container-pad">
+      <div className="container-base">
         <Reveal>
-          <div className="flex items-end justify-between gap-6">
+          <div className="flex flex-wrap items-end justify-between gap-4">
             <div>
-              <p className="text-xs uppercase tracking-[0.3em] text-slate-500">
+              <p className="eyebrow">
                 Services
               </p>
-              <h2 className="mt-4 text-3xl font-semibold sm:text-4xl">
+              <h2 className="mt-4 heading-2 font-semibold">
                 Mortgage options for every property type
               </h2>
-              <p className="mt-3 max-w-2xl text-slate-600">
+              <p className="mt-3 max-w-2xl text-body">
                 Home, investment, and commercial financing with clear
                 eligibility guidance and straightforward bank comparisons.
               </p>
@@ -46,14 +46,14 @@ export function ServicesGrid() {
             const Icon = service.icon;
             return (
               <motion.div key={service.title} variants={itemFadeUp} whileHover={cardHover.hover} initial="rest" animate="rest">
-                <Card className="h-full border border-slate-200 bg-white p-6 transition-shadow duration-200 hover:shadow-[0_20px_50px_rgba(15,23,42,0.12)]">
+                <Card className="card-pad h-full transition-shadow duration-200 hover:shadow-card-hover">
                   <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gold-500/10 text-gold-500">
                     <Icon className="h-6 w-6" />
                   </div>
-                  <h3 className="mt-6 text-xl font-semibold text-slate-900">
+                  <h3 className="mt-6 heading-3 font-semibold text-slate-900">
                     {service.title}
                   </h3>
-                  <p className="mt-3 text-sm text-slate-600">
+                  <p className="mt-3 text-body">
                     {service.description}
                   </p>
                   <Link

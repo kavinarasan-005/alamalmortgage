@@ -24,22 +24,22 @@ export default function AboutPage() {
       />
 
       <section className="section bg-ink-850">
-        <div className="mx-auto grid max-w-6xl gap-10 container-pad lg:grid-cols-[1.1fr_0.9fr]">
+        <div className="container-base grid gap-10 lg:grid-cols-[1.1fr_0.9fr]">
           <Reveal>
             <div className="space-y-4">
-              <p className="text-xs uppercase tracking-[0.3em] text-slate-500">
+              <p className="eyebrow">
                 Our story
               </p>
-              <h2 className="text-3xl font-semibold sm:text-4xl">
+              <h2 className="heading-2 font-semibold">
                 Founded to simplify high-stakes mortgage decisions
               </h2>
-              <p className="text-slate-600">
+              <p className="text-body">
                 After a decade in UAE retail banking, our founder saw borrowers
                 overwhelmed by inconsistent advice and unclear requirements. Al
                 Amal Mortgage was created to deliver a boutique, transparent
                 advisory experience backed by real lender relationships.
               </p>
-              <p className="text-slate-600">
+              <p className="text-body">
                 Today, we guide residents and international investors with
                 tailored lender shortlists, clean documentation, and a proactive
                 approval process.
@@ -62,13 +62,13 @@ export default function AboutPage() {
       </section>
 
       <section className="section bg-ink-850">
-        <div className="mx-auto max-w-6xl container-pad">
+        <div className="container-base">
           <Reveal>
             <div className="grid gap-6 md:grid-cols-4">
               {stats.map((stat) => (
                 <div
                   key={stat.label}
-                  className="rounded-2xl border border-slate-200 bg-white p-6 transition-shadow duration-200 hover:shadow-[0_20px_50px_rgba(15,23,42,0.12)]"
+                  className="card card-pad-md transition-shadow duration-200 hover:shadow-card-hover"
                 >
                   <div className="text-2xl font-semibold text-slate-900">
                     {stat.value}
@@ -82,14 +82,14 @@ export default function AboutPage() {
       </section>
 
       <section className="section bg-ink-850">
-        <div className="mx-auto max-w-6xl container-pad">
+        <div className="container-base">
           <Reveal>
             <div className="flex items-end justify-between gap-6">
               <div>
-                <p className="text-xs uppercase tracking-[0.3em] text-slate-500">
+                <p className="eyebrow">
                   Leadership
                 </p>
-                <h2 className="mt-4 text-3xl font-semibold sm:text-4xl">
+                <h2 className="mt-4 heading-2 font-semibold">
                   Your dedicated mortgage advisors
                 </h2>
               </div>
@@ -98,13 +98,13 @@ export default function AboutPage() {
               {team.map((member) => (
                 <div
                   key={member.name}
-                  className="rounded-2xl border border-slate-200 bg-white p-6 transition-shadow duration-200 hover:shadow-[0_20px_50px_rgba(15,23,42,0.12)]"
+                  className="card card-pad-md transition-shadow duration-200 hover:shadow-card-hover"
                 >
-                  <h3 className="text-xl font-semibold text-slate-900">
+                  <h3 className="heading-3 font-semibold text-slate-900">
                     {member.name}
                   </h3>
                   <p className="text-sm text-slate-500">{member.role}</p>
-                  <p className="mt-3 text-sm text-slate-600">{member.bio}</p>
+                  <p className="mt-3 text-body">{member.bio}</p>
                 </div>
               ))}
             </div>
@@ -113,17 +113,17 @@ export default function AboutPage() {
       </section>
 
       <section className="section bg-ink-850">
-        <div className="mx-auto max-w-6xl container-pad">
+        <div className="container-base">
           <Reveal>
             <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr]">
               <div>
-                <p className="text-xs uppercase tracking-[0.3em] text-slate-500">
+                <p className="eyebrow">
                   Mission & values
                 </p>
-                <h2 className="mt-4 text-3xl font-semibold sm:text-4xl">
+                <h2 className="mt-4 heading-2 font-semibold">
                   Premium experience, real outcomes
                 </h2>
-                <p className="mt-3 text-slate-600">
+                <p className="mt-3 text-body">
                   We aim to elevate mortgage advisory standards in the UAE through
                   strategy, transparency, and execution discipline.
                 </p>
@@ -132,12 +132,12 @@ export default function AboutPage() {
                 {values.map((value) => (
                   <div
                     key={value.title}
-                    className="rounded-2xl border border-slate-200 bg-white p-5 transition-shadow duration-200 hover:shadow-[0_20px_50px_rgba(15,23,42,0.12)]"
+                    className="card card-pad-md transition-shadow duration-200 hover:shadow-card-hover"
                   >
-                    <h3 className="text-lg font-semibold text-slate-900">
+                    <h3 className="heading-3 font-semibold text-slate-900">
                       {value.title}
                     </h3>
-                    <p className="text-sm text-slate-600">{value.description}</p>
+                    <p className="text-body">{value.description}</p>
                   </div>
                 ))}
               </div>

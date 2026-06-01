@@ -9,7 +9,7 @@ import { cardHover, itemFadeUp, staggerContainer } from "@/lib/motion";
 export function WhyChooseUs() {
   return (
     <section className="section bg-ink-850">
-      <div className="mx-auto max-w-6xl container-pad">
+      <div className="container-base">
         <Reveal>
           <motion.div
             className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr]"
@@ -19,13 +19,13 @@ export function WhyChooseUs() {
             viewport={{ once: true, amount: 0.2 }}
           >
             <motion.div className="space-y-4" variants={itemFadeUp}>
-              <p className="text-xs uppercase tracking-[0.3em] text-slate-500">
+              <p className="eyebrow">
                 Why choose Al Amal
               </p>
-              <h2 className="text-3xl font-semibold sm:text-4xl">
+              <h2 className="heading-2 font-semibold">
                 Advice that removes the guesswork
               </h2>
-              <p className="text-slate-600">
+              <p className="text-body">
                 We compare real bank offers, explain the trade-offs, and keep
                 paperwork moving so you can close on time.
               </p>
@@ -40,7 +40,7 @@ export function WhyChooseUs() {
                     whileHover={cardHover.hover}
                     initial="rest"
                     animate="rest"
-                    className="rounded-2xl border border-slate-200 bg-white p-5 transition-shadow duration-200 hover:shadow-[0_20px_50px_rgba(15,23,42,0.12)]"
+                    className="card card-pad-md transition-shadow duration-200 hover:shadow-card-hover"
                   >
                     <div className="flex items-start gap-4">
                       <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gold-500/10 text-gold-500">

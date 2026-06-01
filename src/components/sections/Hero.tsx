@@ -13,7 +13,7 @@ import { ctaPulse, itemFadeUp, staggerContainer } from "@/lib/motion";
 
 export function Hero() {
   return (
-    <section className="bg-hero relative overflow-hidden">
+    <section className="section-hero bg-hero relative overflow-hidden">
       <div className="absolute inset-0" aria-hidden="true">
         <Image
           src="https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=1800&q=80"
@@ -25,7 +25,7 @@ export function Hero() {
         />
         <div className="absolute inset-0 bg-gradient-to-b from-white/80 via-white/70 to-white" />
       </div>
-      <div className="relative z-10 mx-auto grid max-w-6xl items-center gap-12 py-20 container-pad lg:grid-cols-[1.05fr_0.95fr]">
+      <div className="relative z-10 container-base grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr]">
         <motion.div
           variants={staggerContainer}
           initial="hidden"
@@ -38,10 +38,10 @@ export function Hero() {
               UAE Mortgage Specialists
             </Badge>
           </motion.div>
-          <motion.h1 variants={itemFadeUp} className="text-4xl font-semibold tracking-tight sm:text-5xl">
+          <motion.h1 variants={itemFadeUp} className="heading-1 font-semibold tracking-tight">
             UAE mortgages made clear, fast, and bank-ready
           </motion.h1>
-          <motion.p variants={itemFadeUp} className="text-lg text-muted">
+          <motion.p variants={itemFadeUp} className="text-lead">
             We compare 20+ UAE banks, package your file, and guide you from
             pre-approval to offer letter with clear next steps.
           </motion.p>
@@ -75,7 +75,7 @@ export function Hero() {
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.15 + index * 0.05, duration: 0.35 }}
-                className="rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-600"
+                className="card-soft card-pad-sm text-sm text-slate-600"
               >
                 {item}
               </motion.div>
@@ -91,7 +91,7 @@ export function Hero() {
         >
           <div className="absolute -right-6 -top-6 h-24 w-24 rounded-full bg-gold-500/20 blur-2xl" />
           <LeadForm variant="hero" />
-          <div className="mt-4 rounded-2xl border border-slate-200 bg-white/90 px-6 py-4 text-sm text-slate-600 shadow-[0_18px_40px_rgba(15,23,42,0.08)]">
+          <div className="mt-4 card card-pad-sm bg-white/90 text-sm text-slate-600">
             <div className="text-xs uppercase tracking-[0.2em] text-slate-500">
               Average approval time
             </div>

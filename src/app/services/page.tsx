@@ -25,19 +25,19 @@ export default function ServicesPage() {
       />
 
       <section className="section bg-ink-850">
-        <div className="mx-auto max-w-6xl container-pad">
+        <div className="container-base">
           <div className="grid gap-8">
             {serviceDetails.map((service) => (
               <div
                 key={service.title}
-                className="rounded-3xl border border-slate-200 bg-white p-8 shadow-[0_18px_40px_rgba(15,23,42,0.08)]"
+                className="card card-pad"
               >
                 <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
                   <div className="space-y-4">
-                    <h2 className="text-2xl font-semibold text-slate-900">
+                    <h2 className="heading-3 font-semibold text-slate-900">
                       {service.title}
                     </h2>
-                    <p className="text-slate-600">{service.summary}</p>
+                    <p className="text-body">{service.summary}</p>
                   </div>
                   <Link
                     href="/contact"
@@ -49,7 +49,7 @@ export default function ServicesPage() {
 
                 <div className="mt-8 grid gap-6 lg:grid-cols-3">
                   <div className="space-y-3">
-                    <p className="text-xs uppercase tracking-[0.3em] text-slate-500">
+                    <p className="eyebrow">
                       Benefits
                     </p>
                     <ul className="list-disc space-y-2 pl-4 text-sm text-slate-600">
@@ -59,7 +59,7 @@ export default function ServicesPage() {
                     </ul>
                   </div>
                   <div className="space-y-3">
-                    <p className="text-xs uppercase tracking-[0.3em] text-slate-500">
+                    <p className="eyebrow">
                       Eligibility
                     </p>
                     <ul className="list-disc space-y-2 pl-4 text-sm text-slate-600">
@@ -69,7 +69,7 @@ export default function ServicesPage() {
                     </ul>
                   </div>
                   <div className="space-y-3">
-                    <p className="text-xs uppercase tracking-[0.3em] text-slate-500">
+                    <p className="eyebrow">
                       Process
                     </p>
                     <ul className="list-disc space-y-2 pl-4 text-sm text-slate-600">

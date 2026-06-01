@@ -9,7 +9,7 @@ import { cardHover, itemFadeUp, staggerContainer } from "@/lib/motion";
 export function FaqAccordion() {
   return (
     <section className="section bg-ink-850">
-      <div className="mx-auto max-w-6xl container-pad">
+      <div className="container-base">
         <Reveal>
           <motion.div
             className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr]"
@@ -19,13 +19,13 @@ export function FaqAccordion() {
             viewport={{ once: true, amount: 0.2 }}
           >
             <motion.div variants={itemFadeUp}>
-              <p className="text-xs uppercase tracking-[0.3em] text-slate-500">
+              <p className="eyebrow">
                 FAQs
               </p>
-              <h2 className="mt-4 text-3xl font-semibold sm:text-4xl">
+              <h2 className="mt-4 heading-2 font-semibold">
                 Mortgage questions, simplified
               </h2>
-              <p className="mt-4 text-slate-600">
+              <p className="mt-4 text-body">
                 Clear, bank-aligned answers so you can move forward with
                 confidence.
               </p>
@@ -38,9 +38,9 @@ export function FaqAccordion() {
                   whileHover={cardHover.hover}
                   initial="rest"
                   animate="rest"
-                  className="transition-shadow duration-200 hover:shadow-[0_20px_50px_rgba(15,23,42,0.12)]"
+                  className="transition-shadow duration-200 hover:shadow-card-hover"
                 >
-                  <details className="rounded-2xl border border-slate-200 bg-white px-6 py-4">
+                  <details className="card card-pad-md">
                     <summary className="cursor-pointer text-sm font-semibold text-slate-900">
                       {faq.question}
                     </summary>

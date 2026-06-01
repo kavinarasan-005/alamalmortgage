@@ -24,16 +24,16 @@ export function CalculatorPreview() {
 
   return (
     <section className="section bg-ink-850">
-      <div className="mx-auto grid max-w-6xl items-center gap-10 container-pad lg:grid-cols-[0.9fr_1.1fr]">
+      <div className="container-base grid items-center gap-10 lg:grid-cols-[0.9fr_1.1fr]">
         <Reveal>
           <div className="space-y-4">
-            <p className="text-xs uppercase tracking-[0.3em] text-slate-500">
+            <p className="eyebrow">
               Mortgage calculator
             </p>
-            <h2 className="text-3xl font-semibold sm:text-4xl">
+            <h2 className="heading-2 font-semibold">
               Estimate your monthly payment in seconds
             </h2>
-            <p className="text-slate-600">
+            <p className="text-body">
               Get a quick affordability check before you speak with an advisor.
               The full calculator includes adjustable tenure and eligibility
               guidance.
@@ -50,7 +50,7 @@ export function CalculatorPreview() {
         </Reveal>
 
         <Reveal>
-          <motion.div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-[0_18px_40px_rgba(15,23,42,0.08)]" whileHover={cardHover.hover} initial="rest" animate="rest">
+          <motion.div className="card card-pad" whileHover={cardHover.hover} initial="rest" animate="rest">
             <div className="grid gap-4 sm:grid-cols-2">
               <label className="text-sm text-muted">
                 Property value (AED)
@@ -87,7 +87,7 @@ export function CalculatorPreview() {
                   className="mt-2"
                 />
               </label>
-              <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+              <div className="card-soft card-pad-sm">
                 <div className="text-xs uppercase tracking-[0.2em] text-slate-500">
                   Estimated monthly
                 </div>

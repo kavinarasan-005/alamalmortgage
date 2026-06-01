@@ -9,7 +9,7 @@ import { cardHover, itemFadeUp, staggerContainer } from "@/lib/motion";
 export function RateCards() {
   return (
     <section className="section-tight bg-ink-850">
-      <div className="mx-auto max-w-6xl container-pad">
+      <div className="container-base">
         <Reveal>
           <motion.div
             className="flex flex-col gap-6"
@@ -18,12 +18,12 @@ export function RateCards() {
             whileInView="show"
             viewport={{ once: true, amount: 0.2 }}
           >
-            <motion.div className="flex items-end justify-between gap-4" variants={itemFadeUp}>
+            <motion.div className="flex flex-wrap items-end justify-between gap-4" variants={itemFadeUp}>
               <div>
-                <p className="text-xs uppercase tracking-[0.3em] text-slate-500">
+                <p className="eyebrow">
                   Live mortgage rates
                 </p>
-                <h2 className="mt-4 text-2xl font-semibold text-slate-900">
+                <h2 className="mt-4 heading-2 font-semibold text-slate-900">
                   Today&apos;s indicative rates
                 </h2>
               </div>
@@ -39,7 +39,7 @@ export function RateCards() {
                   whileHover={cardHover.hover}
                   initial="rest"
                   animate="rest"
-                  className="rounded-2xl border border-slate-200 bg-white px-6 py-5 transition-shadow duration-200 hover:shadow-[0_20px_50px_rgba(15,23,42,0.12)]"
+                  className="card card-pad-md transition-shadow duration-200 hover:shadow-card-hover"
                 >
                   <div className="text-sm text-slate-500">{rate.title}</div>
                   <div className="mt-3 text-3xl font-semibold text-gold-500">

@@ -73,7 +73,7 @@ export function Testimonials() {
 
   return (
     <section className="section bg-ink-850">
-      <div className="mx-auto max-w-6xl container-pad">
+      <div className="container-base">
         <Reveal>
           <motion.div
             className="flex items-end justify-between gap-4"
@@ -83,14 +83,11 @@ export function Testimonials() {
             viewport={{ once: true, amount: 0.2 }}
           >
             <div>
-              <motion.p
-                className="text-xs uppercase tracking-[0.3em] text-slate-500"
-                variants={itemFadeUp}
-              >
+              <motion.p className="eyebrow" variants={itemFadeUp}>
                 Google reviews
               </motion.p>
               <motion.h2
-                className="mt-4 text-3xl font-semibold sm:text-4xl"
+                className="mt-4 heading-2 font-semibold"
                 variants={itemFadeUp}
               >
                 Real feedback from UAE homeowners
@@ -100,7 +97,7 @@ export function Testimonials() {
         </Reveal>
 
         <Reveal>
-          <div className="mt-10 rounded-3xl border border-slate-200 bg-white p-6 shadow-[0_18px_40px_rgba(15,23,42,0.08)]">
+          <div className="mt-10 card card-pad-md">
             <div className="text-sm text-slate-600">
               Powered by Google Reviews
             </div>

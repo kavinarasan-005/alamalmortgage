@@ -32,8 +32,8 @@ export function CalculatorClient() {
       />
 
       <section className="section bg-ink-850">
-        <div className="mx-auto grid max-w-6xl gap-10 container-pad lg:grid-cols-[1.1fr_0.9fr]">
-          <div className="space-y-6 rounded-3xl border border-slate-200 bg-white p-8 shadow-[0_18px_40px_rgba(15,23,42,0.08)]">
+        <div className="container-base grid gap-10 lg:grid-cols-[1.1fr_0.9fr]">
+          <div className="card card-pad space-y-6">
             <label className="text-sm text-muted">
               Property value (AED)
               <Input
@@ -107,14 +107,14 @@ export function CalculatorClient() {
           </div>
 
           <div className="space-y-6">
-            <div className="rounded-3xl border border-slate-200 bg-slate-50 p-8">
-              <p className="text-xs uppercase tracking-[0.3em] text-slate-500">
+            <div className="card-soft card-pad">
+              <p className="eyebrow">
                 Your estimate
               </p>
               <div className="mt-4 text-3xl font-semibold text-slate-900">
                 {formatAED(monthlyPayment)}
               </div>
-              <p className="mt-2 text-sm text-slate-600">
+              <p className="mt-2 text-body">
                 Estimated monthly payment
               </p>
               <div className="mt-6 grid gap-4 text-sm text-slate-600">
@@ -139,11 +139,11 @@ export function CalculatorClient() {
               </div>
             </div>
 
-            <div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-[0_18px_40px_rgba(15,23,42,0.08)]">
-              <h3 className="text-xl font-semibold text-slate-900">
+            <div className="card card-pad">
+              <h3 className="heading-3 font-semibold text-slate-900">
                 Ready for a precise quote?
               </h3>
-              <p className="mt-3 text-sm text-slate-600">
+              <p className="mt-3 text-body">
                 Provide your profile and we will match you to the strongest
                 banks for your situation.
               </p>
