@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Playfair_Display, Sora } from "next/font/google";
 import "./globals.css";
 import { Footer } from "@/components/site/Footer";
-import { AppMotionShell } from "@/components/site/AppMotionShell";
+import { MotionProvider, PageTransition } from "@/components/site/AppMotionShell";
 import { FloatingWhatsApp } from "@/components/site/FloatingWhatsApp";
 import { Navbar } from "@/components/site/Navbar";
 
@@ -92,14 +92,14 @@ export default function RootLayout({
         >
           Skip to content
         </a>
-        <AppMotionShell>
+        <MotionProvider>
           <Navbar />
           <main id="main-content" className="flex-1">
-            {children}
+            <PageTransition>{children}</PageTransition>
           </main>
-        </AppMotionShell>
-        <Footer />
-        <FloatingWhatsApp />
+          <Footer />
+          <FloatingWhatsApp />
+        </MotionProvider>
       </body>
     </html>
   );

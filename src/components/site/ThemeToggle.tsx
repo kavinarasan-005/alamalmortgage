@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { Moon, Sun } from "lucide-react";
 
@@ -8,13 +8,23 @@ import { cn } from "@/lib/utils";
 
 type Theme = "light" | "dark";
 
-function getInitialTheme(): Theme {
-  if (typeof document === "undefined") {
-    return "light";
-  }
-  return document.documentElement.classList.contains("dark")
-    ? "dark"
-    : "light";
+const THEME_EVENT = "themechange";
+
+function subscribe(callback: () => void) {
+  window.addEventListener(THEME_EVENT, callback);
+  window.addEventListener("storage", callback);
+  return () => {
+    window.removeEventListener(THEME_EVENT, callback);
+    window.removeEventListener("storage", callback);
+  };
+}
+
+function getSnapshot(): Theme {
+  return document.documentElement.classList.contains("dark") ? "dark" : "light";
+}
+
+function getServerSnapshot(): Theme {
+  return "light";
 }
 
 interface ThemeToggleProps {
@@ -22,28 +32,20 @@ interface ThemeToggleProps {
 }
 
 export function ThemeToggle({ className }: ThemeToggleProps) {
-  const [mounted, setMounted] = useState(false);
-  const [theme, setTheme] = useState<Theme>("light");
+  const theme = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
   const shouldReduceMotion = useReducedMotion();
-
-  useEffect(() => {
-    setTheme(getInitialTheme());
-    setMounted(true);
-  }, []);
+  const isDark = theme === "dark";
 
   const toggle = () => {
-    const next: Theme = theme === "dark" ? "light" : "dark";
-    setTheme(next);
-    const root = document.documentElement;
-    root.classList.toggle("dark", next === "dark");
+    const next: Theme = isDark ? "light" : "dark";
+    document.documentElement.classList.toggle("dark", next === "dark");
     try {
       localStorage.setItem("theme", next);
     } catch {
       // ignore storage failures (private mode, etc.)
     }
+    window.dispatchEvent(new Event(THEME_EVENT));
   };
-
-  const isDark = theme === "dark";
 
   return (
     <button
@@ -53,7 +55,7 @@ export function ThemeToggle({ className }: ThemeToggleProps) {
       aria-pressed={isDark}
       title={isDark ? "Switch to light mode" : "Switch to dark mode"}
       className={cn(
-        "group relative inline-flex h-10 w-10 items-center justify-center overflow-hidden rounded-full border border-gold-500/40 bg-gold-500/10 text-gold-500 shadow-[0_8px_24px_rgba(184,137,62,0.25)] transition-colors duration-200 hover:border-gold-500/70 hover:bg-gold-500/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-500/50 focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)]",
+        "group relative inline-flex h-10 w-10 items-center justify-center overflow-hidden rounded-full border border-gold-500/40 bg-gold-500/10 text-gold-500 shadow-[0_8px_24px_rgba(184,137,62,0.25)] transition-colors duration-200 hover:border-gold-500/70 hover:bg-gold-500/20 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-500/50 focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)]",
         className
       )}
     >
@@ -63,7 +65,7 @@ export function ThemeToggle({ className }: ThemeToggleProps) {
       />
       <AnimatePresence mode="wait" initial={false}>
         <motion.span
-          key={mounted ? theme : "placeholder"}
+          key={theme}
           initial={shouldReduceMotion ? false : { y: 12, opacity: 0, rotate: -30 }}
           animate={{ y: 0, opacity: 1, rotate: 0 }}
           exit={shouldReduceMotion ? { opacity: 0 } : { y: -12, opacity: 0, rotate: 30 }}
