@@ -90,11 +90,11 @@ export default function AboutPage() {
                   Leadership
                 </p>
                 <h2 className="mt-4 heading-2 font-semibold">
-                  Your dedicated mortgage advisors
+                  Meet our mortgage advisors
                 </h2>
               </div>
             </div>
-            <div className="mt-10 grid gap-6 md:grid-cols-3">
+            <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:max-w-2xl">
               {team.map((member) => (
                 <div
                   key={member.name}

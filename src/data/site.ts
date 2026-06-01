@@ -21,7 +21,7 @@ export const navLinks = [
 export const stats = [
   { value: "20+", label: "UAE bank partners" },
   { value: "500+", label: "Clients helped" },
-  { value: "AED 1.2B", label: "Financing arranged" },
+  { value: "54+", label: "Verified Google reviews" },
   { value: "4.9/5", label: "Google rating" },
 ];
 
@@ -257,19 +257,14 @@ export const faqs = [
 
 export const team = [
   {
-    name: "Amina Khalid",
-    role: "Founder & Principal Broker",
-    bio: "12 years in UAE mortgage advisory across retail and private banking.",
-  },
-  {
-    name: "Omar Siddiq",
-    role: "Head of Client Success",
-    bio: "Specialist in pre-approvals and lender negotiations.",
-  },
-  {
-    name: "Leila Ahmed",
+    name: "Ankur",
     role: "Senior Mortgage Advisor",
-    bio: "Focused on non-resident and investment property financing.",
+    bio: "Specialises in residential mortgages and investment property financing across the UAE, guiding clients from first inquiry to final disbursement.",
+  },
+  {
+    name: "Sayed Harice Ali",
+    role: "Mortgage Advisor",
+    bio: "Known for turning complex applications into smooth, stress-free approvals. Clients praise his responsiveness and step-by-step guidance throughout the process.",
   },
 ];
 

@@ -13,9 +13,9 @@ const JOTFORM_WIDGET_SRC =
   "https://www.jotform.com/website-widgets/embed/019cd74ef66b7bf7bc191340667dcb25485d";
 const JOTFORM_WIDGET_ID = "JFWebsiteWidget-019cd74ef66b7bf7bc191340667dcb25485d";
 
-// Google Business profile – search link reliably lands on the reviews panel
+// Google Business profile – opens the reviews panel for Al Amal Mortgage Consultant LLC
 const GOOGLE_REVIEWS_URL =
-  "https://www.google.com/search?q=Al+Amal+Mortgage+Consultancy+Dubai&ibp=htl;reviews";
+  "https://www.google.com/search?q=Al+Amal+Mortgage+Consultant+LLC+Dubai&ibp=htl;reviews";
 
 export function Testimonials() {
   const widgetRef = useRef<HTMLDivElement | null>(null);
