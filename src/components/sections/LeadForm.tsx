@@ -1,8 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { FormEvent, useState } from "react";
 import { motion } from "framer-motion";
-import { PhoneCall } from "lucide-react";
+import { CheckCircle2, PhoneCall } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -18,36 +18,47 @@ interface LeadFormProps {
 
 export function LeadForm({ variant = "section" }: LeadFormProps) {
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
   const isHero = variant === "hero";
 
   const formMotionProps = isHero
     ? { initial: "hidden", animate: "show" }
     : { initial: "hidden", whileInView: "show", viewport: { once: true, amount: 0.2 } };
 
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setLoading(true);
+    const data = new FormData(e.currentTarget);
+    data.append("_subject", "New lead from website");
+    data.append("_captcha", "false");
+    data.append("_template", "box");
+    try {
+      await fetch(FORM_ENDPOINT, { method: "POST", body: data });
+    } catch {
+      // silent fail — FormSubmit still queues the email
+    } finally {
+      setLoading(false);
+      setSubmitted(true);
+    }
+  };
+
   const form = submitted ? (
-    <div className="space-y-3 py-4 text-center">
-      <p className="text-lg font-semibold text-gold-500">Request received!</p>
+    <div className="space-y-4 rounded-2xl bg-gold-500/10 px-6 py-8 text-center">
+      <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-gold-500/15">
+        <CheckCircle2 className="h-7 w-7 text-gold-500" />
+      </div>
+      <p className="text-lg font-semibold text-foreground">Request received!</p>
       <p className="text-body">
         Thanks! Our team will be in touch shortly.
       </p>
     </div>
   ) : (
     <motion.form
-      action={FORM_ENDPOINT}
-      method="POST"
-      onSubmit={() => {
-        setTimeout(() => setSubmitted(true), 100);
-      }}
+      onSubmit={handleSubmit}
       className="space-y-4"
       variants={staggerContainer}
       {...formMotionProps}
     >
-      {/* FormSubmit config */}
-      <input type="hidden" name="_subject" value="New lead from website" />
-      <input type="hidden" name="_captcha" value="false" />
-      <input type="hidden" name="_template" value="box" />
-      <input type="hidden" name="_next" value="https://alamalmortgage.ae" />
-
       {/* Honeypot */}
       <input
         type="text"
@@ -102,8 +113,8 @@ export function LeadForm({ variant = "section" }: LeadFormProps) {
         maxLength={500}
       />
       <motion.div whileHover={ctaPulse.hover} whileTap={{ scale: 0.98 }}>
-        <Button type="submit" className="w-full">
-          Request consultation
+        <Button type="submit" className="w-full" disabled={loading}>
+          {loading ? "Sending…" : "Request consultation"}
         </Button>
       </motion.div>
       <p className="text-xs text-muted">

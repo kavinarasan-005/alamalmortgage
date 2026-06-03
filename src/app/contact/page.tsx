@@ -31,20 +31,29 @@ export default function ContactPage() {
                 Contact details
               </h3>
               <div className="mt-4 space-y-3 text-sm text-muted">
-                <div className="flex items-center gap-2">
-                  <Phone className="h-4 w-4 text-gold-500" /> Landline: +971 4
-                  254 5150
-                </div>
-                <div className="flex items-center gap-2">
-                  <Phone className="h-4 w-4 text-gold-500" /> Mobile: +971 55
-                  470 1475
-                </div>
-                <div className="flex items-center gap-2">
-                  <Mail className="h-4 w-4 text-gold-500" />
+                <a
+                  href="tel:+97142545150"
+                  className="flex items-center gap-2 transition-colors hover:text-foreground"
+                >
+                  <Phone className="h-4 w-4 shrink-0 text-gold-500" />
+                  Landline: +971 4 254 5150
+                </a>
+                <a
+                  href="tel:+971554701475"
+                  className="flex items-center gap-2 transition-colors hover:text-foreground"
+                >
+                  <Phone className="h-4 w-4 shrink-0 text-gold-500" />
+                  Mobile: +971 55 470 1475
+                </a>
+                <a
+                  href="mailto:info@alamalmortgage.com"
+                  className="flex items-center gap-2 transition-colors hover:text-foreground"
+                >
+                  <Mail className="h-4 w-4 shrink-0 text-gold-500" />
                   info@alamalmortgage.com
-                </div>
-                <div className="flex items-center gap-2">
-                  <MapPin className="h-4 w-4 text-gold-500" />
+                </a>
+                <div className="flex items-start gap-2">
+                  <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-gold-500" />
                   Po Box 121520 Office 242, Sultan Business Center, Oud Metha,
                   Dubai UAE
                 </div>

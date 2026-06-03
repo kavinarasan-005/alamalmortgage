@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { FormEvent, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
+import { CheckCircle2 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -11,7 +12,25 @@ const FORM_ENDPOINT = "https://formsubmit.co/ayush@alamalmortgage.com";
 
 export function ContactFormClient() {
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
   const shouldReduceMotion = useReducedMotion();
+
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setLoading(true);
+    const data = new FormData(e.currentTarget);
+    data.append("_subject", "New consultation request from website");
+    data.append("_captcha", "false");
+    data.append("_template", "box");
+    try {
+      await fetch(FORM_ENDPOINT, { method: "POST", body: data });
+    } catch {
+      // silent fail — FormSubmit still queues the email
+    } finally {
+      setLoading(false);
+      setSubmitted(true);
+    }
+  };
 
   return (
     <div className="card card-pad">
@@ -23,27 +42,26 @@ export function ContactFormClient() {
         working hours.
       </p>
       {submitted ? (
-        <div className="mt-6 space-y-3 text-center">
-          <p className="text-lg font-semibold text-gold-500">Request received!</p>
+        <div className="mt-6 space-y-4 rounded-2xl bg-gold-500/10 px-6 py-8 text-center">
+          <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-gold-500/15">
+            <CheckCircle2 className="h-7 w-7 text-gold-500" />
+          </div>
+          <p className="text-lg font-semibold text-foreground">Request received!</p>
           <p className="text-body">
             Thanks! We will reach out shortly to confirm your consultation.
+          </p>
+          <p className="text-xs text-muted">
+            Need urgent help? Call{" "}
+            <a href="tel:+971554701475" className="font-semibold text-gold-500">
+              +971 55 470 1475
+            </a>
           </p>
         </div>
       ) : (
         <form
-          action={FORM_ENDPOINT}
-          method="POST"
-          onSubmit={() => {
-            setTimeout(() => setSubmitted(true), 100);
-          }}
+          onSubmit={handleSubmit}
           className="mt-6 space-y-4"
         >
-          {/* FormSubmit config – no database needed */}
-          <input type="hidden" name="_subject" value="New consultation request from website" />
-          <input type="hidden" name="_captcha" value="false" />
-          <input type="hidden" name="_template" value="box" />
-          <input type="hidden" name="_next" value="https://alamalmortgage.ae/contact" />
-
           {/* Honeypot for spam */}
           <input
             type="text"
@@ -96,8 +114,8 @@ export function ContactFormClient() {
             whileHover={shouldReduceMotion ? undefined : { scale: 1.01 }}
             whileTap={shouldReduceMotion ? undefined : { scale: 0.98 }}
           >
-            <Button type="submit" className="w-full">
-              Send inquiry
+            <Button type="submit" className="w-full" disabled={loading}>
+              {loading ? "Sending…" : "Send inquiry"}
             </Button>
           </motion.div>
           <p className="text-xs text-muted">

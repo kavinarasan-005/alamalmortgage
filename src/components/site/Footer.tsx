@@ -31,20 +31,29 @@ export function Footer() {
             secure approvals with clarity, speed, and confidence.
           </p>
           <div className="flex flex-col gap-2 text-sm text-muted">
-            <span className="flex items-center gap-2">
-              <Phone className="h-4 w-4 text-gold-500" /> Landline: +971 4 254
-              5150
-            </span>
-            <span className="flex items-center gap-2">
-              <Phone className="h-4 w-4 text-gold-500" /> Mobile: +971 55 470
-              1475
-            </span>
-            <span className="flex items-center gap-2">
-              <Mail className="h-4 w-4 text-gold-500" />
+            <a
+              href="tel:+97142545150"
+              className="flex items-center gap-2 transition-colors hover:text-foreground"
+            >
+              <Phone className="h-4 w-4 shrink-0 text-gold-500" />
+              Landline: +971 4 254 5150
+            </a>
+            <a
+              href="tel:+971554701475"
+              className="flex items-center gap-2 transition-colors hover:text-foreground"
+            >
+              <Phone className="h-4 w-4 shrink-0 text-gold-500" />
+              Mobile: +971 55 470 1475
+            </a>
+            <a
+              href="mailto:info@alamalmortgage.com"
+              className="flex items-center gap-2 transition-colors hover:text-foreground"
+            >
+              <Mail className="h-4 w-4 shrink-0 text-gold-500" />
               info@alamalmortgage.com
-            </span>
-            <span className="flex items-center gap-2">
-              <MapPin className="h-4 w-4 text-gold-500" />
+            </a>
+            <span className="flex items-start gap-2">
+              <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-gold-500" />
               Po Box 121520 Office 242, Sultan Business Center, Oud Metha,
               Dubai UAE
             </span>
@@ -76,7 +85,7 @@ export function Footer() {
         </div>
       </div>
       <div className="border-t border-border py-6 text-center text-xs text-muted">
-        2026 Al Amal Mortgage. All rights reserved.
+        © 2026 Al Amal Mortgage. All rights reserved.
       </div>
     </footer>
   );
