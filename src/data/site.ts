@@ -257,7 +257,7 @@ export const faqs = [
 
 export const team = [
   {
-    name: "Ankur",
+    name: "Ankur Sachdeva",
     role: "Senior Mortgage Advisor",
     bio: "Specialises in residential mortgages and investment property financing across the UAE, guiding clients from first inquiry to final disbursement.",
   },
@@ -265,6 +265,11 @@ export const team = [
     name: "Sayed Harice Ali",
     role: "Mortgage Advisor",
     bio: "Known for turning complex applications into smooth, stress-free approvals. Clients praise his responsiveness and step-by-step guidance throughout the process.",
+  },
+  {
+    name: "Adham Alfreehat",
+    role: "Mortgage Advisor",
+    bio: "Dedicated to delivering clear, transparent advice on residential and commercial financing, helping clients navigate every step with confidence.",
   },
 ];
 
@@ -291,9 +296,9 @@ export const rateCards = [
     detail: "For salaried UAE residents",
   },
   {
-    title: "Variable Rate",
-    rate: "4.35%",
-    detail: "Linked to EIBOR + margin",
+    title: "Self-employed Buyout",
+    rate: "3.95%",
+    detail: "For self-employed (buyout only)",
   },
   {
     title: "Non-resident",

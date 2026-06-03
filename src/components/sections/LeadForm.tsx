@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, useState } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { PhoneCall } from "lucide-react";
 
@@ -10,6 +10,8 @@ import { Textarea } from "@/components/ui/textarea";
 import { Reveal } from "@/components/Reveal";
 import { cardHover, ctaPulse, itemFadeUp, staggerContainer } from "@/lib/motion";
 
+const FORM_ENDPOINT = "https://formsubmit.co/ayush@alamalmortgage.com";
+
 interface LeadFormProps {
   variant?: "section" | "hero";
 }
@@ -18,30 +20,44 @@ export function LeadForm({ variant = "section" }: LeadFormProps) {
   const [submitted, setSubmitted] = useState(false);
   const isHero = variant === "hero";
 
-  const handleSubmit = (event: FormEvent) => {
-    event.preventDefault();
-    setSubmitted(true);
-  };
-
   const formMotionProps = isHero
     ? { initial: "hidden", animate: "show" }
     : { initial: "hidden", whileInView: "show", viewport: { once: true, amount: 0.2 } };
 
-  const form = (
+  const form = submitted ? (
+    <div className="space-y-3 py-4 text-center">
+      <p className="text-lg font-semibold text-gold-500">Request received!</p>
+      <p className="text-body">
+        Thanks! Our team will be in touch shortly.
+      </p>
+    </div>
+  ) : (
     <motion.form
-      onSubmit={handleSubmit}
+      action={FORM_ENDPOINT}
+      method="POST"
+      onSubmit={() => {
+        setTimeout(() => setSubmitted(true), 100);
+      }}
       className="space-y-4"
       variants={staggerContainer}
       {...formMotionProps}
     >
+      {/* FormSubmit config */}
+      <input type="hidden" name="_subject" value="New lead from website" />
+      <input type="hidden" name="_captcha" value="false" />
+      <input type="hidden" name="_template" value="box" />
+      <input type="hidden" name="_next" value="https://alamalmortgage.ae" />
+
+      {/* Honeypot */}
       <input
         type="text"
-        name="website"
+        name="_honey"
         tabIndex={-1}
         autoComplete="off"
         aria-hidden="true"
         className="hidden"
       />
+
       <Input
         placeholder="Full name"
         name="fullName"
@@ -86,19 +102,14 @@ export function LeadForm({ variant = "section" }: LeadFormProps) {
         maxLength={500}
       />
       <motion.div whileHover={ctaPulse.hover} whileTap={{ scale: 0.98 }}>
-        <Button type="submit" className="w-full" disabled={submitted}>
-          {submitted ? "Request received" : "Request consultation"}
+        <Button type="submit" className="w-full">
+          Request consultation
         </Button>
       </motion.div>
       <p className="text-xs text-muted">
         By submitting, you agree to receive communication from Al Amal
         Mortgage. We will never share your details.
       </p>
-      {submitted ? (
-        <p className="text-xs text-gold-500" role="status">
-          Thanks! Our team will be in touch shortly.
-        </p>
-      ) : null}
     </motion.form>
   );
 

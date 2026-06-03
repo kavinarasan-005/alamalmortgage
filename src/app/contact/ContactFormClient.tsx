@@ -1,20 +1,17 @@
 "use client";
 
-import { FormEvent, useState } from "react";
+import { useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 
+const FORM_ENDPOINT = "https://formsubmit.co/ayush@alamalmortgage.com";
+
 export function ContactFormClient() {
   const [submitted, setSubmitted] = useState(false);
   const shouldReduceMotion = useReducedMotion();
-
-  const handleSubmit = (event: FormEvent) => {
-    event.preventDefault();
-    setSubmitted(true);
-  };
 
   return (
     <div className="card card-pad">
@@ -25,71 +22,90 @@ export function ContactFormClient() {
         Share your details and we will call you within 30 minutes during
         working hours.
       </p>
-      <form onSubmit={handleSubmit} className="mt-6 space-y-4">
-        <input
-          type="text"
-          name="website"
-          tabIndex={-1}
-          autoComplete="off"
-          aria-hidden="true"
-          className="hidden"
-        />
-        <Input placeholder="Full name" name="fullName" autoComplete="name" required />
-        <Input
-          placeholder="Email address"
-          type="email"
-          name="email"
-          autoComplete="email"
-          required
-        />
-        <Input
-          placeholder="Phone number"
-          type="tel"
-          name="phone"
-          inputMode="tel"
-          autoComplete="tel"
-          required
-        />
-        <select
-          aria-label="Service needed"
-          name="serviceNeeded"
-          required
-          defaultValue=""
-          className="field-select"
-        >
-          <option value="" disabled>
-            Service needed
-          </option>
-          <option>Residential mortgage</option>
-          <option>Commercial mortgage</option>
-          <option>Refinance / buyout</option>
-          <option>Non-resident mortgage</option>
-          <option>Equity release</option>
-          <option>Off-plan financing</option>
-        </select>
-        <Textarea
-          placeholder="Tell us about your property and timeline"
-          name="message"
-          maxLength={500}
-        />
-        <motion.div
-          whileHover={shouldReduceMotion || submitted ? undefined : { scale: 1.01 }}
-          whileTap={shouldReduceMotion || submitted ? undefined : { scale: 0.98 }}
-        >
-          <Button type="submit" className="w-full" disabled={submitted}>
-            {submitted ? "Request received" : "Send inquiry"}
-          </Button>
-        </motion.div>
-        <p className="text-xs text-muted">
-          By submitting, you consent to receive communication about your
-          mortgage inquiry.
-        </p>
-        {submitted ? (
-          <p className="text-xs text-gold-500" role="status">
+      {submitted ? (
+        <div className="mt-6 space-y-3 text-center">
+          <p className="text-lg font-semibold text-gold-500">Request received!</p>
+          <p className="text-body">
             Thanks! We will reach out shortly to confirm your consultation.
           </p>
-        ) : null}
-      </form>
+        </div>
+      ) : (
+        <form
+          action={FORM_ENDPOINT}
+          method="POST"
+          onSubmit={() => {
+            setTimeout(() => setSubmitted(true), 100);
+          }}
+          className="mt-6 space-y-4"
+        >
+          {/* FormSubmit config – no database needed */}
+          <input type="hidden" name="_subject" value="New consultation request from website" />
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="_template" value="box" />
+          <input type="hidden" name="_next" value="https://alamalmortgage.ae/contact" />
+
+          {/* Honeypot for spam */}
+          <input
+            type="text"
+            name="_honey"
+            tabIndex={-1}
+            autoComplete="off"
+            aria-hidden="true"
+            className="hidden"
+          />
+
+          <Input placeholder="Full name" name="fullName" autoComplete="name" required />
+          <Input
+            placeholder="Email address"
+            type="email"
+            name="email"
+            autoComplete="email"
+            required
+          />
+          <Input
+            placeholder="Phone number"
+            type="tel"
+            name="phone"
+            inputMode="tel"
+            autoComplete="tel"
+            required
+          />
+          <select
+            aria-label="Service needed"
+            name="serviceNeeded"
+            required
+            defaultValue=""
+            className="field-select"
+          >
+            <option value="" disabled>
+              Service needed
+            </option>
+            <option>Residential mortgage</option>
+            <option>Commercial mortgage</option>
+            <option>Refinance / buyout</option>
+            <option>Non-resident mortgage</option>
+            <option>Equity release</option>
+            <option>Off-plan financing</option>
+          </select>
+          <Textarea
+            placeholder="Tell us about your property and timeline"
+            name="message"
+            maxLength={500}
+          />
+          <motion.div
+            whileHover={shouldReduceMotion ? undefined : { scale: 1.01 }}
+            whileTap={shouldReduceMotion ? undefined : { scale: 0.98 }}
+          >
+            <Button type="submit" className="w-full">
+              Send inquiry
+            </Button>
+          </motion.div>
+          <p className="text-xs text-muted">
+            By submitting, you consent to receive communication about your
+            mortgage inquiry.
+          </p>
+        </form>
+      )}
     </div>
   );
 }

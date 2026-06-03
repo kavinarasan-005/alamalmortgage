@@ -94,7 +94,7 @@ export default function AboutPage() {
                 </h2>
               </div>
             </div>
-            <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:max-w-2xl">
+            <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {team.map((member) => (
                 <div
                   key={member.name}
