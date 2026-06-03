@@ -261,28 +261,28 @@ export function EligibilityCheckerClient() {
                         with personalised options — usually within 30 minutes.
                       </p>
                     </div>
-                    <div className="relative">
-                      <User className="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-muted" />
-                      <Input
+                    <div className="flex items-center gap-3 rounded-2xl border border-[var(--border-strong)] bg-[var(--surface)] px-4 focus-within:border-gold-500/60 focus-within:ring-4 focus-within:ring-gold-500/10 transition-shadow duration-200">
+                      <User className="h-4 w-4 shrink-0 text-muted" />
+                      <input
                         value={form.name}
                         onChange={(e) => update("name", e.target.value)}
                         placeholder="Your full name"
                         autoComplete="name"
-                        className="pl-11"
                         required
+                        className="h-11 w-full bg-transparent text-sm text-foreground placeholder:text-muted outline-none"
                       />
                     </div>
-                    <div className="relative">
-                      <Phone className="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-muted" />
-                      <Input
+                    <div className="flex items-center gap-3 rounded-2xl border border-[var(--border-strong)] bg-[var(--surface)] px-4 focus-within:border-gold-500/60 focus-within:ring-4 focus-within:ring-gold-500/10 transition-shadow duration-200">
+                      <Phone className="h-4 w-4 shrink-0 text-muted" />
+                      <input
                         type="tel"
                         inputMode="tel"
                         value={form.phone}
                         onChange={(e) => update("phone", e.target.value)}
                         placeholder="Phone number (e.g. +971 55 123 4567)"
                         autoComplete="tel"
-                        className="pl-11"
                         required
+                        className="h-11 w-full bg-transparent text-sm text-foreground placeholder:text-muted outline-none"
                       />
                     </div>
                     <div className="card-soft card-pad-sm text-sm text-muted">
