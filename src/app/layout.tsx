@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Playfair_Display, Sora } from "next/font/google";
 import "./globals.css";
 import { Footer } from "@/components/site/Footer";
@@ -20,6 +20,13 @@ const playfair = Playfair_Display({
 
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL ?? "https://alamalmortgage.ae";
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  viewportFit: "cover",
+};
 
 export const metadata: Metadata = {
   title: {
@@ -80,7 +87,7 @@ export default function RootLayout({
       suppressHydrationWarning
       className={`${sora.variable} ${playfair.variable} h-full antialiased`}
     >
-      <body className="min-h-full bg-background text-foreground flex flex-col">
+      <body className="min-h-full bg-background text-foreground flex flex-col pb-[env(safe-area-inset-bottom)]">
         <script
           dangerouslySetInnerHTML={{
             __html: `(function(){try{if(localStorage.getItem('theme')==='dark'){document.documentElement.classList.add('dark');}}catch(e){}})();`,

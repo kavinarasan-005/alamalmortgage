@@ -7,7 +7,7 @@ import { navLinks } from "@/data/site";
 export function Footer() {
   return (
     <footer className="border-t border-border bg-surface">
-      <div className="container-base grid gap-10 py-14 md:grid-cols-[1.4fr_1fr_1fr]">
+      <div className="container-base grid gap-10 py-10 sm:py-14 md:grid-cols-[1.4fr_1fr_1fr]">
         <div className="space-y-4">
           <div className="flex items-center gap-3">
             <Image
@@ -30,29 +30,29 @@ export function Footer() {
             Premium UAE mortgage consultancy helping residents and investors
             secure approvals with clarity, speed, and confidence.
           </p>
-          <div className="flex flex-col gap-2 text-sm text-muted">
+          <div className="flex flex-col gap-1 text-sm text-muted">
             <a
               href="tel:+97142545150"
-              className="flex items-center gap-2 transition-colors hover:text-foreground"
+              className="flex items-center gap-2 rounded-lg py-1.5 transition-colors hover:text-foreground"
             >
               <Phone className="h-4 w-4 shrink-0 text-gold-500" />
               Landline: +971 4 254 5150
             </a>
             <a
               href="tel:+971554701475"
-              className="flex items-center gap-2 transition-colors hover:text-foreground"
+              className="flex items-center gap-2 rounded-lg py-1.5 transition-colors hover:text-foreground"
             >
               <Phone className="h-4 w-4 shrink-0 text-gold-500" />
               Mobile: +971 55 470 1475
             </a>
             <a
               href="mailto:info@alamalmortgage.com"
-              className="flex items-center gap-2 transition-colors hover:text-foreground"
+              className="flex items-center gap-2 rounded-lg py-1.5 transition-colors hover:text-foreground"
             >
               <Mail className="h-4 w-4 shrink-0 text-gold-500" />
-              info@alamalmortgage.com
+              <span className="break-all">info@alamalmortgage.com</span>
             </a>
-            <span className="flex items-start gap-2">
+            <span className="flex items-start gap-2 py-1.5">
               <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-gold-500" />
               Po Box 121520 Office 242, Sultan Business Center, Oud Metha,
               Dubai UAE
@@ -64,9 +64,13 @@ export function Footer() {
           <h4 className="text-sm font-semibold uppercase tracking-[0.2em] text-muted">
             Explore
           </h4>
-          <nav className="flex flex-col gap-2 text-sm text-muted">
+          <nav className="flex flex-col gap-1 text-sm text-muted">
             {navLinks.map((link) => (
-              <Link key={link.href} href={link.href}>
+              <Link
+                key={link.href}
+                href={link.href}
+                className="py-1.5 transition-colors hover:text-foreground"
+              >
                 {link.label}
               </Link>
             ))}

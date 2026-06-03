@@ -25,7 +25,7 @@ export function Hero() {
         />
         <div className="hero-overlay absolute inset-0" />
       </div>
-      <div className="relative z-10 container-base grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr]">
+      <div className="relative z-10 container-base grid items-center gap-8 sm:gap-10 lg:grid-cols-[1.05fr_0.95fr]">
         <motion.div
           variants={staggerContainer}
           initial="hidden"

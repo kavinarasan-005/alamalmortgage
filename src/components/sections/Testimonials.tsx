@@ -135,7 +135,7 @@ export function Testimonials() {
               </Link>
             </div>
 
-            <div className="mt-6 w-full min-h-[400px]" ref={widgetRef}>
+            <div className="mt-6 w-full min-h-[280px] sm:min-h-[400px]" ref={widgetRef}>
               <div id={JOTFORM_WIDGET_ID} />
             </div>
 

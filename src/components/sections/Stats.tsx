@@ -26,7 +26,7 @@ export function Stats() {
                 animate="rest"
                 className="space-y-2 rounded-2xl p-2"
               >
-                <div className="text-3xl font-semibold text-foreground">{stat.value}</div>
+                <div className="text-2xl font-semibold text-foreground sm:text-3xl">{stat.value}</div>
                 <div className="text-sm text-muted">{stat.label}</div>
               </motion.div>
             ))}

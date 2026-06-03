@@ -11,7 +11,7 @@ export function DubaiBanner() {
     <section className="section-tight">
       <div className="container-base">
         <Reveal>
-          <div className="group relative overflow-hidden rounded-[var(--radius-card)] border border-border shadow-[var(--shadow-soft)]">
+          <div className="group relative min-h-[320px] overflow-hidden rounded-[var(--radius-card)] border border-border shadow-[var(--shadow-soft)] sm:min-h-[360px]">
             <Image
               src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=2000&q=80"
               alt="Dubai skyline at golden hour featuring the Burj Khalifa"
