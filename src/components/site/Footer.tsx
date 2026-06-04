@@ -54,8 +54,11 @@ export function Footer() {
             </a>
             <span className="flex items-start gap-2 py-1.5">
               <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-gold-500" />
-              Po Box 121520 Office 242, Sultan Business Center, Oud Metha,
-              Dubai UAE
+              <span>
+                Office 242, Sultan Business Center, Oud Metha, Dubai UAE
+                <br />
+                PO Box 121520
+              </span>
             </span>
           </div>
         </div>

@@ -54,8 +54,11 @@ export default function ContactPage() {
                 </a>
                 <div className="flex items-start gap-2">
                   <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-gold-500" />
-                  Po Box 121520 Office 242, Sultan Business Center, Oud Metha,
-                  Dubai UAE
+                  <span>
+                    Office 242, Sultan Business Center, Oud Metha, Dubai UAE
+                    <br />
+                    PO Box 121520
+                  </span>
                 </div>
               </div>
               <Link
@@ -73,7 +76,7 @@ export default function ContactPage() {
                 Office hours
               </h3>
               <p className="mt-3 text-body">
-                Sunday to Thursday, 9:00 AM to 7:00 PM (GST)
+                Monday to Friday, 9:00 AM to 5:00 PM (GST)
               </p>
             </div>
 

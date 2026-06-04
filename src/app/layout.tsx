@@ -30,7 +30,7 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   title: {
-    default: "Al Amal Mortgage | UAE Mortgage Consultancy",
+    default: "Al Amal Mortgage",
     template: "%s | Al Amal Mortgage",
   },
   description:
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
     locale: "en_AE",
     images: [
       {
-        url: "https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=1400&q=80",
+        url: "https://images.unsplash.com/photo-1518684079-3c830dcef090?auto=format&fit=crop&w=1400&q=80",
         width: 1400,
         height: 800,
         alt: "Dubai skyline",
@@ -68,11 +68,13 @@ export const metadata: Metadata = {
     description:
       "Premium UAE mortgage consultancy helping residents and investors secure approvals, refinance, and unlock property opportunities.",
     images: [
-      "https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=1400&q=80",
+      "https://images.unsplash.com/photo-1518684079-3c830dcef090?auto=format&fit=crop&w=1400&q=80",
     ],
   },
   icons: {
-    icon: "/favicon.ico",
+    icon: [{ url: "/brand/al-amal-logo.png", type: "image/png" }],
+    apple: [{ url: "/brand/al-amal-logo.png" }],
+    shortcut: "/brand/al-amal-logo.png",
   },
 };
 
