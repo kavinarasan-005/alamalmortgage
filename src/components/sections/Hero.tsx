@@ -16,7 +16,7 @@ export function Hero() {
     <section className="section-hero bg-hero relative overflow-hidden">
       <div className="absolute inset-0" aria-hidden="true">
         <Image
-          src="https://images.unsplash.com/photo-1518684079-3c830dcef090?auto=format&fit=crop&w=1800&q=80"
+          src="https://images.unsplash.com/photo-1580674684081-7617fbf3d745?auto=format&fit=crop&w=1800&q=80"
           alt=""
           fill
           sizes="100vw"

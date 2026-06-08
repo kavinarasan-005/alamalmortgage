@@ -11,9 +11,9 @@ import {
 } from "lucide-react";
 
 export const navLinks = [
+  { label: "Eligibility", href: "/eligibility-checker" },
   { label: "Services", href: "/services" },
   { label: "Calculator", href: "/mortgage-calculator" },
-  { label: "Eligibility", href: "/eligibility-checker" },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
 ];
