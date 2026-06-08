@@ -13,8 +13,8 @@ export function DubaiBanner() {
         <Reveal>
           <div className="group relative min-h-[320px] overflow-hidden rounded-[var(--radius-card)] border border-border shadow-[var(--shadow-soft)] sm:min-h-[360px]">
             <Image
-              src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=2000&q=80"
-              alt="Dubai skyline at golden hour featuring the Burj Khalifa"
+              src="https://images.unsplash.com/photo-1546412414-e1885259563a?auto=format&fit=crop&w=2000&q=80"
+              alt="Dubai Downtown skyline at dusk with illuminated towers"
               fill
               sizes="(max-width: 1024px) 100vw, 72rem"
               className="object-cover transition-transform duration-[1.6s] ease-out will-change-transform group-hover:scale-[1.06]"
