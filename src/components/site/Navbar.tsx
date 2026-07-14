@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   AnimatePresence,
   motion,
@@ -11,17 +11,26 @@ import {
   useScroll,
   useMotionValueEvent,
 } from "framer-motion";
-import { Mail, Menu, Phone, X } from "lucide-react";
+import { ChevronDown, Mail, Menu, Phone, X } from "lucide-react";
 
 import { navLinks } from "@/data/site";
+import { services } from "@/data/services";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/site/ThemeToggle";
 import { cn } from "@/lib/utils";
 import { itemFadeUp, staggerContainer } from "@/lib/motion";
 
+const serviceLinks = services.map((service) => ({
+  label: service.title,
+  href: `/services/${service.slug}`,
+}));
+
 export function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+  const servicesRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
   const shouldReduceMotion = useReducedMotion();
   const { scrollY } = useScroll();
@@ -39,8 +48,36 @@ export function Navbar() {
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [open]);
 
+  useEffect(() => {
+    setServicesOpen(false);
+    setMobileServicesOpen(false);
+  }, [pathname]);
+
+  useEffect(() => {
+    if (!servicesOpen) return;
+    const onPointerDown = (e: MouseEvent) => {
+      if (
+        servicesRef.current &&
+        !servicesRef.current.contains(e.target as Node)
+      ) {
+        setServicesOpen(false);
+      }
+    };
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setServicesOpen(false);
+    };
+    document.addEventListener("mousedown", onPointerDown);
+    window.addEventListener("keydown", onKeyDown);
+    return () => {
+      document.removeEventListener("mousedown", onPointerDown);
+      window.removeEventListener("keydown", onKeyDown);
+    };
+  }, [servicesOpen]);
+
   const isActive = (href: string) =>
     href === "/" ? pathname === "/" : pathname.startsWith(href);
+
+  const servicesActive = pathname.startsWith("/services");
 
   return (
     <motion.header
@@ -86,7 +123,6 @@ export function Navbar() {
       {/* ── Main nav row ── */}
       <div className="container-base">
         <div className="flex h-16 items-center justify-between gap-3 lg:h-[68px]">
-
           {/* Logo */}
           <Link
             href="/"
@@ -113,6 +149,103 @@ export function Navbar() {
           {/* Desktop nav links – visible from lg (1024 px) */}
           <nav className="hidden min-w-0 flex-1 items-center justify-center gap-0.5 lg:flex">
             {navLinks.map((link) => {
+              if (link.href === "/services") {
+                return (
+                  <div
+                    key={link.href}
+                    ref={servicesRef}
+                    className="relative"
+                    onMouseEnter={() => setServicesOpen(true)}
+                    onMouseLeave={() => setServicesOpen(false)}
+                  >
+                    <button
+                      type="button"
+                      aria-expanded={servicesOpen}
+                      aria-haspopup="true"
+                      aria-controls="services-menu"
+                      onClick={() => setServicesOpen((prev) => !prev)}
+                      className={cn(
+                        "relative inline-flex items-center gap-1 rounded-full px-3 py-1.5 text-[13px] font-medium whitespace-nowrap transition-colors duration-200",
+                        servicesActive
+                          ? "text-foreground"
+                          : "text-muted hover:text-foreground"
+                      )}
+                    >
+                      {link.label}
+                      <ChevronDown
+                        className={cn(
+                          "h-3.5 w-3.5 transition-transform duration-200",
+                          servicesOpen && "rotate-180"
+                        )}
+                      />
+                      {servicesActive && (
+                        <motion.span
+                          layoutId="nav-active"
+                          className="absolute inset-x-2 -bottom-0.5 h-0.5 rounded-full bg-gold-500"
+                          transition={{
+                            duration: 0.3,
+                            ease: [0.22, 1, 0.36, 1],
+                          }}
+                        />
+                      )}
+                    </button>
+
+                    <AnimatePresence>
+                      {servicesOpen && (
+                        <motion.div
+                          id="services-menu"
+                          role="menu"
+                          initial={
+                            shouldReduceMotion
+                              ? false
+                              : { opacity: 0, y: 6 }
+                          }
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: 6 }}
+                          transition={{ duration: 0.18 }}
+                          className="absolute left-1/2 top-full z-50 w-64 -translate-x-1/2 pt-2"
+                        >
+                          <div className="overflow-hidden rounded-2xl border border-border bg-[var(--header-bg)] shadow-[0_16px_40px_rgba(15,23,42,0.12)] backdrop-blur-md">
+                            <div className="flex flex-col p-2">
+                              <Link
+                                href="/services"
+                                role="menuitem"
+                                onClick={() => setServicesOpen(false)}
+                                className={cn(
+                                  "rounded-xl px-3 py-2 text-[13px] font-medium transition-colors",
+                                  pathname === "/services"
+                                    ? "bg-gold-500/10 text-gold-500"
+                                    : "text-foreground hover:bg-surface-2"
+                                )}
+                              >
+                                All services
+                              </Link>
+                              <div className="my-1 h-px bg-border" />
+                              {serviceLinks.map((service) => (
+                                <Link
+                                  key={service.href}
+                                  href={service.href}
+                                  role="menuitem"
+                                  onClick={() => setServicesOpen(false)}
+                                  className={cn(
+                                    "rounded-xl px-3 py-2 text-[13px] font-medium transition-colors",
+                                    pathname === service.href
+                                      ? "bg-gold-500/10 text-gold-500"
+                                      : "text-muted hover:bg-surface-2 hover:text-foreground"
+                                  )}
+                                >
+                                  {service.label}
+                                </Link>
+                              ))}
+                            </div>
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                );
+              }
+
               const active = isActive(link.href);
               return (
                 <Link
@@ -200,23 +333,94 @@ export function Navbar() {
               initial="hidden"
               animate="show"
             >
-              {navLinks.map((link) => (
-                <motion.div key={link.href} variants={itemFadeUp}>
-                  <Link
-                    href={link.href}
-                    onClick={() => setOpen(false)}
-                    aria-current={isActive(link.href) ? "page" : undefined}
-                    className={cn(
-                      "block rounded-xl px-3 py-2.5 text-base font-medium transition-colors duration-200",
-                      isActive(link.href)
-                        ? "bg-gold-500/10 text-gold-500"
-                        : "text-foreground hover:bg-surface-2"
-                    )}
-                  >
-                    {link.label}
-                  </Link>
-                </motion.div>
-              ))}
+              {navLinks.map((link) => {
+                if (link.href === "/services") {
+                  return (
+                    <motion.div key={link.href} variants={itemFadeUp}>
+                      <button
+                        type="button"
+                        aria-expanded={mobileServicesOpen}
+                        onClick={() =>
+                          setMobileServicesOpen((prev) => !prev)
+                        }
+                        className={cn(
+                          "flex w-full items-center justify-between rounded-xl px-3 py-2.5 text-base font-medium transition-colors duration-200",
+                          servicesActive
+                            ? "bg-gold-500/10 text-gold-500"
+                            : "text-foreground hover:bg-surface-2"
+                        )}
+                      >
+                        {link.label}
+                        <ChevronDown
+                          className={cn(
+                            "h-4 w-4 transition-transform duration-200",
+                            mobileServicesOpen && "rotate-180"
+                          )}
+                        />
+                      </button>
+                      <AnimatePresence>
+                        {mobileServicesOpen && (
+                          <motion.div
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: "auto", opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            transition={{ duration: 0.2 }}
+                            className="overflow-hidden"
+                          >
+                            <div className="ml-2 mt-1 flex flex-col gap-0.5 border-l border-border pl-3">
+                              <Link
+                                href="/services"
+                                onClick={() => setOpen(false)}
+                                className={cn(
+                                  "rounded-lg px-3 py-2 text-sm font-medium transition-colors",
+                                  pathname === "/services"
+                                    ? "text-gold-500"
+                                    : "text-muted hover:text-foreground"
+                                )}
+                              >
+                                All services
+                              </Link>
+                              {serviceLinks.map((service) => (
+                                <Link
+                                  key={service.href}
+                                  href={service.href}
+                                  onClick={() => setOpen(false)}
+                                  className={cn(
+                                    "rounded-lg px-3 py-2 text-sm font-medium transition-colors",
+                                    pathname === service.href
+                                      ? "text-gold-500"
+                                      : "text-muted hover:text-foreground"
+                                  )}
+                                >
+                                  {service.label}
+                                </Link>
+                              ))}
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </motion.div>
+                  );
+                }
+
+                return (
+                  <motion.div key={link.href} variants={itemFadeUp}>
+                    <Link
+                      href={link.href}
+                      onClick={() => setOpen(false)}
+                      aria-current={isActive(link.href) ? "page" : undefined}
+                      className={cn(
+                        "block rounded-xl px-3 py-2.5 text-base font-medium transition-colors duration-200",
+                        isActive(link.href)
+                          ? "bg-gold-500/10 text-gold-500"
+                          : "text-foreground hover:bg-surface-2"
+                      )}
+                    >
+                      {link.label}
+                    </Link>
+                  </motion.div>
+                );
+              })}
 
               <motion.div
                 variants={itemFadeUp}

@@ -7,29 +7,36 @@ import { CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-
-const FORM_ENDPOINT = "https://formsubmit.co/ayush@alamalmortgage.com";
+import { submitToFormSubmit } from "@/lib/formSubmit";
 
 export function ContactFormClient() {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
   const shouldReduceMotion = useReducedMotion();
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
+    setError("");
+
     const data = new FormData(e.currentTarget);
-    data.append("_subject", "New consultation request from website");
-    data.append("_captcha", "false");
-    data.append("_template", "box");
-    try {
-      await fetch(FORM_ENDPOINT, { method: "POST", body: data });
-    } catch {
-      // silent fail — FormSubmit still queues the email
-    } finally {
-      setLoading(false);
-      setSubmitted(true);
+    const result = await submitToFormSubmit(data, {
+      subject: "New consultation request from website",
+    });
+
+    setLoading(false);
+
+    if (!result.ok) {
+      setError(
+        result.needsActivation
+          ? "We could not deliver this request yet. Please call 800-2060 or WhatsApp +971 55 470 1475 and our team will help you immediately."
+          : result.message
+      );
+      return;
     }
+
+    setSubmitted(true);
   };
 
   return (
@@ -110,6 +117,11 @@ export function ContactFormClient() {
             name="message"
             maxLength={500}
           />
+          {error ? (
+            <p className="rounded-xl bg-red-500/10 px-3 py-2 text-sm text-red-500" role="alert">
+              {error}
+            </p>
+          ) : null}
           <motion.div
             whileHover={shouldReduceMotion ? undefined : { scale: 1.01 }}
             whileTap={shouldReduceMotion ? undefined : { scale: 0.98 }}

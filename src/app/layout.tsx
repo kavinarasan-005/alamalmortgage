@@ -1,10 +1,14 @@
 import type { Metadata, Viewport } from "next";
 import { Playfair_Display, Sora } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import { Footer } from "@/components/site/Footer";
 import { MotionProvider, PageTransition } from "@/components/site/AppMotionShell";
 import { FloatingWhatsApp } from "@/components/site/FloatingWhatsApp";
 import { Navbar } from "@/components/site/Navbar";
+
+const GTM_ID = "GTM-5GQC9XLG";
+const GA_MEASUREMENT_ID = "G-REE5W6M568";
 
 const sora = Sora({
   variable: "--font-body",
@@ -76,6 +80,9 @@ export const metadata: Metadata = {
     apple: [{ url: "/brand/al-amal-logo.png" }],
     shortcut: "/brand/al-amal-logo.png",
   },
+  verification: {
+    google: "bmtFd8E99YvBAfq0t1tfIQ-FilqPJ2k_cExzW93MluNQ",
+  },
 };
 
 export default function RootLayout({
@@ -89,7 +96,41 @@ export default function RootLayout({
       suppressHydrationWarning
       className={`${sora.variable} ${playfair.variable} h-full antialiased`}
     >
+      <head>
+        {/* Google Tag Manager — as high in <head> as possible */}
+        <Script id="google-tag-manager" strategy="beforeInteractive">
+          {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','${GTM_ID}');`}
+        </Script>
+      </head>
       <body className="min-h-full bg-background text-foreground flex flex-col pb-[env(safe-area-inset-bottom)]">
+        {/* Google Tag Manager (noscript) */}
+        <noscript>
+          <iframe
+            src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+          />
+        </noscript>
+
+        {/* Google Analytics (GA4) */}
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GA_MEASUREMENT_ID}');
+          `}
+        </Script>
+
         <script
           dangerouslySetInnerHTML={{
             __html: `(function(){try{if(localStorage.getItem('theme')==='dark'){document.documentElement.classList.add('dark');}}catch(e){}})();`,

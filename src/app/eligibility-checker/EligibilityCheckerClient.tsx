@@ -7,8 +7,7 @@ import { CheckCircle2, Phone, User } from "lucide-react";
 import { PageHeader } from "@/components/site/PageHeader";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-
-const FORM_ENDPOINT = "https://formsubmit.co/ayush@alamalmortgage.com";
+import { submitToFormSubmit } from "@/lib/formSubmit";
 
 const steps = [
   "Nationality",
@@ -23,6 +22,8 @@ export function EligibilityCheckerClient() {
   const shouldReduceMotion = useReducedMotion();
   const [step, setStep] = useState(0);
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [submitError, setSubmitError] = useState("");
   const [form, setForm] = useState({
     nationality: "",
     residency: "",
@@ -56,23 +57,35 @@ export function EligibilityCheckerClient() {
   const next = () => setStep((prev) => Math.min(prev + 1, steps.length - 1));
   const back = () => setStep((prev) => Math.max(prev - 1, 0));
 
-  const handleSubmit = () => {
-    if (!stepValid) return;
+  const handleSubmit = async () => {
+    if (!stepValid || loading) return;
 
-    const formData = new FormData();
-    formData.append("_subject", "New eligibility check lead");
-    formData.append("_captcha", "false");
-    formData.append("_template", "box");
-    formData.append("Name", form.name);
-    formData.append("Phone", form.phone);
-    formData.append("Nationality", form.nationality);
-    formData.append("Residency", form.residency);
-    formData.append("Monthly Income (AED)", form.income);
-    formData.append("Employment Type", form.employment);
-    formData.append("Property Value (AED)", form.propertyValue);
+    setLoading(true);
+    setSubmitError("");
 
-    fetch(FORM_ENDPOINT, { method: "POST", body: formData })
-      .catch(() => { /* silent fail – email still queued by FormSubmit */ });
+    const result = await submitToFormSubmit(
+      {
+        Name: form.name,
+        Phone: form.phone,
+        Nationality: form.nationality,
+        Residency: form.residency,
+        "Monthly Income (AED)": form.income,
+        "Employment Type": form.employment,
+        "Property Value (AED)": form.propertyValue,
+      },
+      { subject: "New eligibility check lead" }
+    );
+
+    setLoading(false);
+
+    if (!result.ok) {
+      setSubmitError(
+        result.needsActivation
+          ? "We could not deliver this request yet. Please call 800-2060 or WhatsApp +971 55 470 1475 and our team will help you immediately."
+          : result.message
+      );
+      return;
+    }
 
     setSubmitted(true);
   };
@@ -346,16 +359,21 @@ export function EligibilityCheckerClient() {
                 </motion.div>
               ) : (
                 <motion.div
-                  className="w-full sm:w-auto"
-                  whileHover={shouldReduceMotion || !stepValid ? undefined : { scale: 1.01 }}
-                  whileTap={shouldReduceMotion || !stepValid ? undefined : { scale: 0.98 }}
+                  className="flex w-full flex-col items-stretch gap-2 sm:w-auto sm:items-end"
+                  whileHover={shouldReduceMotion || !stepValid || loading ? undefined : { scale: 1.01 }}
+                  whileTap={shouldReduceMotion || !stepValid || loading ? undefined : { scale: 0.98 }}
                 >
+                  {submitError ? (
+                    <p className="max-w-sm text-right text-sm text-red-500" role="alert">
+                      {submitError}
+                    </p>
+                  ) : null}
                   <Button
                     className="w-full sm:w-auto"
                     onClick={handleSubmit}
-                    disabled={!stepValid}
+                    disabled={!stepValid || loading}
                   >
-                    Get My Options
+                    {loading ? "Sending…" : "Get My Options"}
                   </Button>
                 </motion.div>
               )}
