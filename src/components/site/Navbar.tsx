@@ -56,13 +56,11 @@ export function Navbar() {
       <div className="hidden border-b border-border/60 lg:block">
         <div className="container-base flex items-center justify-end gap-4 py-1.5">
           <a
-            href="tel:+97142545150"
+            href="tel:8002060"
             className="inline-flex items-center gap-1.5 text-[11px] text-muted transition-colors hover:text-foreground"
           >
             <Phone className="h-3 w-3 text-gold-500" />
-            {/* Number only at lg; label appears at xl */}
-            <span className="hidden xl:inline">Landline: </span>
-            +971 4 254 5150
+            Call: 800-2060
           </a>
           <span className="h-3.5 w-px bg-border" aria-hidden />
           <a
@@ -245,11 +243,11 @@ export function Navbar() {
                 className="mt-4 flex flex-col gap-2 border-t border-border pt-4 text-sm text-muted"
               >
                 <a
-                  href="tel:+97142545150"
+                  href="tel:8002060"
                   className="inline-flex items-center gap-2 hover:text-foreground"
                 >
                   <Phone className="h-4 w-4 text-gold-500" />
-                  +971 4 254 5150
+                  Call: 800-2060
                 </a>
                 <a
                   href="tel:+971554701475"

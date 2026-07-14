@@ -32,11 +32,11 @@ export function Footer() {
           </p>
           <div className="flex flex-col gap-1 text-sm text-muted">
             <a
-              href="tel:+97142545150"
+              href="tel:8002060"
               className="flex items-center gap-2 rounded-lg py-1.5 transition-colors hover:text-foreground"
             >
               <Phone className="h-4 w-4 shrink-0 text-gold-500" />
-              Landline: +971 4 254 5150
+              Call: 800-2060
             </a>
             <a
               href="tel:+971554701475"
@@ -55,7 +55,7 @@ export function Footer() {
             <span className="flex items-start gap-2 py-1.5">
               <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-gold-500" />
               <span>
-                Office 242, Sultan Business Center, Oud Metha, Dubai UAE
+                Office 201, Sultan Business Center, Oud Metha, Dubai UAE
                 <br />
                 PO Box 121520
               </span>

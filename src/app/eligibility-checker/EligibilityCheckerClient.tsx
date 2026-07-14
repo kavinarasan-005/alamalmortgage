@@ -32,6 +32,8 @@ export function EligibilityCheckerClient() {
     name: "",
     phone: "",
   });
+  const [salaryError, setSalaryError] = useState("");
+  const [propertyValueError, setPropertyValueError] = useState("");
 
   const progress = useMemo(
     () => Math.round(((step + 1) / steps.length) * 100),
@@ -44,9 +46,9 @@ export function EligibilityCheckerClient() {
   const stepValid = useMemo(() => {
     if (step === 0) return form.nationality.length > 0;
     if (step === 1) return form.residency.length > 0;
-    if (step === 2) return Number(form.salary) > 0;
+    if (step === 2) return Number(form.salary) >= 10000;
     if (step === 3) return form.employment.length > 0;
-    if (step === 4) return Number(form.propertyValue) > 0;
+    if (step === 4) return Number(form.propertyValue) >= 450000;
     if (step === 5) return form.name.trim().length > 1 && form.phone.trim().length >= 7;
     return false;
   }, [form, step]);
@@ -210,9 +212,19 @@ export function EligibilityCheckerClient() {
                       type="number"
                       min={0}
                       value={form.salary}
-                      onChange={(e) => update("salary", e.target.value)}
+                      onChange={(e) => {
+                        update("salary", e.target.value);
+                        setSalaryError(
+                          e.target.value && Number(e.target.value) < 10000
+                            ? "Minimum salary required is AED 10,000."
+                            : ""
+                        );
+                      }}
                       placeholder="e.g. 25000"
                     />
+                    {salaryError && (
+                      <p className="text-sm text-red-500">{salaryError}</p>
+                    )}
                   </div>
                 )}
 
@@ -244,9 +256,19 @@ export function EligibilityCheckerClient() {
                       type="number"
                       min={0}
                       value={form.propertyValue}
-                      onChange={(e) => update("propertyValue", e.target.value)}
+                      onChange={(e) => {
+                        update("propertyValue", e.target.value);
+                        setPropertyValueError(
+                          e.target.value && Number(e.target.value) < 450000
+                            ? "Minimum property value required is AED 450,000."
+                            : ""
+                        );
+                      }}
                       placeholder="e.g. 2200000"
                     />
+                    {propertyValueError && (
+                      <p className="text-sm text-red-500">{propertyValueError}</p>
+                    )}
                   </div>
                 )}
 
