@@ -49,11 +49,6 @@ export function Navbar() {
   }, [open]);
 
   useEffect(() => {
-    setServicesOpen(false);
-    setMobileServicesOpen(false);
-  }, [pathname]);
-
-  useEffect(() => {
     if (!servicesOpen) return;
     const onPointerDown = (e: MouseEvent) => {
       if (
