@@ -13,7 +13,7 @@ const FORM_ENDPOINT = "https://formsubmit.co/ayush@alamalmortgage.com";
 const steps = [
   "Nationality",
   "Residency",
-  "Salary",
+  "Income",
   "Employment",
   "Property",
   "Contact",
@@ -26,13 +26,13 @@ export function EligibilityCheckerClient() {
   const [form, setForm] = useState({
     nationality: "",
     residency: "",
-    salary: "",
+    income: "",
     employment: "",
     propertyValue: "",
     name: "",
     phone: "",
   });
-  const [salaryError, setSalaryError] = useState("");
+  const [incomeError, setIncomeError] = useState("");
   const [propertyValueError, setPropertyValueError] = useState("");
 
   const progress = useMemo(
@@ -46,7 +46,7 @@ export function EligibilityCheckerClient() {
   const stepValid = useMemo(() => {
     if (step === 0) return form.nationality.length > 0;
     if (step === 1) return form.residency.length > 0;
-    if (step === 2) return Number(form.salary) >= 10000;
+    if (step === 2) return Number(form.income) >= 10000;
     if (step === 3) return form.employment.length > 0;
     if (step === 4) return Number(form.propertyValue) >= 450000;
     if (step === 5) return form.name.trim().length > 1 && form.phone.trim().length >= 7;
@@ -67,7 +67,7 @@ export function EligibilityCheckerClient() {
     formData.append("Phone", form.phone);
     formData.append("Nationality", form.nationality);
     formData.append("Residency", form.residency);
-    formData.append("Monthly Salary (AED)", form.salary);
+    formData.append("Monthly Income (AED)", form.income);
     formData.append("Employment Type", form.employment);
     formData.append("Property Value (AED)", form.propertyValue);
 
@@ -109,7 +109,7 @@ export function EligibilityCheckerClient() {
                 <div className="grid gap-1">
                   <span>Nationality: {form.nationality}</span>
                   <span>Residency: {form.residency}</span>
-                  <span>Salary: AED {Number(form.salary).toLocaleString()}/month</span>
+                  <span>Income: AED {Number(form.income).toLocaleString()}/month</span>
                   <span>Employment: {form.employment}</span>
                   <span>Property: AED {Number(form.propertyValue).toLocaleString()}</span>
                 </div>
@@ -206,24 +206,24 @@ export function EligibilityCheckerClient() {
                 {step === 2 && (
                   <div className="space-y-3">
                     <h3 className="heading-3 font-semibold text-foreground">
-                      What is your monthly salary (AED)?
+                      What is your monthly income (AED)?
                     </h3>
                     <Input
                       type="number"
                       min={0}
-                      value={form.salary}
+                      value={form.income}
                       onChange={(e) => {
-                        update("salary", e.target.value);
-                        setSalaryError(
+                        update("income", e.target.value);
+                        setIncomeError(
                           e.target.value && Number(e.target.value) < 10000
-                            ? "Minimum salary required is AED 10,000."
+                            ? "Minimum income required is AED 10,000."
                             : ""
                         );
                       }}
                       placeholder="e.g. 25000"
                     />
-                    {salaryError && (
-                      <p className="text-sm text-red-500">{salaryError}</p>
+                    {incomeError && (
+                      <p className="text-sm text-red-500">{incomeError}</p>
                     )}
                   </div>
                 )}
@@ -312,7 +312,7 @@ export function EligibilityCheckerClient() {
                       <div className="grid gap-1">
                         <span>Nationality: {form.nationality}</span>
                         <span>Residency: {form.residency}</span>
-                        <span>Salary: AED {Number(form.salary).toLocaleString()}/month</span>
+                        <span>Income: AED {Number(form.income).toLocaleString()}/month</span>
                         <span>Employment: {form.employment}</span>
                         <span>Property: AED {Number(form.propertyValue).toLocaleString()}</span>
                       </div>

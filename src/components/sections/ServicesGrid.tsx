@@ -3,10 +3,10 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 
-import { services } from "@/data/site";
-import { Card } from "@/components/ui/card";
+import { services } from "@/data/services";
+import { ServiceCard } from "@/components/services/ServiceCard";
 import { Reveal } from "@/components/Reveal";
-import { cardHover, itemFadeUp, staggerContainer } from "@/lib/motion";
+import { staggerContainer } from "@/lib/motion";
 
 export function ServicesGrid() {
   return (
@@ -45,25 +45,13 @@ export function ServicesGrid() {
           {services.map((service) => {
             const Icon = service.icon;
             return (
-              <motion.div key={service.title} variants={itemFadeUp} whileHover={cardHover.hover} initial="rest" animate="rest">
-                <Card className="card-pad h-full transition-shadow duration-200 hover:shadow-card-hover">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gold-500/10 text-gold-500">
-                    <Icon className="h-6 w-6" />
-                  </div>
-                  <h3 className="mt-6 heading-3 font-semibold text-foreground">
-                    {service.title}
-                  </h3>
-                  <p className="mt-3 text-body">
-                    {service.description}
-                  </p>
-                  <Link
-                    href="/services"
-                    className="mt-6 inline-flex text-sm font-semibold text-gold-500 transition duration-200 hover:translate-x-1"
-                  >
-                    Explore details
-                  </Link>
-                </Card>
-              </motion.div>
+              <ServiceCard
+                key={service.slug}
+                icon={<Icon className="h-6 w-6" />}
+                title={service.title}
+                description={service.shortDescription}
+                href={`/services/${service.slug}`}
+              />
             );
           })}
         </motion.div>

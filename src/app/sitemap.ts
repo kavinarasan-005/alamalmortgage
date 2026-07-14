@@ -1,5 +1,7 @@
 import type { MetadataRoute } from "next";
 
+import { services } from "@/data/services";
+
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL ?? "https://alamalmortgage.ae";
 
@@ -25,6 +27,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.8,
     },
+    ...services.map((service) => ({
+      url: `${siteUrl}/services/${service.slug}`,
+      lastModified,
+      changeFrequency: "monthly" as const,
+      priority: 0.75,
+    })),
     {
       url: `${siteUrl}/mortgage-calculator`,
       lastModified,
