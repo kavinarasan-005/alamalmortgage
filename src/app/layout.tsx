@@ -81,7 +81,7 @@ export const metadata: Metadata = {
     shortcut: "/brand/al-amal-logo.png",
   },
   verification: {
-    google: "bmtFd8E99YvBAfq0t1tfIQ-FilqPJ2k_cExzW93MluNQ",
+    google: "bmtFd8E99YvBAfq0t1tflQFiIqPJ2k_cExzW93MIuNQ",
   },
 };
 
