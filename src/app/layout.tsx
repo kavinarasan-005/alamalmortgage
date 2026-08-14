@@ -6,6 +6,7 @@ import { Footer } from "@/components/site/Footer";
 import { MotionProvider, PageTransition } from "@/components/site/AppMotionShell";
 import { FloatingWhatsApp } from "@/components/site/FloatingWhatsApp";
 import { Navbar } from "@/components/site/Navbar";
+import { siteUrl } from "@/lib/site";
 
 const GTM_ID = "GTM-5GQC9XLG";
 const GA_MEASUREMENT_ID = "G-REE5W6M568";
@@ -21,9 +22,6 @@ const playfair = Playfair_Display({
   subsets: ["latin"],
   display: "swap",
 });
-
-const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://alamalmortgage.ae";
 
 export const viewport: Viewport = {
   width: "device-width",
