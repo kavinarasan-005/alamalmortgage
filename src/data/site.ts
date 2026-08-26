@@ -71,11 +71,6 @@ export const faqs = [
       "Most pre-approvals are issued within 24-48 hours once documents are complete. Final approval depends on valuation and compliance checks.",
   },
   {
-    question: "Do you charge consultation fees?",
-    answer:
-      "No. Our consultation is free and we are paid by partner banks upon successful disbursement.",
-  },
-  {
     question: "Can I refinance before my fixed term ends?",
     answer:
       "Yes, but early settlement fees may apply. We compare options to ensure refinancing still delivers net savings.",
