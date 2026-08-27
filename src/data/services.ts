@@ -54,7 +54,7 @@ export const services: Service[] = [
     title: "Residential Mortgage",
     icon: Home,
     shortDescription:
-      "Home purchase and investment mortgages matched to you.",
+      "Move into your dream home or invest in Dubai residential property with flexible terms and low down payment options.",
     heroTitle: "Residential mortgages built around your goals",
     heroDescription:
       "From first-time buyers to seasoned investors, we secure approvals with clear guidance.",
@@ -105,12 +105,12 @@ export const services: Service[] = [
   },
   {
     slug: "commercial-mortgage",
-    title: "Commercial Mortgage",
+    title: "Commercial Mortgages",
     icon: Building2,
     shortDescription: "Financing for offices, retail, and mixed-use assets.",
     heroTitle: "Commercial mortgages for income-producing property",
     heroDescription:
-      "Finance office, retail, or warehouse assets with structured repayment plans.",
+      "Customized funding strategies for offices, retail units, warehouses, and commercial developments.",
     overview:
       "Finance office, retail, or warehouse assets with structured repayment plans. Our advisors align lender terms with your business cash flow so financing supports growth rather than straining it.",
     benefits: [
@@ -158,12 +158,12 @@ export const services: Service[] = [
   },
   {
     slug: "refinancing",
-    title: "Refinance / Buyout",
+    title: "Refinance & Loan Buyout",
     icon: RefreshCcw,
     shortDescription: "Switch rates or unlock equity with a buyout.",
     heroTitle: "Refinance to a better rate or unlock equity",
     heroDescription:
-      "Switch to a better rate, lower monthly payments, or unlock equity.",
+      "Switch your current high-rate mortgage, reduce monthly EMIs, or release equity from your existing UAE property.",
     overview:
       "Switch to a better rate, lower monthly payments, or unlock equity. We benchmark your current facility against the market and manage the buyout end-to-end.",
     benefits: [
@@ -207,12 +207,12 @@ export const services: Service[] = [
   },
   {
     slug: "non-resident-mortgage",
-    title: "Non-resident Mortgage",
+    title: "Non-Resident Mortgages",
     icon: Globe2,
     shortDescription: "UAE mortgages for international buyers.",
     heroTitle: "UAE mortgages for international buyers",
     heroDescription:
-      "Purchase UAE property with international income assessments and currency options.",
+      "Premier property financing solutions for international investors expanding their real estate portfolio in the UAE.",
     overview:
       "Purchase UAE property with international income assessments and currency options. We coordinate cross-border documentation so overseas buyers can move at UAE speed.",
     benefits: [
@@ -265,7 +265,7 @@ export const services: Service[] = [
     shortDescription: "Release equity from owned property.",
     heroTitle: "Release equity from your owned property",
     heroDescription:
-      "Monetize owned property to fund investments or business growth.",
+      "Unlock liquid cash tied up in fully paid or partially mortgaged UAE properties to invest elsewhere.",
     overview:
       "Monetize owned property to fund investments or business growth. We structure the loan against your existing property so you can redeploy capital without selling.",
     benefits: [
@@ -313,7 +313,7 @@ export const services: Service[] = [
     shortDescription: "Financing aligned with developer milestones.",
     heroTitle: "Off-plan financing aligned with handover",
     heroDescription:
-      "Align financing with developer milestones and handover schedules.",
+      "Strategic handover financing structured around developer construction milestones.",
     overview:
       "Align financing with developer milestones and handover schedules. We coordinate with your developer and bank so payments and approvals stay in sync through handover.",
     benefits: [

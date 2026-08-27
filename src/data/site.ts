@@ -39,46 +39,41 @@ export const trustSignals = [
 
 export const processSteps = [
   {
-    title: "Discovery call",
+    title: "Discovery & Assessment",
     description:
-      "Share your goals, property type, and financial profile in 15 minutes.",
+      "Share your property budget, income type (salaried or self-employed), and goals with our mortgage specialist.",
   },
   {
-    title: "Bank matching",
+    title: "Bank Selection & Matching",
     description:
-      "We shortlist the best lenders and pre-qualify your application.",
+      "We evaluate live rates across 20+ UAE banks and present you with the best loan options.",
   },
   {
-    title: "Approval & valuation",
+    title: "Document Packaging & Pre-Approval",
     description:
-      "We manage valuations, approvals, and compliance documentation.",
+      "We format your application file for instant bank compliance approval within 24 to 48 hours.",
   },
   {
-    title: "Final offer",
-    description: "Sign your offer letter, and we handle the disbursement.",
+    title: "Valuation & Loan Disbursement",
+    description: "We coordinate property valuation, assist with final offer letter signing, and ensure smooth fund release.",
   },
 ];
 
 export const faqs = [
   {
-    question: "How much down payment do I need in the UAE?",
+    question: "How much down payment is required for property in Dubai?",
     answer:
-      "UAE residents typically require 20% for properties under AED 5 million. Non-residents usually need 40% or more depending on the bank.",
+      "UAE residents typically require a 20% down payment for properties valued under AED 5 Million, while non-residents generally need between 30% and 40% depending on bank policies.",
   },
   {
-    question: "How long does mortgage approval take?",
+    question: "How long does it take to get a mortgage pre-approval in UAE?",
     answer:
-      "Most pre-approvals are issued within 24-48 hours once documents are complete. Final approval depends on valuation and compliance checks.",
+      "With complete documentation, Al Amal Mortgage secures your official bank pre-approval within 24 to 48 hours.",
   },
   {
-    question: "Can I refinance before my fixed term ends?",
+    question: "Can non-residents buy property with a mortgage in Dubai?",
     answer:
-      "Yes, but early settlement fees may apply. We compare options to ensure refinancing still delivers net savings.",
-  },
-  {
-    question: "What documents will I need?",
-    answer:
-      "Typically Emirates ID/passport, salary certificate, bank statements, and property documents. We send a full checklist after onboarding.",
+      "Yes. International buyers and non-residents can secure property loans up to 60-70% Loan-to-Value (LTV) from leading UAE banks.",
   },
 ];
 

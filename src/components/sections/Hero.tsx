@@ -39,11 +39,10 @@ export function Hero() {
             </Badge>
           </motion.div>
           <motion.h1 variants={itemFadeUp} className="heading-1 font-semibold tracking-tight">
-            UAE mortgages made clear, fast, and bank-ready
+            UAE Mortgages Made Clear, Fast, and Bank-Ready
           </motion.h1>
           <motion.p variants={itemFadeUp} className="text-lead">
-            We compare 20+ UAE banks, package your file, and guide you from
-            pre-approval to offer letter with clear next steps.
+            We compare 20+ top UAE banks, package your financial profile, and secure your pre-approval in 24-48 hours with transparent guidance every step of the way.
           </motion.p>
           <motion.div variants={itemFadeUp} className="flex flex-col gap-3 sm:flex-row">
             <motion.div whileHover={ctaPulse.hover} whileTap={{ scale: 0.98 }}>
@@ -66,9 +65,9 @@ export function Hero() {
           </motion.div>
           <motion.div variants={itemFadeUp} className="grid gap-4 pt-4 sm:grid-cols-3">
             {[
-              "24-48h pre-approval",
-              "Clear rate comparisons",
-              "One dedicated advisor",
+              "24-48 Hours Pre-Approval",
+              "20+ Bank Partners",
+              "4.9/5 Star Rated on Google",
             ].map((item, index) => (
               <motion.div
                 key={item}
