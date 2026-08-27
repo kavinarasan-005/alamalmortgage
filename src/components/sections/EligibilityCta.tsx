@@ -22,14 +22,13 @@ export function EligibilityCta() {
             viewport={{ once: true, amount: 0.2 }}
           >
             <motion.div className="space-y-4" variants={itemFadeUp}>
-              <p className="eyebrow">Free eligibility check</p>
+              <p className="eyebrow">Value Proposition</p>
               <h2 className="heading-2 font-semibold">
-                Find out if you qualify in under 2 minutes
+                Expert Guidance to Remove the Guesswork from UAE Property Loans
               </h2>
               <p className="text-body">
-                Answer a few quick questions about your income, residency, and
-                property goals — our advisors will call you with personalised
-                mortgage options.
+                Navigating the UAE mortgage landscape can feel overwhelming with fluctuating interest rates, strict down payment rules, and complex bank paperwork. At Al Amal Mortgage, we simplify every phase of property financing.
+Whether you are a first-time homebuyer in Dubai, an equity release adviser, or a business owner seeking commercial financing, our dedicated advisors act as your trusted advocate. We compare live rates across major UAE financial institutions to deliver tailored home loan solutions that match your financial goals.
               </p>
               <div className="flex flex-col gap-2 sm:flex-row sm:gap-4">
                 {[

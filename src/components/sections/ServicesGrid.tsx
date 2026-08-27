@@ -16,14 +16,13 @@ export function ServicesGrid() {
           <div className="flex flex-wrap items-end justify-between gap-4">
             <div>
               <p className="eyebrow">
-                Services
+                Core Services Breakdown
               </p>
               <h2 className="mt-4 heading-2 font-semibold">
-                Mortgage options for every property type
+                Comprehensive UAE Mortgage Solutions
               </h2>
               <p className="mt-3 max-w-2xl text-body">
-                Home, investment, and commercial financing with clear
-                eligibility guidance and straightforward bank comparisons.
+                Tailored home loans and property financing designed for residents, non-residents, and commercial investors.
               </p>
             </div>
             <Link
