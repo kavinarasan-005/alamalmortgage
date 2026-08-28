@@ -6,7 +6,24 @@ import { trustSignals } from "@/data/site";
 import { Reveal } from "@/components/Reveal";
 import { cardHover, itemFadeUp, staggerContainer } from "@/lib/motion";
 
-export function WhyChooseUs() {
+interface WhyChooseUsProps {
+  /** Section label. Service pages pass their own "Why Choose ... for X" line. */
+  eyebrow?: string;
+  heading?: string;
+  paragraphs?: string[];
+}
+
+const DEFAULT_EYEBROW = "Why choose Al Amal";
+const DEFAULT_HEADING = "Advice that removes the guesswork";
+const DEFAULT_PARAGRAPHS = [
+  "We compare real bank offers across 20+ UAE lenders, explain every trade-off, and keep your paperwork moving seamlessly so you can close on time. Enjoy 24–48 hour pre-approvals, completely transparent fees, dedicated single-point contacts, and bank-ready files that eliminate processing delays.",
+];
+
+export function WhyChooseUs({
+  eyebrow = DEFAULT_EYEBROW,
+  heading = DEFAULT_HEADING,
+  paragraphs = DEFAULT_PARAGRAPHS,
+}: WhyChooseUsProps = {}) {
   return (
     <section className="section bg-ink-850">
       <div className="container-base">
@@ -19,16 +36,13 @@ export function WhyChooseUs() {
             viewport={{ once: true, amount: 0.2 }}
           >
             <motion.div className="space-y-4" variants={itemFadeUp}>
-              <p className="eyebrow">
-                Why choose Al Amal
-              </p>
-              <h2 className="heading-2 font-semibold">
-                Advice that removes the guesswork
-              </h2>
-              <p className="text-body">
-                We compare real bank offers, explain the trade-offs, and keep
-                paperwork moving so you can close on time.
-              </p>
+              <p className="eyebrow">{eyebrow}</p>
+              <h2 className="heading-2 font-semibold">{heading}</h2>
+              {paragraphs.map((paragraph) => (
+                <p key={paragraph} className="text-body">
+                  {paragraph}
+                </p>
+              ))}
             </motion.div>
             <div className="grid gap-4">
               {trustSignals.map((signal) => {

@@ -28,13 +28,23 @@ export function ServiceTemplate({ service }: ServiceTemplateProps) {
               </h1>
               <p className="text-lead">{service.heroDescription}</p>
             </div>
-            <div className="mt-8">
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Link
-                href="/contact"
+                href={service.cta.href}
                 className={cn(buttonVariants({ variant: "primary", size: "lg" }))}
               >
-                {service.cta}
+                {service.cta.label}
               </Link>
+              {service.secondaryCta ? (
+                <Link
+                  href={service.secondaryCta.href}
+                  className={cn(
+                    buttonVariants({ variant: "secondary", size: "lg" }),
+                  )}
+                >
+                  {service.secondaryCta.label}
+                </Link>
+              ) : null}
             </div>
           </div>
         </section>
@@ -49,7 +59,11 @@ export function ServiceTemplate({ service }: ServiceTemplateProps) {
                 <h2 id="service-overview" className="heading-2 font-semibold">
                   About {service.title.toLowerCase()}
                 </h2>
-                <p className="text-body">{service.overview}</p>
+                {service.overview.map((paragraph) => (
+                  <p key={paragraph} className="text-body">
+                    {paragraph}
+                  </p>
+                ))}
               </div>
             </Reveal>
           </div>
@@ -88,7 +102,7 @@ export function ServiceTemplate({ service }: ServiceTemplateProps) {
           </div>
         </section>
 
-        <WhyChooseUs />
+        <WhyChooseUs {...service.whyChooseUs} />
 
         <section className="section bg-ink-850" aria-labelledby="service-faq">
           <div className="container-base">

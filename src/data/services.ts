@@ -27,6 +27,18 @@ export interface ServiceSeo {
   ogImage: string;
 }
 
+export interface ServiceCta {
+  label: string;
+  href: string;
+}
+
+export interface ServiceWhyChooseUs {
+  /** Section label, e.g. "Why Choose Al Amal Mortgage for Commercial Financing". */
+  eyebrow: string;
+  heading: string;
+  paragraphs: string[];
+}
+
 export interface Service {
   slug: string;
   title: string;
@@ -35,31 +47,37 @@ export interface Service {
   shortDescription: string;
   heroTitle: string;
   heroDescription: string;
-  overview: string;
+  overview: string[];
   benefits: string[];
   eligibility: string[];
   process: string[];
   faq: ServiceFaq[];
-  /** Hero CTA label — links to /contact. */
-  cta: string;
+  cta: ServiceCta;
+  secondaryCta?: ServiceCta;
+  /** Falls back to the shared homepage copy when omitted. */
+  whyChooseUs?: ServiceWhyChooseUs;
   seo: ServiceSeo;
 }
 
 const DEFAULT_OG_IMAGE =
   "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1400&q=80";
 
+const WHY_CHOOSE_HEADING = "Advice That Removes the Guesswork";
+
 export const services: Service[] = [
   {
     slug: "residential-mortgage",
-    title: "Residential Mortgage",
+    title: "Residential Mortgages",
     icon: Home,
     shortDescription:
       "Move into your dream home or invest in Dubai residential property with flexible terms and low down payment options.",
-    heroTitle: "Residential mortgages built around your goals",
-    heroDescription:
-      "From first-time buyers to seasoned investors, we secure approvals with clear guidance.",
-    overview:
-      "From first-time buyers to seasoned investors, we secure approvals with clear guidance. We compare offers across 20+ UAE banks so you get a rate and structure that fits your budget and property plans.",
+    heroTitle:
+      "Residential Mortgage Solutions for Homebuyers in Dubai and the UAE",
+    heroDescription: "Turn Your UAE Homeownership Dream Into Reality",
+    overview: [
+      "Buying a villa in Dubai, an apartment in Abu Dhabi, or expanding your residential investment portfolio requires the right mortgage setup. Al Amal Mortgage bridges the gap between you and top UAE banks, ensuring you secure maximum Loan-to-Value (LTV) at the lowest available fixed or variable interest rates.",
+      "Buying a home is a major financial decision, and choosing the right mortgage can make a noticeable difference to the cost of owning it. If you are comparing a home loan in Dubai, moving from renting to owning, or planning a residential property investment, Al Amal Mortgage helps you understand your options before you commit to a lender. We compare available mortgage solutions across UAE banks and help organise your application around your income, property and financial circumstances.",
+    ],
     benefits: [
       "Access to fixed and variable rates",
       "Fast pre-approval and valuation support",
@@ -75,31 +93,57 @@ export const services: Service[] = [
       "Document collection and pre-approval",
       "Valuation, offer, and disbursement",
     ],
+    whyChooseUs: {
+      eyebrow: "Why Choose Al Amal Mortgage",
+      heading: WHY_CHOOSE_HEADING,
+      paragraphs: [
+        "Securing a home loan in the UAE shouldn't feel like navigating a maze of hidden terms, varying interest rates, and endless paperwork. At Al Amal Mortgage, we eliminate the ambiguity from home financing. We evaluate market-wide options, break down complex terms, and handle every step of the submission process so you can secure your property on time and with complete confidence.",
+      ],
+    },
     faq: [
       {
-        question: "What is the minimum income for a residential mortgage?",
+        question:
+          "What documents are needed to apply for a residential mortgage in Dubai?",
         answer:
-          "Most banks require a minimum salary of AED 15,000 per month, though this can vary by lender and profile.",
+          "Salaried applicants usually need a valid passport, Emirates ID, last 6 months' bank statements, and a salary certificate. Self-employed applicants require trade license copies, 6-12 months' business bank statements, and audited financial reports.",
       },
       {
-        question: "Can non-residents apply for a residential mortgage?",
+        question: "Can I choose between fixed and variable interest rates?",
         answer:
-          "Yes, we work with banks that offer both UAE resident and non-resident residential mortgage options.",
+          "Yes. You can opt for fixed rates for 1 to 5 years for payment predictability, or variable rates tied to EIBOR (Emirates Interbank Offered Rate) to take advantage of market movements.",
       },
       {
-        question: "How long does pre-approval take?",
+        question: "What is the maximum loan tenure for a home loan in the UAE?",
         answer:
-          "Most pre-approvals are issued within 24-48 hours once your documents are complete.",
+          "The maximum tenure allowed by the UAE Central Bank is 25 years, up to the age of 65 for salaried individuals or 70 for self-employed individuals.",
+      },
+      {
+        question: "Can expats apply for a home loan in the UAE?",
+        answer:
+          "Yes. UAE banks offer mortgage options for eligible expatriate residents, subject to the lender's income, property, affordability and documentation requirements.",
+      },
+      {
+        question:
+          "Should I compare more than one bank before choosing a mortgage?",
+        answer:
+          "Comparing lenders can help you understand differences in rates, fees, loan-to-value, fixed periods and repayment conditions before selecting an option.",
       },
     ],
-    cta: "Get Pre-Qualified",
+    cta: {
+      label: "Check Your Home Loan Eligibility in 2 Minutes",
+      href: "/eligibility-checker",
+    },
+    secondaryCta: {
+      label: "Speak With an Al Amal Mortgage Consultant",
+      href: "/contact",
+    },
     seo: {
-      metaTitle: "Residential Mortgage in the UAE | Al Amal Mortgage",
+      metaTitle: "Residential Mortgage Dubai & UAE | Low Rate Home Loans",
       metaDescription:
-        "Compare residential mortgage options from 20+ UAE banks. Fast pre-approval, transparent rates, and dedicated advisory support.",
-      ogTitle: "Residential Mortgage in the UAE",
+        "Get residential home loans in Dubai with low interest rates and fast approvals. Fixed and variable rate options for UAE expats and nationals.",
+      ogTitle: "Residential Mortgage Dubai & UAE | Home Loan Options",
       ogDescription:
-        "Home purchase and investment mortgages matched to you, with fast pre-approval and transparent guidance.",
+        "Get residential home loans in Dubai with low interest rates and fast approvals. Fixed and variable rate options for UAE expats and nationals.",
       ogImage: DEFAULT_OG_IMAGE,
     },
   },
@@ -107,12 +151,16 @@ export const services: Service[] = [
     slug: "commercial-mortgage",
     title: "Commercial Mortgages",
     icon: Building2,
-    shortDescription: "Financing for offices, retail, and mixed-use assets.",
-    heroTitle: "Commercial mortgages for income-producing property",
-    heroDescription:
+    shortDescription:
       "Customized funding strategies for offices, retail units, warehouses, and commercial developments.",
-    overview:
-      "Finance office, retail, or warehouse assets with structured repayment plans. Our advisors align lender terms with your business cash flow so financing supports growth rather than straining it.",
+    heroTitle:
+      "Commercial Mortgage Solutions for Businesses in Dubai and the UAE",
+    heroDescription:
+      "Empower Your Corporate Growth with Custom Property Financing",
+    overview: [
+      "Acquiring commercial space is a critical milestone for growing companies and real estate investors. Al Amal Mortgage offers specialized commercial finance solutions for purchasing offices, commercial buildings, retail units, and industrial facilities across the UAE.",
+      "Buying commercial property is a different financial decision from purchasing a home. A business needs to consider cash flow, property use, existing liabilities and the long-term purpose of the asset. Al Amal Mortgage helps businesses and investors explore commercial mortgage options for offices, retail units, warehouses, mixed-use properties and other eligible commercial assets across the UAE.",
+    ],
     benefits: [
       "Tailored LTV for income-producing assets",
       "Flexible repayment terms",
@@ -128,31 +176,60 @@ export const services: Service[] = [
       "Bank proposal and term sheet",
       "Legal documentation and drawdown",
     ],
+    whyChooseUs: {
+      eyebrow: "Why Choose Al Amal Mortgage for Commercial Financing",
+      heading: WHY_CHOOSE_HEADING,
+      paragraphs: [
+        "Commercial real estate financing in the UAE demands speed, structure, and institutional clarity. Financing offices, retail spaces, warehouses, or mixed-use assets involves navigating complex bank underwriting, corporate income assessments, variable Loan-to-Value (LTV) limits, and strict valuation requirements.",
+        "At Al Amal Mortgage, we eliminate the friction from commercial property financing. We compare real bank offers, explain the trade-offs, and keep paperwork moving so you can close on time. We align lender criteria with your business growth goals so you can evaluate borrowing scenarios using our advanced mortgage calculator and secure your commercial asset with full financial confidence.",
+      ],
+    },
     faq: [
       {
-        question: "What documents are required for a commercial mortgage?",
+        question:
+          "What types of commercial properties can be mortgaged in the UAE?",
         answer:
-          "Typically audited financial statements, trade license, and property documents for the asset being financed.",
+          "We finance office spaces, retail storefronts, industrial warehouses, commercial buildings, mixed-use assets, and plots designated for commercial development.",
       },
       {
-        question: "Is there a minimum business vintage requirement?",
+        question: "What down payment is required for commercial property loans?",
         answer:
-          "Most lenders require the business to have been operating for at least 2 years.",
+          "Commercial real estate financing typically requires a 20% to 40% down payment depending on the company's financial profile, asset type, and lease stability.",
       },
       {
-        question: "Which property types qualify?",
+        question:
+          "Can start-ups or new companies apply for commercial property financing?",
         answer:
-          "Offices, retail units, and warehouses located in approved UAE zones are generally eligible.",
+          "Banks generally require companies to have at least 2 to 3 years of audited financials. However, options exist for established business owners setting up a new UAE holding entity.",
+      },
+      {
+        question: "What commercial properties can be financed in the UAE?",
+        answer:
+          "Depending on lender policy, commercial finance may be available for offices, retail units, warehouses, commercial buildings, mixed-use properties and certain development or land assets.",
+      },
+      {
+        question: "How much deposit is required for a commercial mortgage?",
+        answer:
+          "The required contribution varies according to the lender, property type, company financials, lease profile and other risk factors.",
+      },
+      {
+        question: "Can an SME apply for commercial property finance?",
+        answer:
+          "Established businesses may be eligible, subject to lender requirements around trading history, financial performance, documentation and the proposed property.",
       },
     ],
-    cta: "Book a Strategy Call",
+    cta: { label: "Discuss Commercial Finance", href: "/contact" },
+    secondaryCta: {
+      label: "Request a Corporate Mortgage Proposal",
+      href: "/contact",
+    },
     seo: {
-      metaTitle: "Commercial Mortgage in the UAE | Al Amal Mortgage",
+      metaTitle: "Commercial Mortgage Dubai | Business Property Loans UAE",
       metaDescription:
-        "Structured commercial mortgage financing for offices, retail, and mixed-use assets in the UAE, with cash-flow aligned underwriting.",
-      ogTitle: "Commercial Mortgage in the UAE",
+        "Commercial property loans in Dubai and UAE for offices, retail spaces, and warehouses. Custom finance structures for corporate growth.",
+      ogTitle: "Commercial Mortgage Dubai | Business Property Loans UAE",
       ogDescription:
-        "Finance office, retail, or warehouse assets with structured repayment plans.",
+        "Commercial property loans in Dubai and UAE for offices, retail spaces, and warehouses. Custom finance structures for corporate growth.",
       ogImage: DEFAULT_OG_IMAGE,
     },
   },
@@ -160,12 +237,15 @@ export const services: Service[] = [
     slug: "refinancing",
     title: "Refinance & Loan Buyout",
     icon: RefreshCcw,
-    shortDescription: "Switch rates or unlock equity with a buyout.",
-    heroTitle: "Refinance to a better rate or unlock equity",
-    heroDescription:
+    shortDescription:
       "Switch your current high-rate mortgage, reduce monthly EMIs, or release equity from your existing UAE property.",
-    overview:
-      "Switch to a better rate, lower monthly payments, or unlock equity. We benchmark your current facility against the market and manage the buyout end-to-end.",
+    heroTitle: "Mortgage Refinance and Loan Buyout Solutions in Dubai",
+    heroDescription:
+      "Switch Banks, Cut Monthly Payments, and Unlock Property Cash",
+    overview: [
+      "If your current mortgage interest rate has increased or your fixed period has expired, you do not have to settle for high monthly EMIs. With our mortgage refinance and buyout services, Al Amal Mortgage transfers your loan to a lender offering lower rates, better terms, or cash equity release options.",
+      "Your existing mortgage may have made sense when you first took it out, but your circumstances can change. Your fixed-rate period may have ended, rates may have moved, or the value of your property may have increased. In these situations, mortgage refinance in Dubai can be worth reviewing. Mortgage helps property owners compare the cost of staying with their current lender against the potential benefits of refinancing or completing a loan buyout.",
+    ],
     benefits: [
       "Reduce interest rate exposure",
       "Consolidate liabilities",
@@ -176,32 +256,68 @@ export const services: Service[] = [
       "Property valuation available",
       "No major late payments",
     ],
-    process: ["Rate benchmarking", "Buyout approval and settlement", "New facility setup"],
+    process: [
+      "Rate benchmarking",
+      "Buyout approval and settlement",
+      "New facility setup",
+    ],
+    whyChooseUs: {
+      eyebrow: "Why Choose Al Amal Mortgage?",
+      heading: WHY_CHOOSE_HEADING,
+      paragraphs: [
+        "Switching mortgage providers or unlocking equity from your property should lighten your financial burden—not add administrative stress.",
+        "At Al Amal Mortgage, we transform a complex banking procedure into a streamlined, high-yield financial upgrade. We audit your current home loan against live UAE market data, compute exact net savings after exit costs, and run the buyout transfer end-to-end so you secure superior terms without delay.",
+      ],
+    },
     faq: [
       {
-        question: "When does it make sense to refinance?",
+        question:
+          "Are there early settlement fees when refinancing a mortgage in the UAE?",
         answer:
-          "If your current rate is above market, or you want to release equity, refinancing can lower payments or free up cash.",
+          "Yes, early settlement fees are capped by the UAE Central Bank at 1% of the outstanding loan balance or AED 10,000 (whichever is lower). We perform a cost-benefit calculation to ensure refinancing delivers clear net savings.",
       },
       {
-        question: "Are there early settlement fees?",
+        question:
+          "How much cash equity can I release from my mortgaged property?",
         answer:
-          "Some banks apply an early settlement fee. We compare options to confirm refinancing still delivers net savings.",
+          "You can release up to 80% of the property's current market value for UAE residents (minus any outstanding mortgage balance), depending on your income profile and property appraisal.",
       },
       {
-        question: "What repayment history is required?",
+        question: "How long does the mortgage buyout process take?",
         answer:
-          "Most lenders look for at least 12 months of on-time repayments with no major late payments.",
+          "A standard loan buyout takes around 2 to 4 weeks, including bank pre-approval, liability letter issuance from your existing bank, and property re-valuation.",
+      },
+      {
+        question: "What is a mortgage buyout in the UAE?",
+        answer:
+          "A mortgage buyout generally means a new lender settles your existing home loan and replaces it with a new mortgage facility under the new lender's terms.",
+      },
+      {
+        question: "Can refinancing reduce my monthly mortgage payment?",
+        answer:
+          "It may, depending on the new rate, outstanding balance, remaining tenure, fees and other loan conditions. A full cost comparison is important before making the switch.",
+      },
+      {
+        question: "Can I release equity while refinancing?",
+        answer:
+          "Potentially. Equity release depends on property value, outstanding borrowing, income, affordability and the lender's criteria.",
       },
     ],
-    cta: "Compare My Rate",
+    cta: {
+      label: "Calculate Your Refinance Savings",
+      href: "/mortgage-calculator",
+    },
+    secondaryCta: {
+      label: "Speak with a Buyout Specialist",
+      href: "/contact",
+    },
     seo: {
-      metaTitle: "Mortgage Refinancing & Buyout in the UAE | Al Amal Mortgage",
+      metaTitle: "Mortgage Refinance & Loan Buyout Dubai | Lower Your Rates",
       metaDescription:
-        "Refinance your UAE mortgage to a better rate, consolidate liabilities, or unlock equity with a structured buyout.",
-      ogTitle: "Mortgage Refinancing & Buyout in the UAE",
+        "Refinance your home loan in the UAE or opt for a mortgage buyout to reduce monthly payments, switch banks, or release cash equity.",
+      ogTitle: "Mortgage Refinance & Loan Buyout Dubai | Al Amal Mortgage",
       ogDescription:
-        "Switch to a better rate, lower monthly payments, or unlock equity.",
+        "Refinance your home loan in the UAE or opt for a mortgage buyout to reduce monthly payments, switch banks, or release cash equity.",
       ogImage: DEFAULT_OG_IMAGE,
     },
   },
@@ -209,12 +325,14 @@ export const services: Service[] = [
     slug: "non-resident-mortgage",
     title: "Non-Resident Mortgages",
     icon: Globe2,
-    shortDescription: "UAE mortgages for international buyers.",
-    heroTitle: "UAE mortgages for international buyers",
-    heroDescription:
+    shortDescription:
       "Premier property financing solutions for international investors expanding their real estate portfolio in the UAE.",
-    overview:
-      "Purchase UAE property with international income assessments and currency options. We coordinate cross-border documentation so overseas buyers can move at UAE speed.",
+    heroTitle: "Non-Resident Mortgage Solutions for Overseas Property Buyers",
+    heroDescription: "Invest in Dubai Real Estate from Anywhere in the World",
+    overview: [
+      "Dubai remains one of the world's most lucrative real estate markets. Overseas investors and non-residents can take advantage of mortgage financing options without needing UAE residency. Al Amal Mortgage provides dedicated global advisory, coordinating with UAE lenders who specialize in international income profiles.",
+      "Buying property in Dubai from abroad is possible, but arranging finance from another country can feel more complicated than a standard UAE resident mortgage. Income may be earned in a different currency, documents may come from overseas institutions, and each lender can have its own approach to non-resident applications. Al Amal Mortgage helps overseas buyers understand the available mortgage route before moving forward with a Dubai property purchase.",
+    ],
     benefits: [
       "Flexible currency structures",
       "Cross-border income verification",
@@ -230,31 +348,67 @@ export const services: Service[] = [
       "Document verification",
       "Approval and transfer",
     ],
+    whyChooseUs: {
+      eyebrow: "Why Choose Al Amal Mortgage for Non-Resident Financing",
+      heading: WHY_CHOOSE_HEADING,
+      paragraphs: [
+        "Securing a UAE mortgage as an overseas investor or non-resident should be clear, predictable, and stress-free. Cross-border financing introduces complex requirements—from international income verification to multi-currency valuations and strict down payment ratios.",
+        "At Al Amal Mortgage, we eliminate the friction from international home financing. We benchmark real bank offers across the UAE market, explain the hidden trade-offs, and handle cross-border paperwork so you can move at UAE speed and close on time. Whether you are funding a brand-new overseas property acquisition or optimizing an existing international asset through strategic mortgage refinancing, we ensure you secure the most competitive financial structure available.",
+      ],
+    },
     faq: [
       {
-        question: "What down payment is required for non-residents?",
+        question:
+          "Do I need to visit Dubai to get mortgage pre-approval as a non-resident?",
         answer:
-          "Non-residents typically need a minimum down payment of 40%, depending on the bank and property.",
+          "No. Initial pre-approvals can be secured fully online while you are abroad. You only need to visit the UAE for final property transfer and signing, or designate a legal Power of Attorney (POA).",
       },
       {
-        question: "Can international income be used for assessment?",
+        question:
+          "What is the maximum Loan-to-Value (LTV) ratio for non-resident mortgages?",
         answer:
-          "Yes, we work with banks that accept international income documentation for non-resident applicants.",
+          "Non-resident buyers can typically obtain 50% to 70% LTV financing depending on the lender, property valuation, and country of residence.",
       },
       {
-        question: "Do I need to visit the UAE to apply?",
+        question:
+          "Can I use rental income from my Dubai property to qualify for the loan?",
         answer:
-          "Many steps can be completed remotely; your relationship manager will confirm which stages require your presence.",
+          "While primary qualification relies on your personal or business income in your home country, projected rental yields in Dubai can help demonstrate long-term affordability to UAE banks.",
+      },
+      {
+        question: "Can a non-resident get a mortgage to buy property in Dubai?",
+        answer:
+          "Eligible non-residents may be able to obtain property finance from UAE lenders. Approval depends on the lender, borrower profile, property and supporting documentation.",
+      },
+      {
+        question:
+          "Do I have to travel to Dubai to start a non-resident mortgage application?",
+        answer:
+          "Initial application and pre-approval stages may often be handled remotely. Final property and legal steps can have separate requirements.",
+      },
+      {
+        question: "What documents might an overseas buyer need?",
+        answer:
+          "Requirements vary, but lenders may request identification, proof of income, bank statements, employment or business records and other documents relevant to the applicant's country of residence.",
       },
     ],
-    cta: "Start International Review",
+    cta: {
+      label: "Get Non-Resident Pre-Approval",
+      href: "/eligibility-checker",
+    },
+    secondaryCta: {
+      label: "Book International Consultation",
+      href: "/contact",
+    },
     seo: {
-      metaTitle: "Non-Resident Mortgage in the UAE | Al Amal Mortgage",
+      metaTitle:
+        "Non-Resident Mortgage Dubai | Property Loans for Overseas Buyers",
       metaDescription:
-        "UAE mortgages for international buyers, with cross-border income verification and flexible currency structures.",
-      ogTitle: "Non-Resident Mortgage in the UAE",
+        "Secure Dubai property financing as an overseas investor. Special mortgage solutions for non-resident buyers with competitive LTV ratios.",
+      ogTitle:
+        "Non-Resident Mortgage Dubai | Property Finance for Overseas Buyers",
       ogDescription:
-        "Purchase UAE property with international income assessments and currency options.",
+        "Secure Dubai property financing as an overseas investor. Special mortgage solutions for non-resident buyers with competitive LTV ratios.",
       ogImage: DEFAULT_OG_IMAGE,
     },
   },
@@ -262,12 +416,14 @@ export const services: Service[] = [
     slug: "equity-release",
     title: "Equity Release",
     icon: Coins,
-    shortDescription: "Release equity from owned property.",
+    shortDescription:
+      "Unlock liquid cash tied up in fully paid or partially mortgaged UAE properties to invest elsewhere.",
     heroTitle: "Release equity from your owned property",
     heroDescription:
       "Unlock liquid cash tied up in fully paid or partially mortgaged UAE properties to invest elsewhere.",
-    overview:
+    overview: [
       "Monetize owned property to fund investments or business growth. We structure the loan against your existing property so you can redeploy capital without selling.",
+    ],
     benefits: [
       "Competitive rates on existing properties",
       "Flexible use of released cash",
@@ -278,7 +434,11 @@ export const services: Service[] = [
       "Stable income history",
       "Acceptable debt-to-income ratio",
     ],
-    process: ["Property valuation", "Loan structuring and approval", "Funds release"],
+    process: [
+      "Property valuation",
+      "Loan structuring and approval",
+      "Funds release",
+    ],
     faq: [
       {
         question: "What property qualifies for equity release?",
@@ -296,26 +456,29 @@ export const services: Service[] = [
           "It depends on the property valuation, your existing debt-to-income ratio, and lender policy.",
       },
     ],
-    cta: "Unlock My Equity",
+    cta: { label: "Unlock My Equity", href: "/contact" },
     seo: {
       metaTitle: "Equity Release in the UAE | Al Amal Mortgage",
       metaDescription:
         "Release equity from your owned UAE property to fund investments or business growth with competitive rates.",
       ogTitle: "Equity Release in the UAE",
-      ogDescription: "Monetize owned property to fund investments or business growth.",
+      ogDescription:
+        "Monetize owned property to fund investments or business growth.",
       ogImage: DEFAULT_OG_IMAGE,
     },
   },
   {
     slug: "off-plan-financing",
-    title: "Off-plan Financing",
+    title: "Off-Plan Financing",
     icon: Construction,
-    shortDescription: "Financing aligned with developer milestones.",
+    shortDescription:
+      "Strategic handover financing structured around developer construction milestones.",
     heroTitle: "Off-plan financing aligned with handover",
     heroDescription:
       "Strategic handover financing structured around developer construction milestones.",
-    overview:
+    overview: [
       "Align financing with developer milestones and handover schedules. We coordinate with your developer and bank so payments and approvals stay in sync through handover.",
+    ],
     benefits: [
       "Structured milestone payments",
       "Handover-ready approvals",
@@ -348,7 +511,7 @@ export const services: Service[] = [
           "The final disbursement is typically released at handover, aligned with the developer's milestone schedule.",
       },
     ],
-    cta: "Plan My Off-plan Mortgage",
+    cta: { label: "Plan My Off-plan Mortgage", href: "/contact" },
     seo: {
       metaTitle: "Off-Plan Property Financing in the UAE | Al Amal Mortgage",
       metaDescription:

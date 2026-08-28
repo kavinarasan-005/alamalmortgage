@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { Hero } from "@/components/sections/Hero";
 import { EligibilityCta } from "@/components/sections/EligibilityCta";
 import { Stats } from "@/components/sections/Stats";
-import { KeyFeatures } from "@/components/sections/KeyFeatures";
+import { ValueProposition } from "@/components/sections/ValueProposition";
 import { Partners } from "@/components/sections/Partners";
 import { ServicesGrid } from "@/components/sections/ServicesGrid";
 import { DubaiBanner } from "@/components/sections/DubaiBanner";
@@ -15,8 +15,11 @@ import { Testimonials } from "@/components/sections/Testimonials";
 import { FaqAccordion } from "@/components/sections/FaqAccordion";
 
 export const metadata: Metadata = {
+  title: {
+    absolute: "Best Mortgage Consultant in Dubai & UAE | Al Amal Mortgage",
+  },
   description:
-    "Premium mortgage advisory for UAE residents and global investors. Compare 20+ banks and secure fast approvals with Al Amal Mortgage.",
+    "Compare 20+ UAE banks and get fast 24-48h mortgage pre-approvals with Al Amal Mortgage. Residential, commercial, refinance, and non-resident financing.",
   alternates: {
     canonical: "/",
   },
@@ -28,7 +31,7 @@ export default function Home() {
       <Hero />
       <EligibilityCta />
       <Stats />
-      <KeyFeatures />
+      <ValueProposition />
       <Partners />
       <ServicesGrid />
       <DubaiBanner />

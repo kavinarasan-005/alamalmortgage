@@ -31,12 +31,17 @@ export function CalculatorPreview() {
               Mortgage calculator
             </p>
             <h2 className="heading-2 font-semibold">
-              Estimate your monthly payment in seconds
+              Estimate Your Monthly Payment in Seconds
             </h2>
             <p className="text-body">
-              Get a quick affordability check before you speak with an advisor.
-              The full calculator includes adjustable tenure and eligibility
-              guidance.
+              Get a clear picture of what you can afford before sitting down
+              with an advisor.
+            </p>
+            <p className="text-body">
+              Buying a home is a major milestone, but figuring out the numbers
+              shouldn&apos;t feel overwhelming. Our quick calculator gives you
+              an instant, realistic snapshot of your monthly payments so you can
+              explore property options with total confidence.
             </p>
             <motion.div whileHover={ctaPulse.hover} whileTap={{ scale: 0.98 }}>
               <Link

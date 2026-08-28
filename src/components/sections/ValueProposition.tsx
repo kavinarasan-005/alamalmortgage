@@ -6,16 +6,29 @@ import { keyFeatures } from "@/data/site";
 import { Reveal } from "@/components/Reveal";
 import { cardHover, itemFadeUp, staggerContainer } from "@/lib/motion";
 
-export function KeyFeatures() {
+export function ValueProposition() {
   return (
-    <section className="section bg-ink-850" aria-labelledby="key-features">
+    <section className="section bg-ink-850" aria-labelledby="value-proposition">
       <div className="container-base">
         <Reveal>
           <div className="max-w-3xl space-y-4">
-            <p className="eyebrow">Key features</p>
-            <h2 id="key-features" className="heading-2 font-semibold">
-              What you get with Al Amal Mortgage
+            <p className="eyebrow">Value proposition</p>
+            <h2 id="value-proposition" className="heading-2 font-semibold">
+              Expert Guidance to Remove the Guesswork from UAE Property Loans
             </h2>
+            <p className="text-body">
+              Navigating the UAE mortgage landscape can feel overwhelming with
+              fluctuating interest rates, strict down payment rules, and complex
+              bank paperwork. At Al Amal Mortgage, we simplify every phase of
+              property financing.
+            </p>
+            <p className="text-body">
+              Whether you are a first-time homebuyer in Dubai, an equity release
+              adviser, or a business owner seeking commercial financing, our
+              dedicated advisors act as your trusted advocate. We compare live
+              rates across major UAE financial institutions to deliver tailored
+              home loan solutions that match your financial goals.
+            </p>
           </div>
         </Reveal>
 

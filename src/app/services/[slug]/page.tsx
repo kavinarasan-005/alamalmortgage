@@ -23,7 +23,9 @@ export async function generateMetadata({
   }
 
   return {
-    title: service.seo.metaTitle,
+    // Absolute so the layout's "%s | Al Amal Mortgage" template does not append
+    // a second brand suffix to titles that already carry one.
+    title: { absolute: service.seo.metaTitle },
     description: service.seo.metaDescription,
     alternates: {
       canonical: `/services/${service.slug}`,
