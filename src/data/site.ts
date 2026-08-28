@@ -1,4 +1,10 @@
-import { BadgeCheck, ShieldCheck, Timer } from "lucide-react";
+import {
+  BadgeCheck,
+  ClipboardCheck,
+  Landmark,
+  ShieldCheck,
+  Timer,
+} from "lucide-react";
 
 export const navLinks = [
   { label: "Eligibility", href: "/eligibility-checker" },
@@ -31,6 +37,54 @@ export const trustSignals = [
     description: "We package your file to reduce bank follow-ups.",
     icon: BadgeCheck,
   },
+];
+
+export const keyFeatures = [
+  {
+    title: "20+ Partner Banks",
+    description:
+      "Direct access to top-tier UAE lenders ensuring competitive interest rates.",
+    icon: Landmark,
+  },
+  {
+    title: "Rapid Pre-Approvals",
+    description:
+      "Secure bank-ready pre-approval in as fast as 24 to 48 hours.",
+    icon: Timer,
+  },
+  {
+    title: "End-to-End Handling",
+    description:
+      "Complete support from checklist preparation to final disbursement.",
+    icon: ClipboardCheck,
+  },
+  {
+    title: "Zero Hidden Fees",
+    description:
+      "Transparent advisory with clear process timelines and no surprises.",
+    icon: ShieldCheck,
+  },
+];
+
+// Names only for now — swap each entry for a logo asset once brand-approved
+// artwork is available from the partner banks.
+export const partnerBanks = [
+  "Emirates NBD",
+  "First Abu Dhabi Bank",
+  "Abu Dhabi Commercial Bank",
+  "Dubai Islamic Bank",
+  "Mashreq",
+  "Emirates Islamic",
+  "Abu Dhabi Islamic Bank",
+  "RAKBANK",
+  "Commercial Bank of Dubai",
+  "HSBC",
+  "Standard Chartered",
+  "Ajman Bank",
+  "Sharjah Islamic Bank",
+  "United Arab Bank",
+  "National Bank of Fujairah",
+  "Bank of Sharjah",
 ];
 
 // Per-service data (title, benefits, eligibility, process, FAQ, SEO, etc.)

@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Hero } from "@/components/sections/Hero";
 import { EligibilityCta } from "@/components/sections/EligibilityCta";
 import { Stats } from "@/components/sections/Stats";
+import { KeyFeatures } from "@/components/sections/KeyFeatures";
 import { Partners } from "@/components/sections/Partners";
 import { ServicesGrid } from "@/components/sections/ServicesGrid";
 import { DubaiBanner } from "@/components/sections/DubaiBanner";
@@ -27,6 +28,7 @@ export default function Home() {
       <Hero />
       <EligibilityCta />
       <Stats />
+      <KeyFeatures />
       <Partners />
       <ServicesGrid />
       <DubaiBanner />
